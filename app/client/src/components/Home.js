@@ -7,19 +7,7 @@ export default function Home () {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
-                  <h1 className="carousel-title">We Make<br /> Creative Design</h1>
-                  <button className="btn btn-primary btn-rounded">Learn More</button>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="carousel-caption d-none d-md-block">
-                  <h1 className="carousel-title">We Make <br /> Responsive Design</h1>
-                  <button className="btn btn-primary btn-rounded">Learn More</button>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="carousel-caption d-none d-md-block">
-                  <h1 className="carousel-title">We Make <br /> Simple Design</h1>
+                  <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
                   <button className="btn btn-primary btn-rounded">Catalog</button>
                 </div>
               </div>
@@ -28,9 +16,11 @@ export default function Home () {
         </div>
         <div className="infos container mb-4 mb-md-2">
           <div className="title">
-            <h6 className="subtitle font-weight-normal">Are locking for</h6>
-            <h5>Lorem inpsum</h5>
-            <p className="font-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <h5>
+              If you enjoy the fragrance of a rose, <br/>
+              you must accept the thorns which it bears.
+             </h5>
+            <p className="font-small">Isaac Hayes</p>
           </div>
         </div>
       </header>
