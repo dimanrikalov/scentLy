@@ -1,11 +1,13 @@
 export default function About () {
     return (
-        <section className="section" id="about">
-          <div className="container">
+          <div id="about" className="container">
             <div className="row align-items-center mr-auto">
               <div className="col-md-4">
                 <h3 className="section-title">About Us</h3>
-                <p>"Fragrance Forum" is the go-to place for keeping up to date with the latest trends in the fragrance industry. The goal is to develop a strong community comprised of people from all sides of the spectrum: From newcomers to the most dedicated to the art of fragrance connoisseurs.</p>
+                <p>"Fragrance Forum" is the go-to place for keeping up to date with the latest trends in 
+                    the fragrance industry. The goal is to develop a strong community comprised of people 
+                    from all sides of the spectrum: From newcomers to the most dedicated to the art of 
+                    fragrance connoisseurs.</p>
               </div>
               <div className="col-sm-6 col-md-4 ml-auto">
                         <div className="widget">
@@ -38,8 +40,7 @@ export default function About () {
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
           </div>
-        </section>
     )
 }
