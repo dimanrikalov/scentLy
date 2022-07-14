@@ -12,7 +12,7 @@ export default function RecentsCard(props) {
                 <img className={styles.card__thumb} src={props.authorImageUrl} alt="" />
                 <div className={styles["card__header-text"]}>
                     <h2 className="text-red-500">{props.name}</h2>
-                  <h3 className={styles.card__title}>{props.brand}</h3>            
+                  <h3 className="text-base text-gray-800">{props.brand}</h3>            
                 </div>
               </div>
               <p className={styles.card__description}>{props.description}</p>

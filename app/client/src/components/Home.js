@@ -16,11 +16,11 @@ export default function Home () {
         </div>
         <div className="infos container mb-4 mb-md-5">
           <div className="title">
-            <h5>
+            <h5 className="font-medium italic">
               "If you enjoy the fragrance of a rose, <br/>
               you must accept the thorns which it bears."
              </h5>
-            <p className="font-small">Isaac Hayes</p>
+            <p className="text-base font-medium text-white mt-2">Isaac Hayes</p>
           </div>
         </div>
       </header>

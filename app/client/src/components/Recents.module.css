@@ -111,8 +111,9 @@
   .card__description {
     padding: 0 2em 2em;
     margin: 0;
-    color: #6f5462;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: rgb(31 41 55);
     font-weight: bold;
     display: -webkit-box;
     -webkit-box-orient: vertical;
