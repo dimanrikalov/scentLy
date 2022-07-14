@@ -2,8 +2,6 @@ import styles from './Footer.module.css';
 
 export default function Footer () {
     return (
-        <div>
-        
         <footer className={styles['footer-distributed']}>
           <div className="footer-right">
           <a href="#"><i className="fa fa-facebook" /></a>
@@ -23,6 +21,5 @@ export default function Footer () {
             <p><strong>Diman Rikalov ® 2022</strong></p>
           </div>
         </footer>
-      </div>
     )
 }

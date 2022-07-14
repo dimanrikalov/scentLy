@@ -17,8 +17,8 @@ export default function Home () {
         <div className="infos container mb-4 mb-md-2">
           <div className="title">
             <h5>
-              If you enjoy the fragrance of a rose, <br/>
-              you must accept the thorns which it bears.
+              "If you enjoy the fragrance of a rose, <br/>
+              you must accept the thorns which it bears."
              </h5>
             <p className="font-small">Isaac Hayes</p>
           </div>

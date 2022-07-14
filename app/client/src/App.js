@@ -3,7 +3,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Recents from './components/Recents';
 import Footer from './components/Footer';
-
+import Register from './components/Register';
 
 function App() {
 
@@ -13,6 +13,8 @@ function App() {
         <Navbar />
 
         <Home />
+
+        <Register />
 
         <Recents />
 
