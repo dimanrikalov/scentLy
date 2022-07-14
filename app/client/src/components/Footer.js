@@ -18,7 +18,7 @@ export default function Footer () {
               <a href="#">About</a>
               <a href="https://linktr.ee/dimanrikalov">Linktree</a>
             </p>
-            <p><strong>Diman Rikalov ® 2022</strong></p>
+            <p className="author"><strong>Diman Rikalov ® 2022</strong></p>
           </div>
         </footer>
     )

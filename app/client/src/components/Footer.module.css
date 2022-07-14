@@ -12,7 +12,11 @@ section {
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  text-decoration: underline;
+}
+
+.author {
+  font: normal 16px sans-serif;
+  text-align: left;
 }
 
 .footer-distributed {
@@ -55,7 +59,7 @@ section {
   left: 0;
   color: #fff;
   display: inline-block;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 .footer-distributed .footer-links .link-1:before {

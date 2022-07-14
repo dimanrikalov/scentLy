@@ -10776,6 +10776,8 @@ button.bg-dark:focus {
 }
 
 .text-primary {
+  display: flex;
+  justify-content: center;
   color: #f06161 !important;
 }
 
@@ -10784,7 +10786,8 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  display: flex;
+  justify-content: center;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -11105,7 +11108,7 @@ p {
   display: flex;
   background: #fff;
   padding: 0.75rem 1.25rem;
-  border-radius: 0;
+  border-radius: 25px;
   margin: 30px 0;
   -webkit-box-align: center;
   -webkit-align-items: center;

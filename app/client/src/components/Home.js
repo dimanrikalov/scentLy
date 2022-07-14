@@ -8,13 +8,13 @@ export default function Home () {
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
                   <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
-                  <button className="btn btn-primary btn-rounded">Catalog</button>
+                  <button className="btn btn-primary btn-rounded"><strong>Catalog</strong></button>
                 </div>
               </div>
             </div>
           </div>        
         </div>
-        <div className="infos container mb-4 mb-md-2">
+        <div className="infos container mb-4 mb-md-5">
           <div className="title">
             <h5>
               "If you enjoy the fragrance of a rose, <br/>
