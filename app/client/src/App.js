@@ -16,6 +16,8 @@ function App() {
 
         <Home />
 
+        <Login />
+
         <Register />
       
         <Recents />

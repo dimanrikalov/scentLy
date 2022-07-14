@@ -44,7 +44,7 @@ export default function Register () {
             </div>
           </div>
           <div className="flex-1 text-center hidden lg:flex">
-            <div className=" w-full bg-center bg-contain bg-no-repeat" style={{backgroundImage: 'url("https://media.karousell.com/media/photos/products/2022/3/25/perfume_decant__amouage_reflec_1648178355_7d4f0ee4_progressive.jpg")'}} />
+            <div className=" w-full bg-center bg-contain bg-no-repeat" style={{backgroundImage: 'url("./assets/imgs/reg-page-img.png")'}} />
           </div>
         </div>
     
