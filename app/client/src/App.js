@@ -5,6 +5,7 @@ import Recents from './components/Recents';
 import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -15,8 +16,13 @@ function App() {
 
         <Home />
 
+<<<<<<< HEAD
+        {/* <Profile /> */}
+
         <Login />
 
+=======
+>>>>>>> parent of 373493b (Created Login Page)
         <Register />
       
         <Recents />

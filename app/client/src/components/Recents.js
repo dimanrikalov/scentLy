@@ -7,7 +7,7 @@ export default function Recents() {
         <div className={styles.wrapper}>
           <br /><br />
     
-        <h1 style={{margin:'auto', width:'50%'}}>Recent reviews: </h1>
+        <h1 style={{margin:'auto', width:'50%'}} className="text-red-500">Recent reviews: </h1>
         <ul className={styles.cards}>
 
         <RecentsCard name="Side Effect" brand="Initio" author="Charles Leclerc" description="My absolute favourite from the brand!" imageUrl="../assets/imgs/img-1.jpg" authorImageUrl="../assets/imgs/avatar1.jpg"/>

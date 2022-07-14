@@ -11,7 +11,7 @@ export default function RecentsCard(props) {
                 <svg className={styles.card__arc} xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
                 <img className={styles.card__thumb} src={props.authorImageUrl} alt="" />
                 <div className={styles["card__header-text"]}>
-                    <h2>{props.name}</h2>
+                    <h2 className="text-red-500">{props.name}</h2>
                   <h3 className={styles.card__title}>{props.brand}</h3>            
                 </div>
               </div>
