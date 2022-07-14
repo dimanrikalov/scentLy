@@ -10,13 +10,8 @@ export default function Register () {
               <img src="/assets/imgs/sitename.png" className="w-50 mx-auto" />
             </div>
             <div className="mt-12 flex flex-col items-center">
-<<<<<<< HEAD
               <h1 className="text-2xl xl:text-3xl font-extrabold text-red-500">
                 Sign Up:
-=======
-              <h1 className="text-2xl xl:text-3xl font-extrabold">
-                Sign up:
->>>>>>> parent of 373493b (Created Login Page)
               </h1>
               <div className="w-full flex-1 mt-8">
             

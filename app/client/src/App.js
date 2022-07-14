@@ -16,13 +16,6 @@ function App() {
 
         <Home />
 
-<<<<<<< HEAD
-        {/* <Profile /> */}
-
-        <Login />
-
-=======
->>>>>>> parent of 373493b (Created Login Page)
         <Register />
       
         <Recents />
