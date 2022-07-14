@@ -5,7 +5,6 @@ import Recents from './components/Recents';
 import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
-import Profile from './components/Profile';
 
 function App() {
 
