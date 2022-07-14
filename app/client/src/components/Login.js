@@ -1,14 +1,9 @@
-import './Register.module.css';
-
-export default function Register () {
+export default function Login () {
 
 
     // register form fcks up the navigation bar animation
     return (
-        <div className="RegisterDiv">
-        
-        
-        
+        <div>
         <div className="max-w-none mx-auto sm:m-20 bg-white shadow sm:rounded-none flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div>

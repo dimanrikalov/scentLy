@@ -1,16 +1,11 @@
-import './Register.module.css';
-
 export default function Register () {
 
 
     // register form fcks up the navigation bar animation
     return (
-        <div className="RegisterDiv">
-        
-        
-        
-        <div className="max-w-none mx-auto sm:m-20 bg-white shadow sm:rounded-none flex justify-center flex-1">
-          <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+<div>
+        <div className="max-w-none mx-auto sm:m-20 bg-30 shadow sm:rounded-none flex justify-center flex-1">
+          <div className="lg:w-1/2  p-6 ">
             <div>
               <img src="/assets/imgs/sitename.png" className="w-50 mx-auto" />
             </div>
@@ -49,10 +44,12 @@ export default function Register () {
             </div>
           </div>
           <div className="flex-1 text-center hidden lg:flex">
-            <div className=" w-full bg-center bg-no-repeat" style={{backgroundImage: 'url("https://pbs.twimg.com/media/E3-5aAOXIAIZ2Cr.jpg:large")'}} />
+            <div className=" w-full bg-center bg-contain bg-no-repeat" style={{backgroundImage: 'url("https://media.karousell.com/media/photos/products/2022/3/25/perfume_decant__amouage_reflec_1648178355_7d4f0ee4_progressive.jpg")'}} />
           </div>
         </div>
     
       </div>
     );
 }
+
+

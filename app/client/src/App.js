@@ -4,6 +4,7 @@ import About from './components/About';
 import Recents from './components/Recents';
 import Footer from './components/Footer';
 import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
         <Home />
 
         <Register />
-
+      
         <Recents />
 
         <About />
