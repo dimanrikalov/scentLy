@@ -20,7 +20,7 @@ export default function Home () {
               "If you enjoy the fragrance of a rose, <br/>
               you must accept the thorns which it bears."
              </h5>
-            <p className="text-base font-medium text-white mt-2">Isaac Hayes</p>
+            <p className="text-base font-bold text-white mt-2">Isaac Hayes</p>
           </div>
         </div>
       </header>
