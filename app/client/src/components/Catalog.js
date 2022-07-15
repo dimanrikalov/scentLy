@@ -1,10 +1,10 @@
 import styles from './CatalogCard.module.css';
 import CatalogCard from './CatalogCard';
 
-export default function Catalog (props) {
+export default function Catalog () {
     return(
         <div>
-            <h1 style={{width:'75%'}} className="text-red-500 mt-20 ml-20">{props.title}: </h1>
+            <h1 style={{width:'75%'}} className="text-red-500 mt-20 ml-20">Catalog: </h1>
             
             <input className="w-1/3 ml-32 mt-10 mb-10 px-8 py-3 rounded-3xl text-lg font-lg bg-gray-100 border border-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:bg-white" type="text" name="catalogSearch" placeholder="Search for a fragrance"/>
             <div className={styles["cards-list"]}>

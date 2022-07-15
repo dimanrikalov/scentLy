@@ -1,4 +1,4 @@
-import Catalog from "./Catalog"
+import Owned from "./Owned"
 import styles from './Profile.module.css';
 
 export default function Profile () {
@@ -9,20 +9,21 @@ export default function Profile () {
         <h1>Diman Rikalov</h1>
 
         <img className={styles.profileImg} src="../assets/imgs/avatar1.jpg" alt="profile-pic" />
-        <div>
-          <h2 className="pb-3">Profile Information:</h2>
-          <ul>
-            <li><h5>Age: 21</h5></li>
-            <li><h5>Gender: Male</h5></li>
-            <li><h5>Location: Plovdiv, Bulgaria</h5></li>
-            <li><h5>Fragrances owned: 15</h5></li>
-            <li><h5>Review count: 51</h5></li>
-          </ul>
-        </div>
-        </div>
+          
+          <div>
+            <h2 className="pb-3">Profile Information:</h2>
+            <ul>
+              <li><h5>Age: 21</h5></li>
+              <li><h5>Gender: Male</h5></li>
+              <li><h5>Location: Plovdiv, Bulgaria</h5></li>
+              <li><h5>Fragrances owned: 15</h5></li>
+              <li><h5>Review count: 47</h5></li>
+            </ul>
+          </div>
 
-        <div className="profileCatalog">
-          <Catalog title="My collection"/>
+        </div>
+        <div className={styles.profileCatalog}>
+          <Owned/>
         </div>
     
        
