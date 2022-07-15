@@ -11,6 +11,8 @@
     border-radius: 2rem;
 }
 
+.collections {}
+
 .profileImg {
     display: flex;
     margin-left: -5%;
@@ -37,7 +39,35 @@
     overflow-y: scroll;
 }
 
-.profileCatalog::-webkit-scrollbar {
+.profileOwned {
+    margin-left: 5%;
+    overflow: auto;
+    white-space: nowrap;
+    height: 300px;
+    background-color: rgb(214, 214, 214);
+    border-radius: 2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.profileOwned::-webkit-scrollbar {
+    display: none;
+}
+
+.profileReviews {
+    margin-left: 5%;
+    overflow: auto;
+    white-space: nowrap;
+    height: 300px;
+    background-color: rgb(214, 214, 214);
+    border-radius: 2rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.profileReviews::-webkit-scrollbar {
     display: none;
 }
 

@@ -22,10 +22,16 @@ export default function Profile () {
           </div>
 
         </div>
-        <div className={styles.profileCatalog}>
-          <Owned/>
+        <div className={styles.collections}>
+        <h2 className="ml-20 mt-16 mb-3">Owned:</h2>
+          <div className={styles.profileOwned}>
+            <Owned />
+          </div>
+          <h2 className="ml-20 mt-32 mb-3">Reviewed:</h2>
+          <div className={styles.profileReviews}>
+            <Owned />
+          </div>
         </div>
-    
        
        </div>
     )
