@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
 import Catalog from './components/Catalog';
-
+import Profile from './components/Profile';
 
 function App() {
 
@@ -17,7 +17,9 @@ function App() {
 
         <Home />
 
-        <Catalog />
+        <Profile/>
+
+        <Catalog title="Catalog"/>
 
         <Login />
 
