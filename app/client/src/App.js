@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
 import Catalog from './components/Catalog';
+
+
 function App() {
 
   return (
