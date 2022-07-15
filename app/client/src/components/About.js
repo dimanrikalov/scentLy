@@ -8,7 +8,7 @@ export default function About () {
             <div className="row align-items-center mr-auto">
               <div className={["col-md-3", styles.aboutUsText].join(' ')}>
                 <h3 className="section-title text-red-500">About Us</h3>
-                <p className="text-gray-800"><strong><u className="text-red-500">ScentLy</u> is the go-to place for keeping up to date with the latest trends in 
+                <p className="text-gray-800 pb-2"><strong><u className="text-red-500">ScentLy</u> is the go-to place for keeping up to date with the latest trends in 
                     the fragrance industry. The goal is to develop a strong community comprised of people 
                     from <strong><u className="text-red-500">all</u></strong> sides of the spectrum - From newcomers to the most dedicated to the art of 
                     fragrance connoisseurs.</strong></p>

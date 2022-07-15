@@ -23,7 +23,7 @@ export default function Profile () {
 
         </div>
         <div className={styles.collections}>
-        <h2 className="ml-20 mt-16 mb-3">Owned fragrances:</h2>
+        <h2 className="ml-20 mt-32 mb-3">Owned fragrances:</h2>
           <div className={styles.profileOwned}>
             <Owned />
           </div>

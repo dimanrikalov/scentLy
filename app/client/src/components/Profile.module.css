@@ -6,7 +6,7 @@
 .profileDiv {
     flex: 1;
     padding: 5%;
-
+    margin: 4.5%;
     background-color: white;
     border-radius: 2rem;
 }
