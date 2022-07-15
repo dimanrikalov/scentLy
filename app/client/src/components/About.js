@@ -19,7 +19,7 @@ export default function About () {
                                 <i className="ti-user text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">15+</h4>
+                                <h4 className="text-primary text-4xl">15</h4>
                                 <p className="text-secondary text-gray-900 text-3xl"><strong>Total Users</strong></p>
                             </div>
                         </div>
@@ -28,7 +28,7 @@ export default function About () {
                                 <i className="ti-face-smile text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">125+</h4>
+                                <h4 className="text-primary text-4xl">125</h4>
                                 <p className="text-secondary text-gray-900 text-3xl"><strong>Total Reviews</strong></p>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ export default function About () {
                                 <i className="ti-star text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary">3434+</h4>
+                                <h4 className="text-primary">3434</h4>
                                 <p className="text-secondary text-gray-900"><strong>Total fragrances</strong></p>
                             </div>
                         </div>
