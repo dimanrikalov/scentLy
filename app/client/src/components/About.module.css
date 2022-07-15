@@ -1,0 +1,16 @@
+.container {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    background-color: #F8F4F4;
+    border-radius: 2rem;
+}
+
+.aboutImage {
+    transform: scale(0.75);
+}
+
+.aboutUsText {
+    transform: scale(1.5);
+}

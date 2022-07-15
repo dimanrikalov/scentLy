@@ -1,8 +1,12 @@
+import styles from './About.module.css';
+
 export default function About () {
     return (
-          <div id="about" className="container">
+        
+          <div id="about" className={styles.container}>
+          <img src="./assets/imgs/sitename.png" alt="" className={['pb-20', styles.aboutImage].join(' ')}/>
             <div className="row align-items-center mr-auto">
-              <div className="col-md-4">
+              <div className={["col-md-3", styles.aboutUsText].join(' ')}>
                 <h3 className="section-title text-red-500">About Us</h3>
                 <p className="text-gray-800"><strong><u className="text-red-500">ScentLy</u> is the go-to place for keeping up to date with the latest trends in 
                     the fragrance industry. The goal is to develop a strong community comprised of people 
