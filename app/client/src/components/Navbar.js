@@ -1,6 +1,6 @@
 export default function Navbar () {
     return (
-        <nav id="scrollspy" className="navbar navbar-light bg-light navbar-expand-lg fixed-top" data-spy="affix" data-offset-top={20}>
+        <nav id="scrollspy" className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
           <div className="container">
             <a className="navbar-brand" href="#"><img src="assets/imgs/logo.png" alt="" className="brand-img" /></a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
