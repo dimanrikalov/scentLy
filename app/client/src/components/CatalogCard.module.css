@@ -1,18 +1,25 @@
 .cards-list {
-  z-index: 0;
-  width: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 660px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem;
+  box-sizing: content-box;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.cards-list::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
-  margin: 40px auto;
+  margin: 35px auto;
   margin-left: 40px;
   margin-right: 40px;
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 590px;
   border-radius: 40px;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
@@ -57,17 +64,20 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 }
 
 
-
-.title-white {
-  margin-top: 15%;
-  padding-bottom: 10px;
+.title-upper {
+  margin-top: 3%;
+  padding-bottom: 45px;
   font-size: 25px;
   color: rgb(53, 53, 53);
   -webkit-text-stroke: 0.2px rgb(0, 0, 0);
 }
 
-.title-black {
-  color: black;
+.title-white {
+  margin-top: -15%;
+  padding-bottom: 10px;
+  font-size: 25px;
+  color: rgb(53, 53, 53);
+  -webkit-text-stroke: 0.2px rgb(0, 0, 0);
 }
 
 @media all and (max-width: 500px) {

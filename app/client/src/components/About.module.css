@@ -13,9 +13,10 @@
 }
 
 .tallWidget {
-    transform: scale(1.7);
+    transform: scale(1.9);
     width: 50%;
     margin-left: 20%;
+    border-radius: 1rem;
 }
 
 .imageBackground {

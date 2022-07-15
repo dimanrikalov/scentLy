@@ -5,6 +5,7 @@ export default function CatalogCard (props) {
       <div className={styles["card"]}>
       <div className={styles["card_image"]}> <img src={props.imgUrl} /> </div>
       <div className={styles["card_title"]}>
+        <p className={styles['title-upper']}>{props.brand}</p>
         <p className={styles['title-white']}>{props.name}</p>
       </div>
     </div>
