@@ -11305,6 +11305,7 @@ p {
 .navbar {
   -webkit-transition: all, 0.4s;
   transition: all, 0.4s;
+  border-radius: 0px 0px 15px 15px;
 }
 
 @media (prefers-reduced-motion: reduce) {
