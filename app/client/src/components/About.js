@@ -19,8 +19,8 @@ export default function About () {
                                 <i className="ti-user text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary">15+</h4>
-                                <p className="text-secondary text-gray-900"><strong>Total Users</strong></p>
+                                <h4 className="text-primary text-4xl">15+</h4>
+                                <p className="text-secondary text-gray-900 text-3xl"><strong>Total Users</strong></p>
                             </div>
                         </div>
                         <div className="widget">
@@ -28,13 +28,13 @@ export default function About () {
                                 <i className="ti-face-smile text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary">125+</h4>
-                                <p className="text-secondary text-gray-900"><strong>Total Reviews</strong></p>
+                                <h4 className="text-primary text-4xl">125+</h4>
+                                <p className="text-secondary text-gray-900 text-3xl"><strong>Total Reviews</strong></p>
                             </div>
                         </div>
                     </div>
                     <div className={["col-sm-6", "col-md-4", styles.statsCards].join(' ')}>
-                        <div className="widget">
+                        <div className={["widget", styles.tallWidget].join(' ')}>
                             <div className="icon-wrapper">
                                 <i className="ti-star text-primary" />
                             </div>

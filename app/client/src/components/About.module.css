@@ -12,9 +12,15 @@
     margin-top: -10%;
 }
 
+.tallWidget {
+    transform: scale(1.7);
+    width: 50%;
+    margin-left: 20%;
+}
+
 .imageBackground {
     background-color: white;
-    margin-left: 10%;
+    margin-left: 11.5%;
     border-radius: 5rem;
     transform: scale(0.5);
     margin-bottom: 1.5%;
