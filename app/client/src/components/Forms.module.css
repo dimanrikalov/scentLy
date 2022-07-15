@@ -1,0 +1,26 @@
+.loginBackground {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 5%;
+    margin-left: 12%;
+    margin-bottom: 12%;
+    margin-top: -5%;
+    padding-bottom: 0.5%;
+}
+
+.registerBackground {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 5%;
+    margin-left: 12%;
+    margin-bottom: 12%;
+    margin-top: -13%;
+}
+
+.scale {
+    transform: scale(0.88);
+}
+
+.backgroundMargin {
+    margin-top: -10%;
+}
