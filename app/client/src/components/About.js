@@ -4,7 +4,7 @@ export default function About () {
     return (
         
           <div id="about" className={styles.container}>
-          <img src="./assets/imgs/sitename.png" alt="" className={['pb-20', styles.aboutImage].join(' ')}/>
+          <div className={styles.imageBackground}><img src="./assets/imgs/sitename.png" alt="" className={['pb-20', styles.aboutImage].join(' ')}/></div>
             <div className="row align-items-center mr-auto">
               <div className={["col-md-3", styles.aboutUsText].join(' ')}>
                 <h3 className="section-title text-red-500">About Us</h3>
@@ -13,7 +13,7 @@ export default function About () {
                     from <strong><u className="text-red-500">all</u></strong> sides of the spectrum - From newcomers to the most dedicated to the art of 
                     fragrance connoisseurs.</strong></p>
               </div>
-              <div className="col-sm-6 col-md-4 ml-auto">
+              <div className={["col-sm-6", "col-md-4", "ml-auto", styles.statsCards].join(' ')}>
                         <div className="widget">
                             <div className="icon-wrapper">
                                 <i className="ti-user text-primary" />
@@ -33,7 +33,7 @@ export default function About () {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-md-4">
+                    <div className={["col-sm-6", "col-md-4", styles.statsCards].join(' ')}>
                         <div className="widget">
                             <div className="icon-wrapper">
                                 <i className="ti-star text-primary" />
