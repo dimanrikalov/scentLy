@@ -5,15 +5,17 @@ import Recents from './components/Recents';
 import Footer from './components/Footer';
 import Register from './components/Register';
 import Login from './components/Login';
-
+import CatalogCard from './components/CatalogCard';
 function App() {
 
   return (
     <div>
-
+        
         <Navbar />
 
         <Home />
+
+        <CatalogCard />
 
         <Login />
 
