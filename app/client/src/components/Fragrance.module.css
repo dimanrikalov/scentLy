@@ -3,13 +3,28 @@
     margin-top: 5%;
     background-color: white;
     border-radius: 2rem;
-    padding: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     margin-left: 10%;
     margin-right: 10%;
+    transform: scale(0.9);
+}
+
+.review-div {
+    margin-top: 13%;
+    margin-left: -7%;
+    margin-bottom: 5%;
+}
+
+.image {
+    margin-top:12%;
+    margin-left: -10%;
 }
 
 .title-text {
-    margin-left: 30%;
+    margin-top: 5%;
     text-align: left;
 }
 
