@@ -3,7 +3,7 @@ import styles from './Profile.module.css';
 
 export default function Profile () {
     return (
-       <div className={styles['profilePage']}>
+       <div id="profile" className={styles['profilePage']}>
         <div className={styles['profileDiv']}>
         
         <h1>Diman Rikalov</h1>

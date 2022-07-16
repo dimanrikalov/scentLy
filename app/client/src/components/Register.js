@@ -2,7 +2,7 @@ import styles from './Forms.module.css'
 
 export default function Register () {
     return (
-<div className={styles.scale}>
+    <div id="register" className={styles.scale}>
         <div className="max-w-none mx-auto sm:m-20 bg-30 shadow sm:rounded-none flex justify-center flex-1">
           <div className="lg:w-1/2 p-6 backgroundMargin">
             <div className={styles.registerBackground}>

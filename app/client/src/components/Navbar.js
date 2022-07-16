@@ -27,7 +27,8 @@ export default function Navbar () {
                   <a className="nav-link" href="#logout">Logout</a>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
-                  <a className="nav-link btn btn-primary" href="components.html">Profile</a>
+                  <a className="nav-link btn btn-primary" href="#profile">Profile</a> 
+                                                    {/* components.html */}
                 </li>
               </ul>
             </div>
