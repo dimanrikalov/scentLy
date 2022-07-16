@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+}
+
+.recents {
+    margin-left: 14%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    height: 250px;
+    width: 530px;
+    background-color: #f8f4f4;
+    border-radius: 2rem;
+    border-color: grey;
+    border-width: 1px;
+}
+
+.left-side {
+    flex: 1;
+}
+
+.right-side {
+    flex: 1;
+    text-align: center;
+}
+
+.button {
+    background-color: rgb(231, 97, 97);
+    font-size: larger;
+    color: white;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 5%;
+    border-radius: 0.5rem;
+    transform: scale(1.1);
+}

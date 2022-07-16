@@ -8,7 +8,7 @@ export default function EditReviewForm () {
         </div>
 
         <div className={styles['right-side']}>
-          <h1 className={styles['text']}>Edit a review</h1>
+          <h1 className={styles['text']}>Edit review</h1>
           <div className="mx-auto max-w-xs">
             <h4 className={styles['subtitle']}>Review description: </h4>
           <textarea name="fragranceReview" cols="30" rows="10" className={styles.description} placeholder="Enter a review">

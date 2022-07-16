@@ -1,16 +1,17 @@
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-import Recents from './components/Recents';
-import Footer from './components/Footer';
-import Register from './components/Register';
 import Login from './components/Login';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Recents from './components/Recents';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
-import CreateFragranceForm from './components/CreateFragranceForm';
-import EditFragranceForm from './components/EditFragranceForm';
-import CreateReviewForm from './components/CreateReviewForm';
+import Register from './components/Register';
+import Fragrance from './components/Fragrance';
 import EditReviewForm from './components/EditReviewForm';
+import CreateReviewForm from './components/CreateReviewForm';
+import EditFragranceForm from './components/EditFragranceForm';
+import CreateFragranceForm from './components/CreateFragranceForm';
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
 
         <Home />
         
+        <Fragrance />
+
         <EditReviewForm />
 
         <CreateReviewForm />
