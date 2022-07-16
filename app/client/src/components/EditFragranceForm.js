@@ -1,6 +1,6 @@
-import styles from './EditForm.module.css';
+import styles from './EditFragranceForm.module.css';
 
-export default function EditForm () {
+export default function EditFragranceForm () {
     return (
         <div className={styles["create-form"]}>
           <div className={styles["left-side"]}>

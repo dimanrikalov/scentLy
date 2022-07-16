@@ -11,10 +11,10 @@ const reviewSchema = new mongoose.Schema({
         max:[5, 'Maximum rating is 5.'],
         required: [true, 'Enter a valid rating']
     },
-    author: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-    },
+    // author: {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: 'User',
+    // }
 });
 
 const Review = mongoose.model('Review', reviewSchema);

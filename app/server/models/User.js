@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Password is required!'], 
     },
+    ownedFragrances: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Fragrance'
+    }],
     reviews: [{
         type: mongoose.Types.ObjectId,
         ref: 'Review'

@@ -63,7 +63,7 @@ const fragranceSchema = new mongoose.Schema({
             }, message: 'The image URL must be a valid link'
         },
     },
-    // authorId: {
+    // author: {
     //     type: mongoose.Types.ObjectId,
     //     ref: 'User'
     // }

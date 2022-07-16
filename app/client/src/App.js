@@ -7,8 +7,10 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
-import CreateForm from './components/CreateForm';
-import EditForm from './components/EditForm';
+import CreateFragranceForm from './components/CreateFragranceForm';
+import EditFragranceForm from './components/EditFragranceForm';
+import CreateReviewForm from './components/CreateReviewForm';
+import EditReviewForm from './components/EditReviewForm';
 
 function App() {
 
@@ -18,14 +20,18 @@ function App() {
         <Navbar />
 
         <Home />
+        
+        <EditReviewForm />
 
-        <EditForm/>
+        <CreateReviewForm />
 
-        <CreateForm />
+        <EditFragranceForm />
 
-        <Profile/>
+        <CreateFragranceForm />
 
-        <Catalog title="Catalog"/>
+        <Profile />
+
+        <Catalog />
 
         <Login />
 

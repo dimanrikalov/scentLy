@@ -1,6 +1,6 @@
-import styles from './CreateForm.module.css';
+import styles from './CreateFragranceForm.module.css';
 
-export default function CreateForm () {
+export default function CreateFragranceForm () {
     return (
         <div className={styles["create-form"]}>
           <div className={styles["left-side"]}>

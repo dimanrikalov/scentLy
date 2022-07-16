@@ -1,0 +1,59 @@
+.create-form {
+    display: flex;
+    padding: 5%;
+    margin: 10%;
+    background-color: white;
+    border-radius: 3rem;
+}
+
+.text {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.left-side {
+    flex: 1;
+    padding-top: 5%;
+    padding-left: 5%;
+    margin-left: 5%;
+    transform: scale(1.1);
+}
+
+.right-side {
+    flex: 1;
+    
+}
+
+.description {
+    background-color: #EDE8E8;
+    margin-left: -12%;
+    width: 400px;
+    outline-color: rgb(241, 126, 126);
+    outline-width: 10%;
+    border-radius: 1rem;
+    text-indent: 10px;
+    font-size: large;
+    font-weight: 500;
+    color: rgb(78, 78, 78);
+    margin-bottom: 5%;
+}
+
+
+.rating {
+    margin-bottom: 3%;
+    margin-left: 22%;
+    background-color: #EDE8E8;
+    border-radius: 2rem;
+    text-align: center;
+    font-weight: bold;
+    outline-color: rgb(241, 126, 126);
+}
+
+textarea {
+    padding: 10px;
+}
+
+.subtitle {
+    padding: 2%;
+    text-align: center;
+}
