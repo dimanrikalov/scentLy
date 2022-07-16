@@ -24,7 +24,7 @@ function App() {
         
         <Fragrance />
 
-        <EditReviewForm />
+        {/* <EditReviewForm /> */}
 
         <CreateReviewForm />
 

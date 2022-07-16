@@ -8,7 +8,8 @@ export default function Home () {
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
                   <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
-                  <button className="btn btn-primary btn-rounded"><strong>Catalog</strong></button>
+                  <a href="#catalog" className="text-white"><button className="btn btn-primary btn-rounded"><strong>Catalog</strong></button></a>
+                  
                 </div>
               </div>
             </div>
