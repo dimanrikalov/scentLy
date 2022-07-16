@@ -5,6 +5,7 @@
 
 .profileDiv {
     flex: 1;
+    text-align: center;
     padding: 5%;
     margin: 4.5%;
     background-color: white;
@@ -13,7 +14,7 @@
 
 .profileImg {
     display: flex;
-    margin-left: -5%;
+    margin-left: 12%;
     margin-right: auto;
     margin-top: 40px;
     margin-bottom: 40px;
