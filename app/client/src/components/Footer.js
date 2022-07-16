@@ -16,6 +16,7 @@ export default function Footer () {
               <a href="#register">Register</a>
               <a href="#login">Login</a>
               <a href="#about">About</a>
+              <a href="#create">Create</a>
               <a href="https://linktr.ee/dimanrikalov">Linktree</a>
             </p>
             <p className="author"><strong>Diman Rikalov ® 2022</strong></p>

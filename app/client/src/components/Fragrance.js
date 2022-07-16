@@ -10,16 +10,16 @@ export default function Fragrance () {
             <div className={styles["right-side"]}>
                 <h2>Name: Jubilation XXV</h2>
                 <h2>Brand: Amouage</h2>
-                <h2>Creator: Bertrand Douchafour</h2>
+                <h2 className="mb-3">Creator: Bertrand Douchafour</h2>
 
                 <h2>Top notes:</h2>
-                <div>
+                <div className="mb-3 font-medium text-gray-700">
                     Blackberry, Orange, Olibanum
                 </div>
                 <h2>Middle notes:</h2>
-                    <div>Honey, Guaiac Wood, Clove</div>
+                <div className="mb-3 font-medium text-gray-700">Honey, Guaiac Wood, Clove</div>
                 <h2>Base notes:</h2>
-                <div>
+                <div className="mb-3 font-medium text-gray-700">
                     Oud, Ambergris, Musk
                 </div>
                 <h2>Average rating: 5.00</h2>

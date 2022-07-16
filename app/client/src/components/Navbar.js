@@ -24,6 +24,9 @@ export default function Navbar () {
                   <a className="nav-link" href="#login">Login</a>
                 </li>
                 <li className="nav-item">
+                  <a className="nav-link" href="#create">Create</a>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href="#logout">Logout</a>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">

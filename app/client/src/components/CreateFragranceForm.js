@@ -2,7 +2,7 @@ import styles from './CreateFragranceForm.module.css';
 
 export default function CreateFragranceForm () {
     return (
-        <div className={styles["create-form"]}>
+        <div id="create" className={styles["create-form"]}>
           <div className={styles["left-side"]}>
             <img src="https://plummour.com/wp-content/uploads/2021/07/Xerjoff-Casamorati-1888-7.jpg" alt="" />
           </div>
