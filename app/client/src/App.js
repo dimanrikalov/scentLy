@@ -7,6 +7,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
+import CreateForm from './components/CreateForm';
+import EditForm from './components/EditForm';
 
 function App() {
 
@@ -16,6 +18,10 @@ function App() {
         <Navbar />
 
         <Home />
+
+        <EditForm/>
+
+        <CreateForm />
 
         <Profile/>
 

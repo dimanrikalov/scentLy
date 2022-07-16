@@ -13,7 +13,7 @@ export default function Catalog () {
                 <CatalogCard brand="Creed" name="Royal Oud" imgUrl="https://www.creedfragrances.co.uk/static/media/catalog/product/r/o/royal-oud-100ml_1.jpg"/>
                 <CatalogCard brand="Xerjoff" name="Naxos" imgUrl="https://belodore.rs/media/amasty/amoptmobile/catalog/product/cache/08cd9d1a69d3b81aa4ac293076519bc7/X/E/XE33737-1-Xerjoff_Naxos_100ml_EDP_1_jpg.webp"/>
                 <CatalogCard brand="Roja" name="Elyisum" imgUrl="https://cremedelacreme.shop/images/galleries/product_items/1646232306_elysium-creative-kirptas.jpg"/>
-                <CatalogCard brand="INITIO" name="" imgUrl="https://nichegarden.com/wp-content/uploads/2020/05/INITIO-ATOMIC-ROSE-bottel-min.png"/>
+                <CatalogCard brand="INITIO" name="Side Effect" imgUrl="https://nichegarden.com/wp-content/uploads/2020/05/INITIO-ATOMIC-ROSE-bottel-min.png"/>
             </div>
         </div>
     )

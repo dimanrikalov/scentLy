@@ -1,0 +1,24 @@
+.create-form {
+  display: flex;
+  padding: 3%;
+  margin: 10%;
+  background-color: white;
+  border-radius: 3rem;
+}
+
+.text {
+  padding-left: 27%;
+  padding-right: 10%;
+  padding-bottom: 8%;
+}
+
+.left-side {
+  flex:1;
+  padding-top: 7%;
+  padding-left: 5%;
+}
+
+.right-side {
+  flex: 1;
+  margin-left:15%;
+}

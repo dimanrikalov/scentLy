@@ -3,7 +3,6 @@ import styles from './Recents.module.css'
 
 export default function RecentsCard(props) {
     return (
-        <li>
           <a href className={styles.card}>
             <img src={props.imageUrl} className={styles.card__image} alt="" />
             <div className={styles.card__overlay}>
@@ -18,7 +17,6 @@ export default function RecentsCard(props) {
               <p className={styles.card__description}>{props.description}</p>
               <p className={styles.card__description}>{props.author}</p>
             </div>
-          </a>      
-        </li>
+          </a>
     )
 }
