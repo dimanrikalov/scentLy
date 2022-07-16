@@ -1,5 +1,6 @@
 import styles from './Fragrance.module.css';
-import Recents from './Recents';
+import Reviews from './Reviews.js';
+
 export default function Fragrance () {
     return (
         <div className={styles.main}>
@@ -8,11 +9,11 @@ export default function Fragrance () {
             </div>
 
             <div className={styles["right-side"]}>
-                <h2>Name: Jubilation XXV</h2>
-                <h2>Brand: Amouage</h2>
-                <h2 className="mb-3">Creator: Bertrand Douchafour</h2>
+                <h2 className={styles["title-text"]}>Name: Jubilation XXV</h2>
+                <h2 className={styles["title-text"]}>Brand: Amouage</h2>
+                <h2 className={styles["title-text"]}>Creator: Bertrand Douchafour</h2>
 
-                <h2>Top notes:</h2>
+                <h2 className="mt-3">Top notes:</h2>
                 <div className="mb-3 font-medium text-gray-700">
                     Blackberry, Orange, Olibanum
                 </div>
@@ -24,7 +25,7 @@ export default function Fragrance () {
                 </div>
                 <h2>Average rating: 5.00</h2>
                 <div className={styles.recents}>
-             
+                    <Reviews />
                 </div>
 
                 <div>

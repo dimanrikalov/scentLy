@@ -6,19 +6,11 @@
     padding: 3%;
     margin-left: 10%;
     margin-right: 10%;
-    text-align: left;
 }
 
-.recents {
-    margin-left: 14%;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    height: 250px;
-    width: 530px;
-    background-color: #f8f4f4;
-    border-radius: 2rem;
-    border-color: grey;
-    border-width: 1px;
+.title-text {
+    margin-left: 30%;
+    text-align: left;
 }
 
 .left-side {
@@ -38,6 +30,7 @@
     padding-bottom: 0.5%;
     padding-left: 3%;
     padding-right: 3%;
+    margin-top:5%;
     margin-left: 5%;
     border-radius: 0.5rem;
     transform: scale(1.1);
