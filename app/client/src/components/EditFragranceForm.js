@@ -4,7 +4,7 @@ export default function EditFragranceForm () {
     return (
         <div className={styles["create-form"]}>
           <div className={styles["left-side"]}>
-            <img src="https://www.brandedperfume.com/10377-large_default/alexandre-j-golden-oud-eau-de-parfum-100ml.jpg" alt="" />
+            <img src="https://www.brandedperfume.com/10377-large_default/alexandre-j-golden-oud-eau-de-parfum-100ml.jpg" alt="fragrance-image" />
           </div>
 
           <div className={styles['right-side']}>

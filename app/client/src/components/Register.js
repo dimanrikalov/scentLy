@@ -30,8 +30,8 @@ export default function Register () {
                     </span>
                   </button>
                   <p className="mt-5 mb-2 text-lg font-semibold text-gray-700 text-center">
-                    Already have an account? <br /> Sign in from <nbsp/>
-                    <a href="#" className="border-b border-gray-500 border-dotted">
+                    Already have an account? <br /> Sign in from {' '}
+                    <a href="#login" className="border-b border-gray-500 border-dotted">
                       here
                     </a> 
                     .

@@ -4,7 +4,7 @@ export default function About () {
     return (
         
           <div id="about" className={styles.container}>
-          <div className={styles.imageBackground}><img src="./assets/imgs/sitename.png" alt="" className={['pb-20', styles.aboutImage].join(' ')}/></div>
+          <div className={styles.imageBackground}><img src="./assets/imgs/sitename.png" alt="site-img" className={['pb-20', styles.aboutImage].join(' ')}/></div>
             <div className="row align-items-center mr-auto">
               <div className={["col-md-3", styles.aboutUsText].join(' ')}>
                 <h3 className="section-title text-red-500">About Us</h3>

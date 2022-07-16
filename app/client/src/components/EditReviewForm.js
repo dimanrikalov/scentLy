@@ -4,7 +4,7 @@ export default function EditReviewForm () {
     return (
         <div className={styles["create-form"]}>
         <div className={styles["left-side"]}>
-          <img src="https://fimgs.net/mdimg/perfume/375x500.6472.jpg" alt="" />
+          <img src="https://fimgs.net/mdimg/perfume/375x500.6472.jpg" alt="fragrance-image" />
         </div>
 
         <div className={styles['right-side']}>

@@ -29,8 +29,8 @@ export default function Login () {
                   </span>
                 </button>
                 <p className="mt-5 mb-16 text-lg font-semibold text-gray-700 text-center">
-                    Don't have an account?<br /> Sign up from <nbsp/>
-                    <a href="#" className="border-b border-gray-500 border-dotted">
+                    Don't have an account?<br /> Sign up from {' '}
+                    <a href="#register" className="border-b border-gray-500 border-dotted">
                       here
                     </a> 
                     .

@@ -8,7 +8,7 @@ export default function Fragrance () {
                 <h2 className={styles["title-text"]}>Name: Jubilation XXV</h2>
                 <h2 className={styles["title-text"]}>Brand: Amouage</h2>
                 <h2 className={styles["title-text"]}>Creator: Bertrand Douchafour</h2>
-                <img className={styles.image} src="https://cdn.amouage.com/production/media/catalog/product/cache/c45c22584d6bdad8628cacfa66591d7f/j/u/jubilation_bottle_front_man_00000.png" alt=""/>
+                <img className={styles.image} src="https://cdn.amouage.com/production/media/catalog/product/cache/c45c22584d6bdad8628cacfa66591d7f/j/u/jubilation_bottle_front_man_00000.png" alt="fragrance-image"/>
             </div>
 
             <div className={styles["right-side"]}>

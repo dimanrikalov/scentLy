@@ -4,7 +4,7 @@ export default function CreateReviewForm () {
     return (
         <div className={styles["create-form"]}>
         <div className={styles["left-side"]}>
-          <img src="https://lifestyleperfume.am/images/product/1430/1647118645-1009326.webp" alt="" />
+          <img src="https://lifestyleperfume.am/images/product/1430/1647118645-1009326.webp" alt="fragrance-image" />
         </div>
 
         <div className={styles['right-side']}>
