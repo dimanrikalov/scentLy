@@ -18,11 +18,11 @@ export default function Fragrance () {
                 </div>
                 <h2>Middle notes:</h2>
                     <div>Honey, Guaiac Wood, Clove</div>
-                <h3>Base notes:</h3>
+                <h2>Base notes:</h2>
                 <div>
                     Oud, Ambergris, Musk
                 </div>
-                <h3>Average rating: 5.00</h3>
+                <h2>Average rating: 5.00</h2>
                 <div className={styles.recents}>
              
                 </div>
@@ -30,7 +30,7 @@ export default function Fragrance () {
                 <div>
                     <button className={styles.button}>Edit</button>
                     <button className={styles.button}>Delete</button>
-                    <button className={styles.button}>Add review</button>
+                    <button className={styles.button}>Review</button>
                 </div>
             </div>
         </div>
