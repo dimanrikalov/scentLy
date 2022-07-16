@@ -12,10 +12,10 @@ export default function Footer () {
           <div className={styles['footer-left']}>
             <p className={styles['footer-links']}>
               <a className={styles['link-1']} href="#">Home</a>
-              <a href="#">Catalog</a>
-              <a href="#">Register</a>
-              <a href="#">Login</a>
-              <a href="#">About</a>
+              <a href="#catalog">Catalog</a>
+              <a href="#register">Register</a>
+              <a href="#login">Login</a>
+              <a href="#about">About</a>
               <a href="https://linktr.ee/dimanrikalov">Linktree</a>
             </p>
             <p className="author"><strong>Diman Rikalov ® 2022</strong></p>
