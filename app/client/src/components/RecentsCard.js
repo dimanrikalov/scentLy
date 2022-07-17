@@ -1,9 +1,9 @@
 import styles from './Recents.module.css'
-
+import { Link } from 'react-router-dom'
 
 export default function RecentsCard(props) {
     return (
-          <a href className={styles.card}>
+          <Link to='fragrance/:id' className={styles.card}>
             <img src={props.imageUrl} className={styles.card__image} alt="rating-image" />
             <div className={styles.card__overlay}>
               <div className={styles.card__header}>
@@ -17,6 +17,6 @@ export default function RecentsCard(props) {
               <p className={styles.card__description}>{props.description}</p>
               <p className={styles.card__description}>{props.author}</p>
             </div>
-          </a>
+          </Link>
     )
 }

@@ -30,9 +30,10 @@ function App() {
                 <Route path='/catalog' element={<Catalog/>}/>
                 <Route path='/fragrance/create' element={<CreateFragranceForm/>}/>
                 <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
+                <Route path='/fragrance/:fragranceId/review' element={<CreateReviewForm/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
-                <Route path='fragrance' element={<Fragrance/>}></Route>
+                <Route path='fragrance/:id' element={<Fragrance/>}></Route>
             </Routes>
 
             <Footer />

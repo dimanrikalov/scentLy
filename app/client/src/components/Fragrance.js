@@ -1,5 +1,6 @@
 import styles from './Fragrance.module.css';
 import Reviews from './Reviews.js';
+import {Link} from 'react-router-dom';
 
 export default function Fragrance () {
     return (
@@ -32,9 +33,9 @@ export default function Fragrance () {
                 </div>
 
                 <div className={styles['button-div']}>
-                    <button className={styles.button}>Edit</button>
-                    <button className={styles.button}>Delete</button>
-                    <button className={styles.button}>Review</button>
+                    <Link to='/fragrance/:id/edit' className={styles.button}>Edit</Link>
+                    <Link to='/fragrance/:id/delete' className={styles.button}>Delete</Link>
+                    <Link to='/fragrance/:id/review' className={styles.button}>Review</Link>
                 </div>
             </div>
         </div>

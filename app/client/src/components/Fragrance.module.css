@@ -21,6 +21,7 @@
 }
 
 .button-div{
+    margin-top: 5%;
     margin-left: -13%;
 }
 
@@ -51,11 +52,11 @@
 
 .button {
     background-color: #f86464;
-    font-size: larger;
+    font-size: x-large;
     color: white;
-    padding-top:0.5%;
+    padding-top:1%;
     padding-top: 1%;
-    padding-bottom: 0.5%;
+    padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     margin-top:5%;
