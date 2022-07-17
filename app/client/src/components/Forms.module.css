@@ -61,7 +61,7 @@
 
 .one-line {
     display: table;
-    
+    border-spacing: 5px;
 }
 
 .one-line-element {
