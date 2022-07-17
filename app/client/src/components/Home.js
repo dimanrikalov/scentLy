@@ -1,4 +1,5 @@
 import Recents from "./Recents";
+import { Link } from "react-router-dom";
 
 export default function Home () {
     return (
@@ -11,7 +12,7 @@ export default function Home () {
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
                   <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
-                  <a href="/catalog" className="text-white"><button className="btn btn-primary btn-rounded scroll-behaviour: smooth"><strong>Catalog</strong></button></a>
+                  <Link to="/catalog" className="text-white"><button className="btn btn-primary btn-rounded scroll-behaviour: smooth"><strong>Catalog</strong></button></Link>
                   
                 </div>
               </div>

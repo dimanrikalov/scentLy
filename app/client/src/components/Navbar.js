@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export default function Navbar () {
     return (
@@ -11,28 +11,28 @@ export default function Navbar () {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/">Home</a>
+                  <Link className="nav-link nav-link-black" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/catalog">Catalog</a>
+                  <Link className="nav-link nav-link-black" to="/catalog">Catalog</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/about">About</a>
+                  <Link className="nav-link nav-link-black" to="/about">About</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/auth/register">Register</a>
+                  <Link className="nav-link nav-link-black" to="/auth/register">Register</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/auth/login">Login</a>
+                  <Link className="nav-link nav-link-black" to="/auth/login">Login</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/fragrance/create">Create</a>
+                  <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="/auth/logout">Logout</a>
+                  <Link className="nav-link nav-link-black" to="/auth/logout">Logout</Link>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
-                  <a className="nav-link btn btn-primary" href="/auth/profile">Profile</a> 
+                  <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
                                                     {/* components.html */}
                 </li>
               </ul>
