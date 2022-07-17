@@ -2,12 +2,13 @@
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
-  height: 660px;
+  height: 500px;
   background-color: rgb(255, 255, 255);
   border-radius: 2rem;
   box-sizing: content-box;
   overflow: hidden;
   overflow-x: scroll;
+  margin-bottom: 5%;
 }
 
 .cards-list::-webkit-scrollbar {
@@ -18,8 +19,8 @@
   margin: 35px auto;
   margin-left: 40px;
   margin-right: 40px;
-  width: 400px;
-  height: 590px;
+  width: 340px;
+  height: 430px;
   border-radius: 40px;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
@@ -65,8 +66,8 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 
 
 .title-upper {
-  margin-top: 3%;
-  padding-bottom: 45px;
+  margin-top: 8%;
+  padding-bottom: 25px;
   font-size: 25px;
   color: rgb(53, 53, 53);
   -webkit-text-stroke: 0.2px rgb(0, 0, 0);

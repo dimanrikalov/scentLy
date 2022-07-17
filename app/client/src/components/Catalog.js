@@ -4,7 +4,7 @@ import CatalogCard from './CatalogCard';
 
 export default function Catalog () {
     return(
-        <div id="catalog">
+        <div>
             <h1 style={{width:'75%'}} className="text-red-500 mt-20 ml-20">Catalog: </h1>
             <input className={mainStyles.input} type="text" name="catalogSearch" placeholder="Search for a fragrance"/>
             <div className={styles["cards-list"]}>

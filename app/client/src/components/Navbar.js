@@ -9,28 +9,28 @@ export default function Navbar () {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#home">Home</a>
+                  <a className="nav-link nav-link-black" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#catalog">Catalog</a>
+                  <a className="nav-link nav-link-black" href="/catalog">Catalog</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#about">About</a>
+                  <a className="nav-link nav-link-black" href="/about">About</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#register">Register</a>
+                  <a className="nav-link nav-link-black" href="/auth/register">Register</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#login">Login</a>
+                  <a className="nav-link nav-link-black" href="/auth/login">Login</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#create">Create</a>
+                  <a className="nav-link nav-link-black" href="/fragrance/create">Create</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link nav-link-black" href="#logout">Logout</a>
+                  <a className="nav-link nav-link-black" href="/auth/logout">Logout</a>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
-                  <a className="nav-link btn btn-primary" href="#profile">Profile</a> 
+                  <a className="nav-link btn btn-primary" href="/auth/profile">Profile</a> 
                                                     {/* components.html */}
                 </li>
               </ul>

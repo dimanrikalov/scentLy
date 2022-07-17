@@ -18,6 +18,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
     return (
         <div>
+            <Navbar />
 
             <Routes>
                 <Route path='/' element={<Home/>}/>
@@ -31,15 +32,15 @@ function App() {
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
 
-            <Navbar />
+            <Footer />
 
-            <Home />
+            {/* <Home />
 
             <Fragrance />
 
-            {/* <EditReviewForm /> */}
+            {/* <EditReviewForm />
 
-            <CreateReviewForm />
+             <CreateReviewForm />
 
             <EditFragranceForm />
 
@@ -57,9 +58,7 @@ function App() {
 
             <About />
 
-            <ErrorPage />
-
-            <Footer />
+            <ErrorPage /> */}
         </div>
     );
 }
