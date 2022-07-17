@@ -8,46 +8,60 @@ import Catalog from './components/Catalog';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Fragrance from './components/Fragrance';
+import ErrorPage from './components/ErrorPage';
 import EditReviewForm from './components/EditReviewForm';
 import CreateReviewForm from './components/CreateReviewForm';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
+    return (
+        <div>
 
-  return (
-    <div>
-        
-        <Navbar />
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/auth/register' element={<Register/>}/>
+                <Route path='/auth/login' element={<Login/>}/>
+                <Route path='/auth/profile' element={<Profile/>}/>
+                <Route path='/catalog' element={<Catalog/>}/>
+                <Route path='/fragrance/create' element={<CreateFragranceForm/>}/>
+                <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
+                <Route path='/about' element={<About/>}/>
+                <Route path='*' element={<ErrorPage/>}/>
+            </Routes>
 
-        <Home />
-        
-        <Fragrance />
+            <Navbar />
 
-        {/* <EditReviewForm /> */}
+            <Home />
 
-        <CreateReviewForm />
+            <Fragrance />
 
-        <EditFragranceForm />
+            {/* <EditReviewForm /> */}
 
-        <CreateFragranceForm />
+            <CreateReviewForm />
 
-        <Profile />
+            <EditFragranceForm />
 
-        <Catalog />
+            <CreateFragranceForm />
 
-        <Login />
+            <Profile />
 
-        <Register />
-      
-        <Recents />
+            <Catalog />
 
-        <About />
-        
-        <Footer />
+            <Login />
 
-    </div>
-  );
+            <Register />
+
+            <Recents />
+
+            <About />
+
+            <ErrorPage />
+
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
