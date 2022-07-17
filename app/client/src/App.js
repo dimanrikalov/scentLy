@@ -1,4 +1,5 @@
 import Home from './components/Home';
+import styles from './App.module.css';
 import About from './components/About';
 import Login from './components/Login';
 import Footer from './components/Footer';
@@ -9,12 +10,13 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import Fragrance from './components/Fragrance';
 import ErrorPage from './components/ErrorPage';
+import { Routes, Route } from 'react-router-dom';
 import EditReviewForm from './components/EditReviewForm';
 import CreateReviewForm from './components/CreateReviewForm';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
-import { Routes, Route } from 'react-router-dom';
-import styles from './App.module.css';
+
+
 function App() {
     return (
         <div className={styles['main-backround']}>
@@ -42,8 +44,6 @@ function App() {
              <CreateReviewForm />
 
             <EditFragranceForm />
-
-            <Recents /> 
             
 */}
         </div>
