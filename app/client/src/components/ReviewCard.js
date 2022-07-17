@@ -11,7 +11,7 @@ export default function ReviewCard(props) {
                 <img className={styles.card__thumb} src={props.authorImageUrl} alt="author-image" />
                 <div className={styles["card__header-text"]}>
                     <h3 className="text-red-500">{props.author}</h3>
-                  <h3 className="text-base text-gray-800">{props.name}</h3>            
+                  <h3 className="mt-2 text-xl text-gray-800">{props.name}</h3>            
                 </div>
               </div>
               <p className={styles.card__description}>{props.description}</p>

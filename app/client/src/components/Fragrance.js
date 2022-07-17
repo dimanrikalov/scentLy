@@ -13,23 +13,25 @@ export default function Fragrance () {
 
             <div className={styles["right-side"]}>
                 
+                <div className={styles["right-text"]}>
+                    <h2 className={styles["right-side-margin"]}>Top notes:</h2>
+                    <div className="mb-3 font-medium text-gray-700">
+                        Blackberry, Orange, Olibanum
+                    </div>
+                    <h2>Middle notes:</h2>
+                    <div className="mb-3 font-medium text-gray-700">Honey, Guaiac Wood, Clove</div>
+                    <h2>Base notes:</h2>
+                    <div className="mb-3 font-medium text-gray-700">
+                        Oud, Ambergris, Musk
+                    </div>
+                    <h2 className="mt-5">Average rating: 5.00</h2>
+                </div>
 
-                <h2 className={styles["right-side-margin"]}>Top notes:</h2>
-                <div className="mb-3 font-medium text-gray-700">
-                    Blackberry, Orange, Olibanum
-                </div>
-                <h2>Middle notes:</h2>
-                <div className="mb-3 font-medium text-gray-700">Honey, Guaiac Wood, Clove</div>
-                <h2>Base notes:</h2>
-                <div className="mb-3 font-medium text-gray-700">
-                    Oud, Ambergris, Musk
-                </div>
-                <h2 className="mt-5">Average rating: 5.00</h2>
                 <div className={styles['review-div']}>
                     <Reviews />
                 </div>
 
-                <div>
+                <div className={styles['button-div']}>
                     <button className={styles.button}>Edit</button>
                     <button className={styles.button}>Delete</button>
                     <button className={styles.button}>Review</button>
