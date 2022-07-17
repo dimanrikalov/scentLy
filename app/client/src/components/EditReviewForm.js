@@ -16,7 +16,7 @@ export default function EditReviewForm () {
           <h4 className={styles['subtitle']}>Review score: </h4>
           <input type="number" name="fragranceRating" className={styles.rating} placeholder="    [1-5]"/>
 
-            <button className="mt-5 tracking-wide font-semibold bg-red-500 text-gray-100 w-full py-3 rounded-3xl hover:bg-red-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+            <button className={styles['submit-button']}>
               <span className="ml-3 text-lg">
                 Edit
               </span>

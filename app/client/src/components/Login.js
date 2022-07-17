@@ -18,7 +18,7 @@ export default function Login () {
               <div className="mx-auto max-w-xs">
               <input className={styles.input} type="email" placeholder="Email" />
                 <input className={styles.input} type="password" placeholder="Password" />
-                <button className="mt-5 tracking-wide font-semibold bg-red-500 text-gray-100 w-full py-3 rounded-3xl hover:bg-red-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button className={styles["submit-button"]}>
                   <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="8.5" cy={7} r={4} />
