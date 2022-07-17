@@ -6,7 +6,7 @@ export default function About () {
         <div className={styles['min-width']}>
             <div id="about" className={styles.container}>
           <div className={styles.imageBackground}><img src="./assets/imgs/sitename.png" alt="site-img" className={['pb-20', styles.aboutImage].join(' ')}/></div>
-            <div className="row align-items-center mr-auto">
+            <div className="row align-items-center">
               <div className={["col-md-3", styles.aboutUsText].join(' ')}>
                 <h3 className="section-title text-red-500">About Us</h3>
                 <p className="text-gray-800"><strong><u className="text-red-500">ScentLy</u> is the go-to place for keeping up to date with the latest trends in 

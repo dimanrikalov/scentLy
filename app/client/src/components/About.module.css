@@ -1,14 +1,8 @@
-
-.min-width {
-
-}
-
 .container {
     min-width: 775px;
     min-height: 710px;
     padding-top: 1%;
     padding-left: 10%;
-    padding-right: 10%;
     padding-bottom: 3%;
     background-color: #f8f4f4;
     border-radius: 2rem;
@@ -41,7 +35,7 @@
 }
 
 .aboutUsText {
-    max-width: 300px;
+    max-width: 400px;
     background-color: white;
     border-radius: 2rem;
     padding: 2%;
