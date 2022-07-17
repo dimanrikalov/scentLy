@@ -1,9 +1,11 @@
-import styles from './Forms.module.css'
+import styles from './Forms.module.css';
+import mainStyles from './Register.module.css';
+import {Link} from 'react-router-dom';
 
 export default function Register () {
     return (
     <div className={styles.scale}>
-        <div className="max-w-none mx-auto sm:m-20 bg-30 shadow sm:rounded-none flex justify-center flex-1">
+        <div className={mainStyles['register-div']}>
           <div className="lg:w-1/2 p-6 backgroundMargin">
             <div className={styles.registerBackground}>
             <div>
@@ -41,9 +43,9 @@ export default function Register () {
                   </button>
                   <p className="mt-5 mb-2 text-lg font-semibold text-gray-700 text-center">
                     Already have an account? <br /> Sign in from {' '}
-                    <a href="#login" className="border-b border-gray-500 border-dotted">
+                    <Link to="/auth/login" className="border-b border-gray-500 border-dotted">
                       here
-                    </a> 
+                    </Link> 
                     .
                   </p>
                 </div>
@@ -52,7 +54,7 @@ export default function Register () {
             </div>
           </div>
           <div className="flex-1 text-center hidden lg:flex">
-            <div className=" w-full bg-center bg-contain bg-no-repeat" style={{backgroundImage: 'url("./assets/imgs/reg-page-img.png")'}} />
+            <div className=" w-full bg-center bg-contain bg-no-repeat scale mb-16" style={{backgroundImage: 'url("../assets/imgs/reg.png")'}} />
           </div>
         </div>
     

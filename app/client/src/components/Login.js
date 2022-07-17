@@ -1,9 +1,11 @@
 import styles from './Forms.module.css';
+import {Link} from 'react-router-dom';
+
 
 export default function Login () {
   return (
-<div id="login" className={styles.scale}>
-      <div className="max-w-none mx-auto sm:m-20 bg-30 shadow sm:rounded-none flex justify-center flex-1">
+<div id="login" className='pb-16'>
+      <div className="max-w-none mx-auto mt-32 bg-30 shadow sm:rounded-none flex justify-center flex-1">
         <div className="lg:w-1/2  p-6 ">
         <div className={styles.loginBackground}>
         <div>
@@ -30,9 +32,9 @@ export default function Login () {
                 </button>
                 <p className="mt-5 mb-16 text-lg font-semibold text-gray-700 text-center">
                     Don't have an account?<br /> Sign up from {' '}
-                    <a href="#register" className="border-b border-gray-500 border-dotted">
+                    <Link to="/auth/register" className="border-b border-gray-500 border-dotted">
                       here
-                    </a> 
+                    </Link> 
                     .
                   </p>
               </div>
@@ -42,7 +44,7 @@ export default function Login () {
           
         </div>
         <div className="flex-1 text-center hidden lg:flex">
-          <div className="w-full bg-center bg-contain bg-no-repeatm mb-20" style={{backgroundImage: 'url("./assets/imgs/log-page-img.png")'}} />
+          <div className="w-full bg-center bg-contain bg-no-repeat mb-32" style={{backgroundImage: 'url("../assets/imgs/log-page-img.png")'}} />
         </div>
       </div>
   

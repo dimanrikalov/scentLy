@@ -1,20 +1,25 @@
 .create-form {
+  min-width: 500px;
   display: flex;
   padding: 3%;
-  margin: 10%;
-  background-color: #f8f4f4;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7.5%;
+  margin-bottom: 4.5%;
+  background-color: #ffffff;
   border-radius: 3rem;
 }
 
 .text {
-  padding-left: 27%;
+  font-size: 35px;
+  padding-left: 21%;
   padding-right: 10%;
   padding-bottom: 8%;
 }
 
 .left-side {
   flex:1;
-  padding-top: 7%;
+  padding-top: 3%;
   padding-left: 5%;
 }
 
@@ -29,7 +34,7 @@
   padding-left: 2rem;
   padding-right: 2rem; 
   margin-bottom: 0.75rem; 
-  background-color: #F3F4F6; 
+  background-color: #ebe7e7; 
   font-size: 0.875rem;
   line-height: 1.25rem; 
   font-size: 1.125rem;

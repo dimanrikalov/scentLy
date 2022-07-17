@@ -7,13 +7,12 @@ export default function Footer (porps) {
             <p className={styles['footer-links']}>
               <Link className={styles['link-1']} to="/">Home</Link>
               <Link to="/catalog">Catalog</Link>
+              <Link to="/about">About</Link>
               <Link to="/auth/register">Register</Link>
               <Link to="/auth/login">Login</Link>
-              <Link to="/about">About</Link>
               <Link to="/fragrance/create">Create</Link>
-              <a href="https://linktr.ee/dimanrikalov">Linktree</a>
             </p>
-            <p className="author"><strong>Diman Rikalov ® 2022</strong></p>
+            <a href="https://linktr.ee/dimanrikalov"><p className="author"><strong>Diman Rikalov ® 2022</strong></p></a>
           </div>
         </footer>
     )
