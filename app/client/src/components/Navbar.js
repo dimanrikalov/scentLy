@@ -9,28 +9,28 @@ export default function Navbar () {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link" href="#home">Home</a>
+                  <a className="nav-link nav-link-black" href="#home">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#catalog">Catalog</a>
+                  <a className="nav-link nav-link-black" href="#catalog">Catalog</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#about">About</a>
+                  <a className="nav-link nav-link-black" href="#about">About</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#register">Register</a>
+                  <a className="nav-link nav-link-black" href="#register">Register</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#login">Login</a>
+                  <a className="nav-link nav-link-black" href="#login">Login</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#create">Create</a>
+                  <a className="nav-link nav-link-black" href="#create">Create</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#logout">Logout</a>
+                  <a className="nav-link nav-link-black" href="#logout">Logout</a>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
-                  <a className="btn btn-primary" href="#profile">Profile</a> 
+                  <a className="nav-link btn btn-primary" href="#profile">Profile</a> 
                                                     {/* components.html */}
                 </li>
               </ul>
