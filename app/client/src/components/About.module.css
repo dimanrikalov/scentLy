@@ -1,4 +1,11 @@
+
+.min-width {
+
+}
+
 .container {
+    min-width: 775px;
+    min-height: 710px;
     padding-top: 1%;
     padding-left: 10%;
     padding-right: 10%;
@@ -8,14 +15,16 @@
 }
 
 .statsCards {
-    min-width: 400px;
     margin-top: -10%;
 }
 
 .tallWidget {
     transform: scale(1.9);
-    width: 50%;
-    margin-left: 20%;
+    width: 210px;
+    margin-top: 17%;
+    margin-left: 100px;
+    margin-bottom: 15%;
+    padding-right: 16%;
     border-radius: 1rem;
 }
 
@@ -32,9 +41,11 @@
 }
 
 .aboutUsText {
+    max-width: 300px;
     background-color: white;
     border-radius: 2rem;
     padding: 2%;
     margin-top: -25%;
+    margin-right: 10%;
     transform: scale(1.5);
 }
