@@ -16,9 +16,19 @@ export default function Register () {
               <div className="w-full flex-1 mt-8">
             
                 <div className="mx-auto max-w-xs">
-                <input className="w-full px-8 py-3 rounded-3xl text-lg font-lg bg-gray-100 border border-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:bg-white" type="email" placeholder="Email" />
-                <input className="w-full px-8 py-3 rounded-3xl text-lg font-lg bg-gray-100 border border-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5" type="password" placeholder="Password" />
-                <input className="w-full px-8 py-3 rounded-3xl text-lg font-lg bg-gray-100 border border-gray-200 placeholder-gray-600 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5" type="password" placeholder="Confirm Password" />
+                <input className={styles.input} type="email" placeholder="Email" />
+                <input className={styles.input} type="password" placeholder="Password" />
+                <input className={styles.input} type="password" placeholder="Confirm Password" />
+                <div className={styles["one-line"]}>
+                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="Country" /></div>
+                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="City" /></div>
+                </div>
+                <input type="number" name="age" className={styles.age} placeholder="    Age"/>
+                <select className={styles.gender} name="gender" placeholder="Gender">
+                  <option disabled selected>Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
                   <button className="mt-5 tracking-wide font-semibold bg-red-500 text-gray-100 w-full py-3 rounded-3xl hover:bg-red-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                       <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
