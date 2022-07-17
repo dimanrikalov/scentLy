@@ -14,10 +14,10 @@ import CreateReviewForm from './components/CreateReviewForm';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
 import { Routes, Route } from 'react-router-dom';
-
+import styles from './App.module.css';
 function App() {
     return (
-        <div>
+        <div className={styles['main-backround']}>
             <Navbar />
 
             <Routes>
@@ -33,32 +33,18 @@ function App() {
             </Routes>
 
             <Footer />
-
-            {/* <Home />
-
+{/* 
             <Fragrance />
 
-            {/* <EditReviewForm />
+            <EditReviewForm />
 
              <CreateReviewForm />
 
             <EditFragranceForm />
 
-            <CreateFragranceForm />
-
-            <Profile />
-
-            <Catalog />
-
-            <Login />
-
-            <Register />
-
-            <Recents />
-
-            <About />
-
-            <ErrorPage /> */}
+            <Recents /> 
+            
+*/}
         </div>
     );
 }

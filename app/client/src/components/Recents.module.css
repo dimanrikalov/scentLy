@@ -9,13 +9,19 @@
   
   body {
     font-family: "Noto Sans JP", sans-serif;
-    background-color: #f6f0f0;
+    background-color: #f8f4f4;
+  }
+
+  .title {
+    text-align: center;
   }
 
   .recents-div {
     display: flex;
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     height: 660px;
     background-color: rgb(255, 255, 255);
     border-radius: 2rem;
@@ -39,6 +45,9 @@
   
   .wrapper {
     margin-top: -4%;
+    padding-top: 6%;
+    padding-bottom: 5%;
+    background-color: #f6f0f0;
   }
 
   .card {

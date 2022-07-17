@@ -1,14 +1,8 @@
 import styles from './Footer.module.css';
 
-export default function Footer () {
+export default function Footer (porps) {
     return (
-        <footer className={styles['footer-distributed']}>
-          <div className="footer-right">
-          <a href="#"><i className="fa fa-facebook" /></a>
-            <a href="#"><i className="fa fa-twitter" /></a>
-            <a href="#"><i className="fa fa-linkedin" /></a>
-            <a href="#"><i className="fa fa-github" /></a>
-          </div>
+          <footer className={styles['footer-distributed']}>
           <div className={styles['footer-left']}>
             <p className={styles['footer-links']}>
               <a className={styles['link-1']} href="/">Home</a>

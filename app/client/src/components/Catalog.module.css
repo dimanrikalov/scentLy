@@ -18,3 +18,8 @@ border-width: 1px;
 border-color: #E5E7EB; 
 outline-color: #f86464; 
 }
+
+.background {
+    background-color: #f6f0f0;;
+    margin-bottom: -3%;
+}

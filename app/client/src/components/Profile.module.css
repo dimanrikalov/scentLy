@@ -1,6 +1,7 @@
 .profilePage {
     transform: scale(0.92);
     display: flex;
+    background-color: #f8f4f4;
 }
 
 .profileDiv {

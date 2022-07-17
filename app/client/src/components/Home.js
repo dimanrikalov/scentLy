@@ -1,5 +1,8 @@
+import Recents from "./Recents";
+
 export default function Home () {
     return (
+      <>
         <header id="home" className="header">
         <div className="overlay" />
         <div id="header-carousel" className="carousel slide carousel-fade" data-ride="carousel">  
@@ -8,7 +11,7 @@ export default function Home () {
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
                   <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
-                  <a href="#catalog" className="text-white"><button className="btn btn-primary btn-rounded"><strong>Catalog</strong></button></a>
+                  <a href="#recents" className="text-white"><button className="btn btn-primary btn-rounded"><strong>Recents</strong></button></a>
                   
                 </div>
               </div>
@@ -25,5 +28,9 @@ export default function Home () {
           </div>
         </div>
       </header>
+      <div id="recents">
+         <Recents/>
+      </div>
+      </>
     );
 }
