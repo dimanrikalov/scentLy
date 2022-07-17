@@ -14,20 +14,10 @@ section {
   font-weight: 700;
 }
 
-.corner-maker {
-  position: absolute;
-  padding-right: 99.8%;
-  color: #f8f4f4;
-  height: 5%;
-  margin-top: -1%;
-  background-color: #f8f4f4;
-  border-radius: 2rem;
-}
-
 /*  */
 
 .author {
-  font: normal 16px sans-serif;
+  font: normal 19px sans-serif;
   text-align: left;
 }
 
@@ -39,6 +29,7 @@ section {
   text-align: left;
   font: normal 16px sans-serif;
   padding: 50px 50px;
+  border-radius: 2rem 2rem 0rem 0rem;
 }
 
 .footer-distributed .footer-left p {
