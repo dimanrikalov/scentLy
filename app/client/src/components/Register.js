@@ -19,6 +19,7 @@ export default function Register () {
             
                 <div className="mx-auto max-w-xs">
                 <input className={styles.input} type="email" placeholder="Email" />
+                <input className={styles.input} type="text" placeholder="Full name" />
                 <input className={styles.input} type="password" placeholder="Password" />
                 <input className={styles.input} type="password" placeholder="Confirm Password" />
                 <div className={styles["one-line"]}>
