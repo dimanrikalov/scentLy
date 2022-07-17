@@ -11,7 +11,7 @@ export default function Home () {
               <div className="carousel-item active">
                 <div className="carousel-caption d-none d-md-block">
                   <h1 className="carousel-title">Welcome to<br /> ScentLy!</h1>
-                  <a href="#recents" className="text-white"><button className="btn btn-primary btn-rounded"><strong>Recents</strong></button></a>
+                  <a href="/catalog" className="text-white"><button className="btn btn-primary btn-rounded scroll-behaviour: smooth"><strong>Catalog</strong></button></a>
                   
                 </div>
               </div>

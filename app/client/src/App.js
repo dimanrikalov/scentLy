@@ -30,6 +30,7 @@ function App() {
                 <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
+                <Route path='fragrance' element={<Fragrance/>}></Route>
             </Routes>
 
             <Footer />
