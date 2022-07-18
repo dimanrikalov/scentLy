@@ -26,11 +26,18 @@ export default function Register () {
     }
 
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
       e.preventDefault();
-      const res = fetch(endpoints.registerUrl, {
-        
-      })
+      const body = {...values, age: Number(values.age) };
+      const res = await fetch(endpoints.registerUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+      const result = await res.json();
+      console.log(body);
     }
 
     return (
@@ -50,12 +57,12 @@ export default function Register () {
                 <div className="mx-auto max-w-xs">
                 <form>
                 <input className={styles.input} type="email" name="email" placeholder="Email" value={values.email} onChange={changeHandler}/>
-                <input className={styles.input} type="text" name="name" placeholder="Full name" value={values.name} onChange={changeHandler}/>
+                <input className={styles.input} type="text" name="name" placeholder="Names (First and Last)" value={values.name} onChange={changeHandler}/>
                 <input className={styles.input} type="password" name="password" placeholder="Password" value={values.password} onChange={changeHandler}/>
                 <input className={styles.input} type="password" name="repeatPassword" placeholder="Confirm Password" value={values.repeatPassword} onChange={changeHandler}/>
                 <div className={styles["one-line"]}>
-                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="Country" name="country" value={values.country} onChange={changeHandler}/></div>
                 <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="City" name="city" value={values.city} onChange={changeHandler}/></div>
+                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="Country" name="country" value={values.country} onChange={changeHandler}/></div>
                 </div>
                 <input type="number" name="age" className={styles.age} placeholder="    Age" value={values.age} onChange={changeHandler}/>
                 <select className={styles.gender} name="gender" placeholder="Gender" value={values.gender} onChange={changeHandler}>

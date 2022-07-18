@@ -9,7 +9,16 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-    const { email, password, repeatPassword } = req.body;
+    const {
+        email,
+        name,
+        password,
+        repeatPassword,
+        country,
+        city,
+        age,
+        gender,
+    } = req.body;
     const user = await api.findByEmail(email);
     if (user) {
         return res
@@ -20,12 +29,21 @@ router.post('/register', async (req, res) => {
     if (password !== repeatPassword) {
         return res.status(400).json({ message: 'Passwords do not match!' });
     }
-
     try {
-        const userData = await api.register({ email, password });
+        const userData = await api.register({ 
+            email,
+            password,
+            name,
+            country,
+            city,
+            age,
+            gender
+        });
+        
+        console.log('here')
         res.json({ registeredUser: userData });
     } catch (err) {
-        res.status(400).json({ message: 'Bad request' });
+        res.status(404).json({ message: 'Bad request' });
     }
 });
 
@@ -43,9 +61,11 @@ router.post('/login', async (req, res) => {
     try {
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
-        res.cookie(COOKIE_NAME, token, { httpOnly: true, path: 'http://localhost:3001'});
-        res.json({message: 'Successfully logged in!'})
-        
+        res.cookie(COOKIE_NAME, token, {
+            httpOnly: true,
+            path: 'http://localhost:3001',
+        });
+        res.json({ message: 'Successfully logged in!' });
     } catch (err) {
         res.json({ message: 'Invalid username or password!' });
     }
