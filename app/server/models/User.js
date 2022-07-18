@@ -6,13 +6,13 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Email is required!'],
-        validate: {
-            validator: function () {
-                const regex = '[.+@[a-z]+\.[a-z]+]';
-                return regex.test(this.email);
-            }, 
-            message: 'Enter a valid email! Example: "someone@abv.bg".'
-        }
+        // validate: {
+        //     validator: function () {
+        //         const regex = '[.+@[a-z]+\.[a-z]+]';
+        //         return regex.test(this.email);
+        //     }, 
+        //     message: 'Enter a valid email! Example: "someone@abv.bg".'
+        // }
     },
     name: {
         type: String,

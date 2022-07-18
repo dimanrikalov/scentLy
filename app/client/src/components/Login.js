@@ -1,8 +1,37 @@
-import styles from './Forms.module.css';
+import { useState } from 'react';
 import {Link} from 'react-router-dom';
-
+import styles from './Forms.module.css';
+import endpoints from '../endpoints';
 
 export default function Login () {
+
+    const [values, setValues] = useState({
+      email: '',
+      password: ''
+    })
+
+    const changeHandler = (e) => {
+      setValues(prevState => ({
+        ...prevState,
+        [e.target.name]: e.target.value
+      }))
+    }
+
+    const submitHandler = async (e) => {
+      e.preventDefault();
+      console.log(values);
+      const res = await fetch(endpoints.loginUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      const result = await res.json();
+      console.log(result);
+    }
+
   return (
 <div id="login" className='pb-16'>
       <div className="max-w-none mx-auto mt-32 bg-30 shadow sm:rounded-none flex justify-center flex-1">
@@ -18,9 +47,9 @@ export default function Login () {
             <div className="w-full flex-1 mt-8">
           
               <div className="mx-auto max-w-xs">
-              <input className={styles.input} type="email" placeholder="Email" />
-                <input className={styles.input} type="password" placeholder="Password" />
-                <button className={styles["submit-button"]}>
+              <input className={styles.input} type="email" placeholder="Email" name="email" value={values.email} onChange={changeHandler}/>
+                <input className={styles.input} type="password" placeholder="Password" name="password" value={values.password} onChange={changeHandler}/>
+                <button type="submit" className={styles["submit-button"]} onClick={submitHandler}>
                   <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="8.5" cy={7} r={4} />

@@ -57,7 +57,6 @@ router.post('/login', async (req, res) => {
     if (!email || !password) {
         return res.status(400).json({ message: 'Enter email and password!' });
     }
-
     try {
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
@@ -67,7 +66,7 @@ router.post('/login', async (req, res) => {
         });
         res.json({ message: 'Successfully logged in!' });
     } catch (err) {
-        res.json({ message: 'Invalid username or password!' });
+        res.status(404).json({ message: 'Invalid email or password!' });
     }
 });
 
