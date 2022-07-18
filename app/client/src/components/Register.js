@@ -1,8 +1,38 @@
 import styles from './Forms.module.css';
 import mainStyles from './Register.module.css';
 import {Link} from 'react-router-dom';
+import { useState } from 'react';
+import endpoints from '../endpoints';
 
 export default function Register () {
+
+    const [values, setValues] = useState({
+      email: '',
+      name: '',
+      password: '',
+      repeatPassword: '',
+      country: '',
+      city: '',
+      age: 0,
+      gender: 'gender'
+    });
+
+    
+    const changeHandler = (e) => {
+      setValues(prevState => ({
+        ...prevState,
+        [e.target.name]:e.target.value
+      }));
+    }
+
+
+    const submitHandler = (e) => {
+      e.preventDefault();
+      const res = fetch(endpoints.registerUrl, {
+        
+      })
+    }
+
     return (
     <div className={styles.scale}>
         <div className={mainStyles['register-div']}>
@@ -18,21 +48,22 @@ export default function Register () {
               <div className="w-full flex-1 mt-8">
             
                 <div className="mx-auto max-w-xs">
-                <input className={styles.input} type="email" placeholder="Email" />
-                <input className={styles.input} type="text" placeholder="Full name" />
-                <input className={styles.input} type="password" placeholder="Password" />
-                <input className={styles.input} type="password" placeholder="Confirm Password" />
+                <form>
+                <input className={styles.input} type="email" name="email" placeholder="Email" value={values.email} onChange={changeHandler}/>
+                <input className={styles.input} type="text" name="name" placeholder="Full name" value={values.name} onChange={changeHandler}/>
+                <input className={styles.input} type="password" name="password" placeholder="Password" value={values.password} onChange={changeHandler}/>
+                <input className={styles.input} type="password" name="repeatPassword" placeholder="Confirm Password" value={values.repeatPassword} onChange={changeHandler}/>
                 <div className={styles["one-line"]}>
-                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="Country" /></div>
-                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="City" /></div>
+                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="Country" name="country" value={values.country} onChange={changeHandler}/></div>
+                <div className={styles["one-line-element"]}><input className={[styles.input, styles['one-line']].join(' ')} type="text" placeholder="City" name="city" value={values.city} onChange={changeHandler}/></div>
                 </div>
-                <input type="number" name="age" className={styles.age} placeholder="    Age"/>
-                <select className={styles.gender} name="gender" placeholder="Gender">
-                  <option disabled selected>Gender</option>
+                <input type="number" name="age" className={styles.age} placeholder="    Age" value={values.age} onChange={changeHandler}/>
+                <select className={styles.gender} name="gender" placeholder="Gender" value={values.gender} onChange={changeHandler}>
+                  <option disabled value="gender">Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
-                  <button className={styles["submit-button"]}>
+                  <button type='submit' name="register-submit" className={styles["submit-button"]} onClick={submitHandler}>
                     <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                       <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                       <circle cx="8.5" cy={7} r={4} />
@@ -42,6 +73,8 @@ export default function Register () {
                       Sign Up
                     </span>
                   </button>
+
+                </form>
                   <p className="mt-5 mb-2 text-lg font-semibold text-gray-700 text-center">
                     Already have an account? <br /> Sign in from {' '}
                     <Link to="/auth/login" className="border-b border-gray-500 border-dotted">
