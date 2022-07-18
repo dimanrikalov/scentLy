@@ -7,6 +7,14 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
+
+    const {name} = req.body;
+    const alreadyExists = await api.getByName(name);
+
+    if(alreadyExists) {
+        return res.status(400).json({message: 'Fragrance with this name already exists!'});
+    }
+
     try {
         const result = await api.createOne({ ...req.body });
         res.json(result);
