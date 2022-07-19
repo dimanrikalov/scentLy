@@ -21,8 +21,6 @@ export default function FragranceDetails () {
         console.log()
     }, [fragranceId])    
 
-    console.log(fragrance);
-
     return (
         <div className={styles.main}>
             <div className={styles["left-side"]}>
@@ -65,7 +63,7 @@ export default function FragranceDetails () {
                     </div>
                     <h2 className="mt-5">Average rating: 
                     {
-                        fragrance.reviews?.length != 0
+                        fragrance.reviews?.length !== 0
                         ? ` ${fragrance.rating}`
                         : ' No reviews yet'
                     }
@@ -74,14 +72,14 @@ export default function FragranceDetails () {
 
               
                 {
-                    fragrance.reviews?.length != 0
+                    fragrance.reviews?.length !== 0
                     && <div className={styles['review-div']}>
                         <Reviews />
                         </div>
                 }
 
 
-                    <div className={styles['button-div']}>
+                <div className={styles['button-div']}>
                     <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
                     <Link to={`/fragrance/${fragrance._id}/delete`} className={styles.button}>Delete</Link>
                     <Link to={`/fragrance/${fragrance._id}/review`} className={styles.button}>Review</Link>

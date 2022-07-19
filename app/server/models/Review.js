@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
-    content: {
+    description: {
         type: String,
-        required: [true, 'Review content is required!'],
+        required: [true, 'Review description is required!'],
     },
     rating: {
         type: Number,

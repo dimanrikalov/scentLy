@@ -19,7 +19,7 @@ export default function Login () {
 
     const submitHandler = async (e) => {
       e.preventDefault();
-      console.log(values);
+
       const res = await fetch(endpoints.loginUrl, {
         method: 'POST',
         headers: {
