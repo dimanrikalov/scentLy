@@ -1,8 +1,12 @@
-import styles from './CreateFragranceForm.module.css';
 import { useState } from 'react';
 import endpoints from '../endpoints';
+import {useNavigate} from 'react-router-dom';
+import styles from './CreateFragranceForm.module.css';
 
 export default function CreateFragranceForm() {
+
+    const navigate = useNavigate();
+
     const [values, setValues] = useState({
         name: '',
         brand: '',
@@ -35,6 +39,9 @@ export default function CreateFragranceForm() {
                 baseNotes: values.baseNotes.split(', '),
             }),
         });
+
+        navigate('/catalog');
+
     };
 
     return (
