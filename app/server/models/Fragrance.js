@@ -6,16 +6,7 @@ const fragranceSchema = new mongoose.Schema({
         minLength: [2, 'Enter a valid fragrance name!'],
     },
     creator: {
-        type: String,
-        minLength: [2, 'Enter a valid creator name!'],
-        validate: {
-            validator: function () {
-                const regex = /[A-Z][a-z]+ [A-Z][a-z]+/;
-                return regex.test(this.creator);
-            },
-            message:
-                'Enter a valid perfumer name! Example: "Bertrand Duchafour".',
-        },
+        type: String
     },
     brand: {
         type: String,

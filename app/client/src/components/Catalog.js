@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import endpoints from '../endpoints';
 import CatalogCard from './CatalogCard';
 import mainStyles from './Catalog.module.css';
@@ -6,10 +6,12 @@ import styles from './CatalogCard.module.css';
 
 export default function Catalog() {
     
-    let fragrances;
+    let [fragrances, setFragrances] = useState([]);
 
-    useEffect(async () => {
-        //fetch function 
+    useEffect( () => {
+        fetch(endpoints.catalogUrl)
+            .then(res => res.json())
+            .then(serverFragrances => setFragrances(serverFragrances)); 
     })
 
     return (
@@ -27,7 +29,11 @@ export default function Catalog() {
                 placeholder="Search for a fragrance"
             />
             <div className={styles['cards-list']}>
-                <CatalogCard
+                {   fragrances ?
+                    fragrances.map(x => <CatalogCard key={x._id} fragrance={x}/>)
+                    : <h1>No fragrances</h1>
+                }
+                {/* <CatalogCard
                     brand="Amouage"
                     name="Jubilation XXV"
                     imgUrl="https://images.selfridges.com/is/image/selfridges/476-3001290-JUBLTIONXXVMANEDP_M?$PDP_M_ZOOM$"
@@ -56,7 +62,7 @@ export default function Catalog() {
                     brand="Xerjoff"
                     name="Naxos"
                     imgUrl="https://belodore.rs/media/amasty/amoptmobile/catalog/product/cache/08cd9d1a69d3b81aa4ac293076519bc7/X/E/XE33737-1-Xerjoff_Naxos_100ml_EDP_1_jpg.webp"
-                />
+                /> */}
             </div>
         </div>
     );

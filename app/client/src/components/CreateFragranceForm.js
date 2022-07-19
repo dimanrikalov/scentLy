@@ -69,7 +69,7 @@ export default function CreateFragranceForm() {
                     <input
                         className={styles.input}
                         type="text"
-                        placeholder="Fragrance creator"
+                        placeholder="Fragrance creator (Not required)"
                         name="creator"
                         value={values.creator}
                         onChange={changeHandler}
