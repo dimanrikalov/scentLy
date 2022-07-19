@@ -19,6 +19,13 @@ border-color: #E5E7EB;
 outline-color: #f86464; 
 }
 
+.no-fragrances {
+    text-align: center;
+    color: #f86464; ;
+    padding-top: 8%;
+    padding-bottom: 20%;
+}
+
 .background {
     background-color: #f6f0f0;;
     margin-bottom: -3%;
