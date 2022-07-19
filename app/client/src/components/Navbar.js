@@ -4,7 +4,7 @@ export default function Navbar () {
     return (
         <nav id="scrollspy" className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
           <div className="container">
-            <Link className="navbar-brand" to="/"><img src="../assets/imgs/logo.png" alt="site-logo" className="brand-img" /></Link>
+            <Link className="navbar-brand" to="/"><img src="./assets/imgs/logo.png" alt="site-logo" className="brand-img" /></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon" />
             </button>
