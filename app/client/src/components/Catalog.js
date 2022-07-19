@@ -33,7 +33,7 @@ export default function Catalog() {
                 fragrances.length > 0 ?
                 <div className={styles['cards-list']}>
                 {   
-                    fragrances.map(x => <CatalogCard key={x} fragrance={x}/>)
+                    fragrances.map(x => <CatalogCard key={x._id} fragrance={x}/>)
                 
                 }
                 </div>
