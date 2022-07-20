@@ -28,7 +28,6 @@ router.post('/create', async (req, res) => {
 
 router.get('/:fragranceId/details', async (req, res) => {
     const data = await api.getByIdDetailed(req.params.fragranceId);
-    console.log(data);
     if(data) {
         return res.json(data);
     }
@@ -41,6 +40,7 @@ router.get('/:fragranceId/edit', async (req, res) => {
 
 router.post('/:fragranceId/edit', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
+    console.log(`here`);
     if(!fragrance) {
         return res.status(404).json({"message": `Fragrance with id: ${req.params.fragranceId} not found!`})
     }
