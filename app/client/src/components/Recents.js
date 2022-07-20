@@ -2,7 +2,6 @@ import RecentsCard from './RecentsCard';
 import styles from './Recents.module.css';
 
 export default function Recents({ reviews }) {
-    console.log(reviews);
     return (
         <div className={styles.wrapper}>
             <h1
@@ -16,7 +15,7 @@ export default function Recents({ reviews }) {
                 <ul className={styles.cards}>
                     {reviews.map((x) => {
                         return (
-                            <li className={styles.card}>
+                            <li className={styles.card} key={x._id}>
                                 <RecentsCard
                                     name={x.fragrance.name}
                                     brand={x.fragrance.brand}
