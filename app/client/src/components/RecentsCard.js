@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function RecentsCard(props) {
     return (
-          <Link to='fragrance/:id' className={styles.card}>
+          <Link to={`fragrance/${props._id}/details`} className={styles.card}>
             <img src={props.imageUrl} className={styles.card__image} />
             <div className={styles.card__overlay}>
               <div className={styles.card__header}>

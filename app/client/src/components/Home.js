@@ -29,6 +29,7 @@ export default function Home() {
                                         Welcome to
                                         <br /> ScentLy!
                                     </h1>
+                                    <h6 className='font-medium'>Scroll down to see most recent reviews</h6>
                                     <Link to="/catalog" className="text-white">
                                         <button className="btn btn-primary btn-rounded scroll-behaviour: smooth">
                                             <strong>Catalog</strong>

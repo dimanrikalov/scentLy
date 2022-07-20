@@ -1,6 +1,7 @@
 import RecentsCard from './RecentsCard';
 import styles from './Recents.module.css';
 
+
 export default function Recents({ reviews }) {
     return (
         <div className={styles.wrapper}>
@@ -8,7 +9,7 @@ export default function Recents({ reviews }) {
                 style={{ margin: 'auto', width: '75%' }}
                 className="text-red-500 pt-3 pb-5"
             >
-                Recent reviews:{' '}
+                Recent reviews:
             </h1>
 
             <div className={styles['recents-div']}>
@@ -17,6 +18,7 @@ export default function Recents({ reviews }) {
                         return (
                             <li className={styles.card} key={x._id}>
                                 <RecentsCard
+                                    _id={x.fragrance._id}
                                     name={x.fragrance.name}
                                     brand={x.fragrance.brand}
                                     author="Not done yet"
