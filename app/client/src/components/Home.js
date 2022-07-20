@@ -8,8 +8,8 @@ export default function Home() {
 
     useEffect(() => {
         fetch(endpoints.reviewsUrl)
-        .then(res => res.json())
-        .then(data => setReviews(data));
+            .then((res) => res.json())
+            .then((data) => setReviews(data));
     }, []);
 
     return (
@@ -51,18 +51,13 @@ export default function Home() {
                     </div>
                 </div>
             </header>
-            {   reviews
-                ? 
-                    (   
-                        <div id="recents">
-                        <Recents reviews={reviews}/>
-                        </div>
-                    )
-                : <h1>
-                    No reviews in database yet.
-                  </h1>
-            }
-
+            {reviews ? (
+                <div id="recents">
+                    <Recents reviews={reviews} />
+                </div>
+            ) : (
+                <h1>No reviews in database yet.</h1>
+            )}
         </>
     );
 }

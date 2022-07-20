@@ -10,7 +10,7 @@
 }
 
 .registerBackground {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 20px;
     padding: 5%;
     margin-left: 12%;
@@ -18,23 +18,22 @@
     margin-top: -1.5%;
 }
 
-
 .input {
     padding-top: 0.75rem;
-    padding-bottom: 0.75rem; 
+    padding-bottom: 0.75rem;
     padding-left: 2rem;
-    padding-right: 2rem; 
-    margin-bottom: 0.75rem; 
-    background-color: #ebe7e7; 
+    padding-right: 2rem;
+    margin-bottom: 0.75rem;
+    background-color: #ebe7e7;
     font-size: 0.875rem;
-    line-height: 1.25rem; 
+    line-height: 1.25rem;
     font-size: 1.125rem;
-    line-height: 1.75rem; 
-    color: #000000; 
-    width: 100%; 
-    border-radius: 1rem; 
+    line-height: 1.75rem;
+    color: #000000;
+    width: 100%;
+    border-radius: 1rem;
     outline-color: #f86464;
-    border-color: #ffffff; 
+    border-color: #ffffff;
 }
 
 .scale {
@@ -73,7 +72,7 @@
     margin-top: 5%;
     margin-bottom: 3%;
     padding: 2%;
-    background-color: #EDE8E8;
+    background-color: #ede8e8;
     margin-left: 37%;
     text-align: center;
     outline-color: rgb(241, 126, 126);
@@ -82,25 +81,25 @@
 }
 
 .submit-button {
-    display: flex; 
+    display: flex;
     padding-top: 0.75rem;
-    padding-bottom: 0.75rem; 
-    background-color: #f86464; 
-    margin-top: 1.25rem; 
-    transition-property: all; 
-    transition-duration: 300ms; 
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
-    color: #F3F4F6; 
-    font-weight: 600; 
-    letter-spacing: 0.025em; 
-    justify-content: center; 
-    align-items: center; 
-    width: 100%; 
-    border-radius: 1rem; 
+    padding-bottom: 0.75rem;
+    background-color: #f86464;
+    margin-top: 1.25rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    color: #f3f4f6;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 1rem;
     outline-color: rgb(241, 126, 126);
 }
 
 .submit-button:focus {
-    background-color: #e83c3c; 
+    background-color: #e83c3c;
     outline-color: rgb(241, 126, 126);
 }

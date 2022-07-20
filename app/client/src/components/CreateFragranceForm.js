@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import endpoints from '../endpoints';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './CreateFragranceForm.module.css';
 
 export default function CreateFragranceForm() {
-
     const navigate = useNavigate();
 
     const [values, setValues] = useState({
@@ -41,7 +40,6 @@ export default function CreateFragranceForm() {
         });
 
         navigate('/catalog');
-
     };
 
     return (
@@ -50,7 +48,6 @@ export default function CreateFragranceForm() {
                 <img
                     className={styles['form-img']}
                     src="https://plummour.com/wp-content/uploads/2021/07/Xerjoff-Casamorati-1888-7.jpg"
-                    alt="fragrance-image"
                 />
             </div>
 

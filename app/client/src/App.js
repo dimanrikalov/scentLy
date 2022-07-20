@@ -4,15 +4,14 @@ import About from './components/About';
 import Login from './components/Login';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Recents from './components/Recents';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
 import Register from './components/Register';
-import FragranceDetails from './components/FragranceDetails';
 import ErrorPage from './components/ErrorPage';
 import { Routes, Route } from 'react-router-dom';
 import EditReviewForm from './components/EditReviewForm';
 import CreateReviewForm from './components/CreateReviewForm';
+import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
 
@@ -38,13 +37,7 @@ function App() {
 
             <Footer />
 {/* 
-            <Fragrance />
-
             <EditReviewForm />
-
-             <CreateReviewForm />
-
-            <EditFragranceForm />
             
 */}
         </div>

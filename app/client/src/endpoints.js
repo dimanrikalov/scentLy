@@ -6,10 +6,10 @@ const reviewsUrl = baseUrl + '/catalog/reviews';
 const loginUrl = baseUrl + '/auth/login';
 const registerUrl = baseUrl + '/auth/register';
 
-module.exports = { 
+module.exports = {
     aboutUrl,
-    loginUrl, 
+    loginUrl,
     reviewsUrl,
     catalogUrl,
-    registerUrl 
+    registerUrl,
 };

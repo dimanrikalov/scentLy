@@ -34,7 +34,8 @@ export default function Login () {
 
   return (
 <div id="login" className='pb-16'>
-      <div className="max-w-none mx-auto mt-32 bg-30 shadow sm:rounded-none flex justify-center flex-1">
+      <div className="max-w-none mx-auto mt-32 bg-30 shadow 
+            sm:rounded-none flex justify-center flex-1">
         <div className="lg:w-1/2  p-6 ">
         <div className={styles.loginBackground}>
         <div>
