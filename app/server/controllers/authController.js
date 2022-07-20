@@ -40,7 +40,6 @@ router.post('/register', async (req, res) => {
             gender
         });
         
-        console.log('here')
         res.json({ registeredUser: userData });
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });

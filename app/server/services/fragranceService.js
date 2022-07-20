@@ -4,6 +4,8 @@ const Fragrance = require('../models/Fragrance');
 
 exports.getAll = () => Fragrance.find();
 
+exports.getAllThatHave = (string) => Fragrance.find({"name": {"$regex": string, "$options":"i"}});
+
 exports.getById = (fragranceId) => Fragrance.findOne({_id: fragranceId});
 
 exports.getByIdDetailed = (fragranceId) => Fragrance.findOne({_id: fragranceId}).populate('reviews');

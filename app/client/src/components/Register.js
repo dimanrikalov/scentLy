@@ -37,7 +37,7 @@ export default function Register () {
         body: JSON.stringify(body)
       });
       const result = await res.json();
-      console.log(body);
+      console.log(result);
     }
 
     return (

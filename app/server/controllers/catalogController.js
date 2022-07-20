@@ -8,6 +8,12 @@ router.get('/', async (req, res) => {
     res.json(data);
 });
 
+router.post('/search', async (req, res) => {
+    const searchString = req.body.catalogSearch;
+    const validFragrances = await api.getAllThatHave(searchString);
+    return res.json(validFragrances);
+})
+
 router.post('/create', async (req, res) => {
 
     const {name} = req.body;
@@ -40,7 +46,7 @@ router.get('/:fragranceId/edit', async (req, res) => {
 
 router.post('/:fragranceId/edit', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
-    console.log(`here`);
+    
     if(!fragrance) {
         return res.status(404).json({"message": `Fragrance with id: ${req.params.fragranceId} not found!`})
     }

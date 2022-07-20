@@ -7,12 +7,35 @@ import styles from './CatalogCard.module.css';
 export default function Catalog() {
     
     let [fragrances, setFragrances] = useState([]);
+    const [searchValue, setSearchValue] = useState({
+        catalogSearch: ''
+    });
 
     useEffect( () => {
         fetch(endpoints.catalogUrl)
             .then(res => res.json())
             .then(serverFragrances => setFragrances(serverFragrances)); 
-    })
+    }, [])
+
+    const onChangeHandler = (e) => {
+        setSearchValue((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }));
+    }
+    
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        fetch(`${endpoints.catalogUrl}/search`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(searchValue)
+        })
+        .then(res => res.json())
+        .then(data => setFragrances(data));
+    }
 
     return (
         <div className={mainStyles.background}>
@@ -26,9 +49,11 @@ export default function Catalog() {
                 className={mainStyles.input}
                 type="text"
                 name="catalogSearch"
+                value={searchValue.searchInput}
+                onChange={onChangeHandler}
                 placeholder="Search for a fragrance"
             />
-
+            <button type="submit" className={mainStyles["search-button"]} onClick={onSubmitHandler}>Search</button>
             {
                 fragrances.length > 0 ?
                 <div className={styles['cards-list']}>
