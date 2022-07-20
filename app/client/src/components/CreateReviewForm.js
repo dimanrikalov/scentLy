@@ -33,7 +33,7 @@ export default function CreateReviewForm() {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        fetch(`${endpoints.catalogUrl}/${fragranceId}/review`, {
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/review/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
