@@ -72,7 +72,7 @@ router.get('/:fragranceId/delete', async (req, res) => {
 });
 
 
-router.post('/:fragranceId/review', async (req, res) => {
+router.post('/:fragranceId/review/create', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
 
     if(!fragrance) {

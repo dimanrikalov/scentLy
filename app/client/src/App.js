@@ -9,7 +9,6 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import { Routes, Route } from 'react-router-dom';
-import EditReviewForm from './components/EditReviewForm';
 import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
@@ -30,7 +29,7 @@ function App() {
                 <Route path='/fragrance/create' element={<CreateFragranceForm/>}/>
                 <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails/>}/>
                 <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
-                <Route path='/fragrance/:fragranceId/review' element={<CreateReviewForm/>}/>
+                <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
