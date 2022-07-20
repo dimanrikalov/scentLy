@@ -1,6 +1,23 @@
+import endpoints from '../endpoints';
 import styles from './About.module.css';
+import {useEffect, useState} from 'react';
+
 
 export default function About () {
+    const [fragranceCount, setFragranceCount] = useState();
+    const [reviewsCount, setReviewsCount] = useState();
+    const [userCount, setUserCount] = useState();
+
+    useEffect(() => {
+        fetch(`${endpoints.aboutUrl}`)
+        .then(res => res.json())
+        .then(data => {
+            setFragranceCount(data.fragranceCount);
+            setReviewsCount(data.reviewsCount);
+            setUserCount(data.userCount);
+        }, []);
+    })
+
     return (
         
         <div className={styles['min-width']}>
@@ -20,7 +37,7 @@ export default function About () {
                                 <i className="ti-user text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">15</h4>
+                                <h4 className="text-primary text-4xl">{userCount}</h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl"><strong>Total Users</strong></p>
                             </div>
                         </div>
@@ -29,7 +46,7 @@ export default function About () {
                                 <i className="ti-face-smile text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">125</h4>
+                                <h4 className="text-primary text-4xl">{reviewsCount}</h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl"><strong>Total Reviews</strong></p>
                             </div>
                         </div>
@@ -40,7 +57,7 @@ export default function About () {
                                 <i className="ti-star text-primary" />
                             </div>
                             <div className="infos-wrapper">
-                                <h4 className="text-primary">3434</h4>
+                                <h4 className="text-primary">{fragranceCount}</h4>
                                 <p className="text-secondary text-center text-gray-900"><strong>Total fragrances</strong></p>
                             </div>
                         </div>

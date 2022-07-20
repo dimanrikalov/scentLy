@@ -1,9 +1,13 @@
-const registerUrl = 'http://localhost:3000/auth/register';
-const loginUrl = 'http://localhost:3000/auth/login';
-const catalogUrl = 'http://localhost:3000/catalog';
+const baseUrl = 'http://localhost:3000';
+
+const aboutUrl = baseUrl + '/about';
+const catalogUrl = baseUrl + '/catalog';
+const loginUrl = baseUrl + '/auth/login';
+const registerUrl = baseUrl + '/auth/register';
 
 module.exports = { 
     registerUrl, 
     loginUrl, 
     catalogUrl,
+    aboutUrl
 };
