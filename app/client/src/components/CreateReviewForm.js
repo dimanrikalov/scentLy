@@ -8,7 +8,7 @@ export default function CreateReviewForm() {
     const { fragranceId } = useParams();
     const navigate = useNavigate();
 
-    const [image, setImage] = useState('');
+    const [fragrance, setFragrance] = useState({});
 
     const [values, setValues] = useState({
         description: '',
@@ -26,7 +26,7 @@ export default function CreateReviewForm() {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then((res) => res.json())
             .then((data) => {
-                setImage(data.imageUrl);
+                setFragrance(data);
             });
     }, [fragranceId]);
 
@@ -39,6 +39,7 @@ export default function CreateReviewForm() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                fragrance,
                 description: values.description,
                 rating: values.rating,
             }),
@@ -53,7 +54,7 @@ export default function CreateReviewForm() {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img src={image} alt="" />
+                <img src={fragrance.imageUrl} alt="" />
             </div>
 
             <div className={styles['right-side']}>

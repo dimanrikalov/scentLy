@@ -8,6 +8,11 @@ router.get('/', async (req, res) => {
     res.json(data);
 });
 
+router.get('/reviews', async (req, res) => {
+    const data = await reviewService.getAllDetailed();
+    res.json(data);
+});
+
 router.post('/search', async (req, res) => {
     const searchString = req.body.catalogSearch;
     const validFragrances = await api.getAllThatHave(searchString);

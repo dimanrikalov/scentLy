@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
+    fragrance: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Fragrance',
+        required: true
+    },
     description: {
         type: String,
         required: [true, 'Review description is required!'],

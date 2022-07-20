@@ -4,9 +4,9 @@ import {useEffect, useState} from 'react';
 
 
 export default function About () {
-    const [fragranceCount, setFragranceCount] = useState();
-    const [reviewsCount, setReviewsCount] = useState();
-    const [userCount, setUserCount] = useState();
+    const [fragranceCount, setFragranceCount] = useState(0);
+    const [reviewsCount, setReviewsCount] = useState(0);
+    const [userCount, setUserCount] = useState(0);
 
     useEffect(() => {
         fetch(`${endpoints.aboutUrl}`)
