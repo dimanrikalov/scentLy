@@ -13,7 +13,7 @@ font-size: 1.125rem;
 line-height: 1.75rem; 
 color: #4B5563; 
 width: 33.333333%; 
-border-radius: 1.5rem; 
+border-radius: 1rem; 
 border-width: 1px; 
 border-color: #E5E7EB; 
 outline-color: #f86464; 
@@ -40,7 +40,7 @@ outline-color: #f86464;
     padding-right: 2%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
     font-weight: bold;
 }
 
