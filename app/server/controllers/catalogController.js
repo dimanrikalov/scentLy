@@ -50,6 +50,12 @@ router.post('/:fragranceId/edit', async (req, res) => {
 });
 
 router.get('/:fragranceId/delete', async (req, res) => {
+    const fragranceToDelete = await api.getById(req.params.fragranceId);
+    
+    await Promise.all(fragranceToDelete.reviews.map(async (x) => {
+        await reviewService.deleteReview(x._id);
+    }));
+    
     await api.deleteById(req.params.fragranceId);
     res.json({[req.params.fragranceId]: "deleted"});
 });

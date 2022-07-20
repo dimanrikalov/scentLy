@@ -1,11 +1,12 @@
 import styles from './FragranceDetails.module.css';
 import Reviews from './Reviews.js';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import endpoints from '../endpoints';
 
 export default function FragranceDetails () {
 
+    const navigate = useNavigate();
     const { fragranceId } = useParams();
     const [fragrance, setFragrance] = useState({});
 
@@ -19,6 +20,17 @@ export default function FragranceDetails () {
 
         getFragranceDetails();
     }, [fragranceId])    
+
+
+    const onDeleteHandler = () => {
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/delete`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate('/catalog');
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className={styles.main}>
@@ -81,7 +93,7 @@ export default function FragranceDetails () {
 
                 <div className={styles['button-div']}>
                     <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
-                    <Link to={`/fragrance/${fragrance._id}/delete`} className={styles.button}>Delete</Link>
+                    <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
                     <Link to={`/fragrance/${fragrance._id}/review`} className={styles.button}>Review</Link>
                 </div>
             </div>
