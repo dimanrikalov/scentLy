@@ -9,8 +9,14 @@ const reviewSchema = new mongoose.Schema({
         type: Number,
         min:[1, 'Minimum rating is 1.'],
         max:[5, 'Maximum rating is 5.'],
-        required: [true, 'Enter a valid rating']
-    },
+        required: [true, 'Enter a valid rating'],
+        validate: {
+                validator: function () {
+                    return Number.isInteger(this.rating);
+                },
+                message: 'Rating must be an integer value'
+            }
+        }
     // author: {
     //     type: mongoose.Types.ObjectId,
     //     ref: 'User',

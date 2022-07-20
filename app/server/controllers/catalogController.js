@@ -27,7 +27,8 @@ router.post('/create', async (req, res) => {
 });
 
 router.get('/:fragranceId/details', async (req, res) => {
-    const data = await api.getById(req.params.fragranceId);
+    const data = await api.getByIdDetailed(req.params.fragranceId);
+    console.log(data);
     if(data) {
         return res.json(data);
     }

@@ -18,7 +18,6 @@ export default function FragranceDetails () {
         }
 
         getFragranceDetails();
-        console.log()
     }, [fragranceId])    
 
     return (
@@ -73,9 +72,10 @@ export default function FragranceDetails () {
               
                 {
                     fragrance.reviews?.length !== 0
-                    && <div className={styles['review-div']}>
-                        <Reviews />
-                        </div>
+                    && ( <div className={styles['review-div']}>
+                            <Reviews reviews={fragrance.reviews}/>
+                         </div>
+                    )
                 }
 
 
