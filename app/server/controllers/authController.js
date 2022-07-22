@@ -30,16 +30,16 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ message: 'Passwords do not match!' });
     }
     try {
-        const userData = await api.register({ 
+        const userData = await api.register({
             email,
             password,
             name,
             country,
             city,
             age,
-            gender
+            gender,
         });
-        
+
         res.json({ registeredUser: userData });
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });
@@ -59,7 +59,10 @@ router.post('/login', async (req, res) => {
     try {
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
-        res.cookie(COOKIE_NAME, token, { httpOnly: true });
+        res.cookie(COOKIE_NAME, token, {
+            httpOnly: true,
+            domain: 'http://localhost:3001',
+        });
         res.json({ message: 'Successfully logged in!' });
     } catch (err) {
         res.status(404).json({ message: 'Invalid email or password!' });

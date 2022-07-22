@@ -30,7 +30,8 @@ export default function Login () {
         body: JSON.stringify(values)
       });
 
-      await res.json();
+      const result = await res.json();
+      console.log(result);
       navigate('/');
     }
 
