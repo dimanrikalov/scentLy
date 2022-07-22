@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import endpoints from '../endpoints';
 
 export default function Navbar () {
+
+    const navigate = useNavigate();
+
+    const onLogoutHandler = async () => {
+        fetch(endpoints.logoutUrl, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+            'Content-Type': 'application/json'
+            }     
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            navigate('/');
+        });
+    }
+
     return (
         <nav id="scrollspy" className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
           <div className="container">
@@ -32,7 +51,7 @@ export default function Navbar () {
                   <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link nav-link-black" to="/auth/logout">Logout</Link>
+                  <button className="nav-link nav-link-black" onClick={onLogoutHandler}>Logout</button>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
                   <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
