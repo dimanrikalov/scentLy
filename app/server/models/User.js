@@ -27,7 +27,15 @@ const userSchema = new mongoose.Schema({
     },
     profileImage: {
         type:String,
-        required: true
+        required: true,
+        // validate: {
+        //     validator: function () {
+        //         
+        //         return this.profileImage.startsWith('http://') ||
+        //            this.profileImage.startsWith('https://')
+        //     }, 
+        //     message: 'Enter a valid name! Example: "Diman Rikalov."'
+        // }
     },
     password: {
         type: String,

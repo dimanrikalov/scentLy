@@ -7,6 +7,16 @@ import endpoints from '../endpoints';
 export default function Register() {
     const navigate = useNavigate();
 
+    const [emailHasError, setEmailHasError] = useState('');
+    const [nameHasError, setNameHasError] = useState('');
+    const [profileImageHasError, setProfileImageHasError] = useState('');
+    const [passwordHasError, setPasswordHasError] = useState('');
+    const [repeatPasswordHasError, setRepeatPasswordHasError] = useState('');
+    const [cityHasError, setCityHasError] = useState('');
+    const [countryHasError, setCountryHasError] = useState('');
+    const [ageHasError, setAgeHasError] = useState('');
+    const [genderHasError, setGenderHasError] = useState('');
+
     const [values, setValues] = useState({
         email: '',
         name: '',
@@ -26,6 +36,87 @@ export default function Register() {
         }));
     };
 
+    const emailValidator = () => {
+        const regex = new RegExp('.+@[a-z]+.[a-z]+');
+
+        if (regex.test(values.email)) {
+            setEmailHasError(false);
+        } else {
+            setEmailHasError(true);
+        }
+    };
+
+    const nameValidator = () => {
+        const regex = new RegExp('[A-Z][a-z]+ [A-Z][a-z]+');
+
+        if (regex.test(values.name)) {
+            setNameHasError(false);
+        } else {
+            setNameHasError(true);
+        }
+    };
+
+    const profileImageValidator = () => {
+        if (
+            values.profileImage.startsWith('http://') ||
+            values.profileImage.startsWith('https://')
+        ) {
+            setProfileImageHasError(false);
+        } else {
+            setProfileImageHasError(true);
+        }
+    };
+
+    const passwordValidator = () => {
+        if (values.password.length >= 4) {
+            setPasswordHasError(false);
+        } else {
+            setPasswordHasError(true);
+        }
+    };
+
+    const repeatPasswordValidator = () => {
+        if (values.password === values.repeatPassword) {
+            setRepeatPasswordHasError(false);
+        } else {
+            setRepeatPasswordHasError(true);
+        }
+    };
+
+    const cityValidator = () => {
+        const regex = new RegExp('^[A-Z][a-z]+$');
+        if (regex.test(values.city)) {
+            setCityHasError(false);
+        } else {
+            setCityHasError(true);
+        }
+    };
+
+    const countryValidator = () => {
+        const regex = new RegExp('^[A-Z][a-z]+$')
+        if (regex.test(values.country)) {
+            setCountryHasError(false);
+        } else {
+            setCountryHasError(true);
+        }
+    };
+
+    const ageValidator = () => {
+        if (values.age >= 10 && values.age <= 100) {
+            setAgeHasError(false);
+        } else {
+            setAgeHasError(true);
+        }
+    };
+
+    const genderValidator = () => {
+        if (values.gender === 'male' || values.gender === 'female') {
+            setGenderHasError(false);
+        } else {
+            setGenderHasError(true);
+        }
+    };
+
     const submitHandler = async (e) => {
         e.preventDefault();
         const body = { ...values, age: Number(values.age) };
@@ -37,7 +128,7 @@ export default function Register() {
             },
             body: JSON.stringify(body),
         });
-        const result = await res.json();
+        await res.json();
         navigate('/');
     };
 
@@ -66,7 +157,18 @@ export default function Register() {
                                             placeholder="Email"
                                             value={values.email}
                                             onChange={changeHandler}
+                                            onBlur={emailValidator}
                                         />
+                                        {emailHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Invalid email. Example:
+                                                "someone@smth.smth"
+                                            </p>
+                                        )}
                                         <input
                                             className={styles.input}
                                             type="text"
@@ -74,7 +176,18 @@ export default function Register() {
                                             placeholder="Names (First and Last)"
                                             value={values.name}
                                             onChange={changeHandler}
+                                            onBlur={nameValidator}
                                         />
+                                        {nameHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Name must be in the format:
+                                                "Name Sirname"!
+                                            </p>
+                                        )}
                                         <input
                                             className={styles.input}
                                             type="text"
@@ -82,7 +195,18 @@ export default function Register() {
                                             placeholder="Profile Image URL"
                                             value={values.profileImage}
                                             onChange={changeHandler}
+                                            onBlur={profileImageValidator}
                                         />
+                                        {profileImageHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Profile image must be a valid
+                                                URL link!
+                                            </p>
+                                        )}
                                         <input
                                             className={styles.input}
                                             type="password"
@@ -90,7 +214,18 @@ export default function Register() {
                                             placeholder="Password"
                                             value={values.password}
                                             onChange={changeHandler}
+                                            onBlur={passwordValidator}
                                         />
+                                        {passwordHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Password must be at least 4
+                                                characters long!
+                                            </p>
+                                        )}
                                         <input
                                             className={styles.input}
                                             type="password"
@@ -98,7 +233,17 @@ export default function Register() {
                                             placeholder="Confirm Password"
                                             value={values.repeatPassword}
                                             onChange={changeHandler}
+                                            onBlur={repeatPasswordValidator}
                                         />
+                                        {repeatPasswordHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Passwords must match!
+                                            </p>
+                                        )}
                                         <div className={styles['one-line']}>
                                             <div
                                                 className={
@@ -115,6 +260,7 @@ export default function Register() {
                                                     name="city"
                                                     value={values.city}
                                                     onChange={changeHandler}
+                                                    onBlur={cityValidator}
                                                 />
                                             </div>
                                             <div
@@ -132,9 +278,20 @@ export default function Register() {
                                                     name="country"
                                                     value={values.country}
                                                     onChange={changeHandler}
+                                                    onBlur={countryValidator}
                                                 />
                                             </div>
                                         </div>
+                                        {(cityHasError || countryHasError) && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                City and country must start with
+                                                capital letter!
+                                            </p>
+                                        )}
                                         <input
                                             type="number"
                                             name="age"
@@ -142,13 +299,25 @@ export default function Register() {
                                             placeholder="    Age"
                                             value={values.age}
                                             onChange={changeHandler}
+                                            onBlur={ageValidator}
                                         />
+                                        {ageHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Age must be in the range
+                                                [10-100]!
+                                            </p>
+                                        )}
                                         <select
                                             className={styles.gender}
                                             name="gender"
                                             placeholder="Gender"
                                             value={values.gender}
                                             onChange={changeHandler}
+                                            onBlur={genderValidator}
                                         >
                                             <option disabled value="gender">
                                                 Gender
@@ -158,11 +327,21 @@ export default function Register() {
                                                 Female
                                             </option>
                                         </select>
+                                        { genderHasError && <p className={styles['error-message']}>
+                                            Choose a valid gender!
+                                        </p>}
                                         <button
                                             type="submit"
                                             name="register-submit"
                                             className={styles['submit-button']}
                                             onClick={submitHandler}
+                                            disabled = {
+                                                emailHasError || nameHasError || profileImageHasError
+                                                 ||passwordHasError || repeatPasswordHasError ||
+                                                 cityHasError || countryHasError || ageHasError ||
+                                                 genderHasError || Object.values(values).some(x => x === '')
+                                                
+                                            }
                                         >
                                             <svg
                                                 className="w-6 h-6 -ml-2"

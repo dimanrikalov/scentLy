@@ -17,10 +17,11 @@ import CreateFragranceForm from './components/CreateFragranceForm';
 
 
 function App() {
+
+    
     return (
         <div className={styles['main-backround']}>
             <Navbar />
-
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/auth/register' element={<Register/>}/>
@@ -35,7 +36,6 @@ function App() {
                 <Route path='/about' element={<About/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
-
             <Footer />
 
         </div>
