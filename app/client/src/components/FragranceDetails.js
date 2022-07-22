@@ -11,14 +11,13 @@ export default function FragranceDetails () {
     const [fragrance, setFragrance] = useState({});
 
     useEffect(() => {
-        async function getFragranceDetails () {
+        (async function getFragranceDetails () {
             const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/details`);
             const result = await res.json();
             setFragrance(result);
             return res;
-        }
+        })();
 
-        getFragranceDetails();
     }, [fragranceId])    
 
 
@@ -30,6 +29,12 @@ export default function FragranceDetails () {
                 navigate('/catalog');
             })
             .catch(err => console.log(err));
+    }
+
+    const onReviewDelete = () => {
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/review/delete`)
+        .then(res => res.json())
+        .then(data => setFragrance(data));
     }
 
     return (
@@ -95,6 +100,8 @@ export default function FragranceDetails () {
                     <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
                     <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
                     <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
+                    <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
+                    <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
                 </div>
             </div>
         </div>

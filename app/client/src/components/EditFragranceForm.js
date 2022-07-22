@@ -48,8 +48,7 @@ export default function EditFragranceForm() {
     };
 
     useEffect(() => {
-        const getFragranceDetails = async () => {
-            await fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then((res) => res.json())
             .then((data) => {
                 setValues({
@@ -60,8 +59,6 @@ export default function EditFragranceForm() {
                 });
                 setImage(data.imageUrl);
             });
-        }
-            getFragranceDetails();
     }, [fragranceId]);
 
 

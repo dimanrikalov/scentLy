@@ -1,3 +1,10 @@
+import styles from './CreateReviewForm.module.css';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import endpoints from '../endpoints';
+
+
 export default function EditReviewForm () {
     const { fragranceId } = useParams();
     const navigate = useNavigate();
@@ -48,12 +55,12 @@ export default function EditReviewForm () {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img src={fragrance.imageUrl} alt="" />
+                <img src={fragrance.imageUrl} />
             </div>
 
             <div className={styles['right-side']}>
                 <form>
-                    <h1 className={styles['text']}>Create a review</h1>
+                    <h1 className={styles['text']}>Edit review</h1>
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
                             Review description:{' '}
