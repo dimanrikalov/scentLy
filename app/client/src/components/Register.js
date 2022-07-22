@@ -28,12 +28,14 @@ export default function Register() {
         const body = { ...values, age: Number(values.age) };
         const res = await fetch(endpoints.registerUrl, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
         });
         const result = await res.json();
+        console.log(result);
     };
 
     return (

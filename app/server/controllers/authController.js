@@ -30,17 +30,19 @@ router.post('/register', async (req, res) => {
         return res.status(400).json({ message: 'Passwords do not match!' });
     }
     try {
-        const userData = await api.register({ 
+        await api.register({
             email,
             password,
             name,
             country,
             city,
             age,
-            gender
+            gender,
         });
-        
-        res.json({ registeredUser: userData });
+        const user = await api.login({ email, password });
+        const token = await api.createToken(user);
+        res.cookie(COOKIE_NAME, token, { httpOnly: true });
+        res.json({ message: 'Successfully registered!' });
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });
     }
