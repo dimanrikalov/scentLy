@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
         //     message: 'Enter a valid name! Example: "Diman Rikalov."'
         // }
     },
+    profileImage: {
+        type:String,
+        required: true
+    },
     password: {
         type: String,
         required: [true, 'Password is required!'],

@@ -12,6 +12,7 @@ router.post('/register', async (req, res) => {
     const {
         email,
         name,
+        profileImage,
         password,
         repeatPassword,
         country,
@@ -19,6 +20,7 @@ router.post('/register', async (req, res) => {
         age,
         gender,
     } = req.body;
+
     const user = await api.findByEmail(email);
     if (user) {
         return res
@@ -32,13 +34,16 @@ router.post('/register', async (req, res) => {
     try {
         await api.register({
             email,
-            password,
             name,
+            profileImage,
+            password,
+            repeatPassword,
             country,
             city,
             age,
             gender,
         });
+        console.log()
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
         res.cookie(COOKIE_NAME, token, { httpOnly: true });

@@ -1,13 +1,16 @@
 import styles from './Forms.module.css';
 import mainStyles from './Register.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import endpoints from '../endpoints';
 
 export default function Register() {
+    const navigate = useNavigate();
+
     const [values, setValues] = useState({
         email: '',
         name: '',
+        profileImage: '',
         password: '',
         repeatPassword: '',
         country: '',
@@ -35,7 +38,7 @@ export default function Register() {
             body: JSON.stringify(body),
         });
         const result = await res.json();
-        console.log(result);
+        navigate('/');
     };
 
     return (
@@ -70,6 +73,14 @@ export default function Register() {
                                             name="name"
                                             placeholder="Names (First and Last)"
                                             value={values.name}
+                                            onChange={changeHandler}
+                                        />
+                                        <input
+                                            className={styles.input}
+                                            type="text"
+                                            name="profileImage"
+                                            placeholder="Profile Image URL"
+                                            value={values.profileImage}
                                             onChange={changeHandler}
                                         />
                                         <input
