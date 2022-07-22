@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import endpoints from '../endpoints';
-
+import styles from './Navbar.module.css';
 export default function Navbar () {
 
     const navigate = useNavigate();
@@ -15,7 +15,6 @@ export default function Navbar () {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             navigate('/');
         });
     }
@@ -51,7 +50,7 @@ export default function Navbar () {
                   <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link nav-link-black" onClick={onLogoutHandler}>Logout</button>
+                  <button className={["nav-link","nav-link-black", styles['logout-button']].join(" ")} onClick={onLogoutHandler}>Logout</button>
                 </li>
                 <li className="nav-item ml-0 ml-lg-4">
                   <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
