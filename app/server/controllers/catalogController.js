@@ -30,7 +30,7 @@ router.post('/create', async (req, res) => {
 
     try {
         const result = await api.createOne({ ...req.body });
-        res.json(result);
+        res.json({ message: 'Successfully created!' });
     } catch (err) {
         console.log(err);
         res.status(400).json({ message: 'Request error!' });

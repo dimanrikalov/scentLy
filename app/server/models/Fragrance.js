@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const fragranceSchema = new mongoose.Schema({
     name: {
         type: String,
-        minLength: [2, 'Enter a valid fragrance name!'],
+        minLength: [1, 'Enter a valid fragrance name!'],
     },
     creator: {
         type: String
