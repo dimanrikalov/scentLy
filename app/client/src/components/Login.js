@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from './Forms.module.css';
 import endpoints from '../endpoints';
 
 export default function Login () {
+
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
       email: '',
@@ -28,8 +30,8 @@ export default function Login () {
         body: JSON.stringify(values)
       });
 
-      const result = await res.json();
-      console.log(result);
+      await res.json();
+      navigate('/');
     }
 
   return (

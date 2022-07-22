@@ -59,10 +59,7 @@ router.post('/login', async (req, res) => {
     try {
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
-        res.cookie(COOKIE_NAME, token, {
-            httpOnly: true,
-            path: 'http://localhost:3001',
-        });
+        res.cookie(COOKIE_NAME, token, { httpOnly: true });
         res.json({ message: 'Successfully logged in!' });
     } catch (err) {
         res.status(404).json({ message: 'Invalid email or password!' });

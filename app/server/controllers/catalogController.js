@@ -89,9 +89,28 @@ router.post('/:fragranceId/review/create', async (req, res) => {
     
     fragrance.reviews.push(newReview._id);
     const total = (fragrance.rating + newReview.rating) / fragrance.reviews.length;
-    fragrance.rating =  total;
+    fragrance.rating = total;
 
     await api.updateById(req.params.fragranceId, fragrance);
+    
+    res.json({[req.params.fragranceId]: "reviewed"});
+});
+
+router.post('/:fragranceId/review/edit', async (req, res) => {
+    const fragrance = await api.getById(req.params.fragranceId);
+
+    if(!fragrance) {
+        return res.status(404).json({
+            "message": 
+                `Fragrance with id: ${req.params.fragranceId} not found!`
+        });
+    }
+
+    if(req.body.rating < 1 || req.body.rating > 5) {
+        return res.status(400).json({'message': 'Invalid rating!'});
+    }
+
+    // fragrance.reviews.find(x => x.author == req.body.userId)
     
     res.json({[req.params.fragranceId]: "reviewed"});
 });
