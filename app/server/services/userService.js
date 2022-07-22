@@ -25,6 +25,7 @@ exports.login = async ({ email, password }) => {
 exports.createToken = (user) => {
     const payload = {
         _id: user._id,
+        name: user.name,
         email: user.email
     };
 

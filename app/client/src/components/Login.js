@@ -24,6 +24,7 @@ export default function Login () {
 
       const res = await fetch(endpoints.loginUrl, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
