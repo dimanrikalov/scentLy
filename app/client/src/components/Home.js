@@ -1,7 +1,9 @@
 import Recents from './Recents';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import styles from './Home.module.css';
 import endpoints from '../endpoints';
+
 
 export default function Home() {
     const [reviews, setReviews] = useState([]);
@@ -52,12 +54,12 @@ export default function Home() {
                     </div>
                 </div>
             </header>
-            {reviews ? (
+            {reviews?.length > 0 ? (
                 <div id="recents">
                     <Recents reviews={reviews} />
                 </div>
             ) : (
-                <h1>No reviews in database yet.</h1>
+                <h1 className={styles['no-reviews']}>No reviews in database yet.</h1>
             )}
         </>
     );
