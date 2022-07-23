@@ -21,11 +21,11 @@ const reviewSchema = new mongoose.Schema({
                 },
                 message: 'Rating must be an integer value'
             }
-        }
-    // author: {
-    //     type: mongoose.Types.ObjectId,
-    //     ref: 'User',
-    // }
+        },
+    author: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Review = mongoose.model('Review', reviewSchema);

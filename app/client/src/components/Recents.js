@@ -1,6 +1,6 @@
 import RecentsCard from './RecentsCard';
 import styles from './Recents.module.css';
-
+import endpoints from '../endpoints';
 
 export default function Recents({ reviews }) {
     return (
@@ -21,10 +21,10 @@ export default function Recents({ reviews }) {
                                     _id={x.fragrance._id}
                                     name={x.fragrance.name}
                                     brand={x.fragrance.brand}
-                                    author="Not done yet"
+                                    author={x.author.name}
                                     description={x.description}
                                     imageUrl={x.fragrance.imageUrl}
-                                    authorImageUrl={null}
+                                    authorImageUrl={x.author.profileImage}
                                 />
                             </li>
                         );

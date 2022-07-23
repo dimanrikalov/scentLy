@@ -4,4 +4,4 @@ exports.createReview = (data) => Review.create(data)
 
 exports.deleteReview = (reviewId) => Review.findByIdAndDelete(reviewId);
 
-exports.getAllDetailed = () => Review.find().populate('fragrance');
+exports.getAllDetailed = () => Review.find().populate('fragrance').populate('author');

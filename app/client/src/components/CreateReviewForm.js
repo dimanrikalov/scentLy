@@ -1,13 +1,17 @@
 import styles from './CreateReviewForm.module.css';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useInRouterContext, useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import endpoints from '../endpoints';
+import { UserContext } from '../contexts/UserContext';
 
 export default function CreateReviewForm() {
     const { fragranceId } = useParams();
     const navigate = useNavigate();
 
+    const {user, setUser} = useContext(UserContext);
+
+    const [hasError, setHasError] = useState('');
     const [descriptionHasError, setDescriptionHasError] = useState('');
     const [ratingHasError, setRatingHasError] = useState('');
     const [fragrance, setFragrance] = useState({});
@@ -61,14 +65,17 @@ export default function CreateReviewForm() {
                 fragrance,
                 description: values.description,
                 rating: values.rating,
+                author: user._id
             }),
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                setHasError(err);
+                console.log(err)
+            });
     };
     return (
         <div className={styles['create-form']}>
@@ -79,6 +86,10 @@ export default function CreateReviewForm() {
             <div className={styles['right-side']}>
                 <form>
                     <h1 className={styles['text']}>Create a review</h1>
+                    {
+                        hasError && 
+                        <h3>{hasError}</h3>
+                    }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
                             Review description:{' '}
