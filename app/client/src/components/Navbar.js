@@ -45,7 +45,7 @@ export default function Navbar () {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link nav-link-black" to="/">Home</Link>
+                    <Link className="nav-link nav-link-black" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link nav-link-black" to="/catalog">Catalog</Link>
@@ -53,23 +53,27 @@ export default function Navbar () {
                 <li className="nav-item">
                   <Link className="nav-link nav-link-black" to="/about">About</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-black" to="/auth/register">Register</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-black" to="/auth/login">Login</Link>
-                </li>
-                {isLogged &&  <Fragment>
-                          <li className="nav-item">
-                            <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
-                          </li>
-                          <li className="nav-item">
-                            <button className={["nav-link", "nav-link-black", styles['logout-button']].join(" ")} onClick={onLogoutHandler}>Logout</button>
-                          </li>
-                          <li className="nav-item ml-0 ml-lg-4">
-                            <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
-                          </li>
-                          </Fragment>
+                {
+                isLogged 
+                ?  <Fragment>
+                        <li className="nav-item">
+                          <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
+                        </li>
+                        <li className="nav-item">
+                          <button className={["nav-link", "nav-link-black", styles['logout-button']].join(" ")} onClick={onLogoutHandler}>Logout</button>
+                        </li>
+                        <li className="nav-item ml-0 ml-lg-4">
+                          <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
+                        </li>
+                  </Fragment>
+                : <Fragment>
+                        <li className="nav-item">
+                          <Link className="nav-link nav-link-black" to="/auth/register">Register</Link>
+                        </li>
+                        <li className="nav-item">
+                          <Link className="nav-link nav-link-black" to="/auth/login">Login</Link>
+                        </li>
+                    </Fragment>
                 }
               </ul>
             </div>
