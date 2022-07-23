@@ -102,20 +102,24 @@ export default function FragranceDetails () {
 
 
                 <div className={styles['button-div']}>
-                    {
-                        user._id == fragrance.author
-                    ?   
-                        <>
-                        <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
-                        <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
-                        </> 
-                    : 
-                        <>
-                        <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
-                        <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
-                        <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
-                        </>
-                    }
+                   {(()=> {
+                        if(user?._id == fragrance.author) {
+                            return (
+                                <>
+                                    <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
+                                    <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
+                                </> 
+                            )
+                        } else if(user) {
+                            return (
+                                <>
+                                    <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
+                                    <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
+                                    <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
+                                </>
+                            )
+                        }
+                   })()}
                 </div>
             </div>
         </div>
