@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import endpoints from '../endpoints';
-import { useNavigate } from 'react-router-dom';
+import { useInRouterContext, useNavigate } from 'react-router-dom';
 import styles from './CreateFragranceForm.module.css';
+import { UserContext } from '../contexts/UserContext';
 
 export default function CreateFragranceForm() {
     const navigate = useNavigate();
+
+    const {user, setUser} = useContext(UserContext);
 
     const [nameHasError, setNameHasError] = useState('');
     const [brandHasError, setBrandHasError] = useState('');
@@ -95,6 +98,7 @@ export default function CreateFragranceForm() {
                 topNotes: values.topNotes.split(', '),
                 middleNotes: values.middleNotes.split(', '),
                 baseNotes: values.baseNotes.split(', '),
+                author: user._id
             }),
         });
         const response = await res.json();
@@ -190,6 +194,7 @@ export default function CreateFragranceForm() {
                         className={styles['submit-button']}
                         onClick={submitHandler}
                         disabled={
+                            !user ||
                             !values.name ||
                             !values.brand ||
                             !values.imageUrl ||

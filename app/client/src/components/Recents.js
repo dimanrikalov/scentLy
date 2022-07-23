@@ -14,7 +14,7 @@ export default function Recents({ reviews }) {
 
             <div className={styles['recents-div']}>
                 <ul className={styles.cards}>
-                    {reviews.map((x) => {
+                    {reviews?.map((x) => {
                         return (
                             <li className={styles.card} key={x._id}>
                                 <RecentsCard

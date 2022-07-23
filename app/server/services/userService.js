@@ -5,6 +5,10 @@ const { SECRET, EXPIRES_IN } = require('../config/constants');
 
 exports.findByEmail = (email) => User.findOne({ email });
 
+exports.getById = (userId) => User.findOne({ _id: userId });
+
+exports.updateById = (userId, data) => User.findByIdAndUpdate(userId, data);
+
 exports.register = (data) => User.create(data);
 
 exports.login = async ({ email, password }) => {
@@ -26,7 +30,7 @@ exports.createToken = (user) => {
     const payload = {
         _id: user._id,
         name: user.name,
-        email: user.email
+        email: user.email,
     };
 
     const tokenPromise = new Promise((resolve, reject) => {
@@ -43,4 +47,4 @@ exports.createToken = (user) => {
         );
     });
     return tokenPromise;
-}
+};
