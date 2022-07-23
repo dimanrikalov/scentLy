@@ -132,14 +132,16 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
 
-    const isFound = fragrance.reviews.find((x) => x.author._id == req.body.userId);
+    const isFound = fragrance.reviews.find(
+        (x) => x.author._id == req.body.userId
+    );
 
     if (isFound) {
         await reviewService.updateReview(req.params.fragranceId, {
             fragrance: fragrance._id,
             description: req.body.description,
             rating: Number(req.body.rating),
-            author: req.body.userId
+            author: req.body.userId,
         });
         res.json({ [req.params.fragranceId]: 'reviewed' });
     } else {
@@ -151,7 +153,7 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
 
 router.post('/:fragranceId/review/delete', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
-    
+
     const user = await userService.getByIdDetailed(req.body.userId);
     if (!fragrance) {
         return res.status(404).json({
@@ -163,12 +165,26 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
     });
 
     if (isFound) {
-        fragrance.reviews = fragrance.reviews.filter(x => x.author._id.toString() != user._id.toString());
+        fragrance.reviews = fragrance.reviews.filter(
+            (x) => x.author._id.toString() != user._id.toString()
+        );
+        if (fragrance.reviews.length === 0) {
+            fragrance.rating = 0;
+        } else {
+            fragrance.rating =
+                fragrance.reviews.reduce(
+                    prevValue,
+                    (currValue) => prevValue + currValue,
+                    0
+                ) / fragrance.reviews.length;
+        }
         await api.updateById(req.params.fragranceId, fragrance);
-        
-        user.reviews = user.reviews.filter(x => x.fragrance.toString() != fragrance._id.toString());
+
+        user.reviews = user.reviews.filter(
+            (x) => x.fragrance.toString() != fragrance._id.toString()
+        );
         await userService.updateById(user._id, user);
-        
+
         await reviewService.deleteReview(isFound._id);
         res.json({ [req.params.fragranceId]: 'deleted' });
     } else {
