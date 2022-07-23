@@ -91,6 +91,7 @@ router.get('/:fragranceId/delete', async (req, res) => {
 
 router.post('/:fragranceId/review/create', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
+    const user = await userService.getById(req.body.author);
 
     if (!fragrance) {
         return res.status(404).json({
@@ -101,15 +102,16 @@ router.post('/:fragranceId/review/create', async (req, res) => {
     if (req.body.rating < 1 || req.body.rating > 5) {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
-    const newReview = await reviewService.createReview(req.body);
 
+    const newReview = await reviewService.createReview(req.body);
     fragrance.reviews.push(newReview._id);
     const total =
         (fragrance.rating + newReview.rating) / fragrance.reviews.length;
     fragrance.rating = total;
-
     await api.updateById(req.params.fragranceId, fragrance);
 
+    user.reviews.push(newReview._id);
+    await userService.updateById(user._id, user);
     res.json({ [req.params.fragranceId]: 'reviewed' });
 });
 
