@@ -1,9 +1,21 @@
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {UserContext} from "../contexts/UserContext";
 import endpoints from '../endpoints';
 import styles from './Navbar.module.css';
 export default function Navbar () {
 
+    const {user, setUser} = useContext(UserContext);
+    const [isLogged, setIsLogged] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if(user) {
+        setIsLogged(true);
+      } else {
+        setIsLogged(false);
+      }
+    }, [user])
 
     const onLogoutHandler = async () => {
         fetch(endpoints.logoutUrl, {
@@ -14,7 +26,8 @@ export default function Navbar () {
             }     
         })
         .then(res => res.json())
-        .then(data => {
+        .then(() => {
+            setUser(null);
             navigate('/');
         });
     }
@@ -46,15 +59,18 @@ export default function Navbar () {
                 <li className="nav-item">
                   <Link className="nav-link nav-link-black" to="/auth/login">Login</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
-                </li>
-                <li className="nav-item">
-                  <button className={["nav-link", "nav-link-black", styles['logout-button']].join(" ")} onClick={onLogoutHandler}>Logout</button>
-                </li>
-                <li className="nav-item ml-0 ml-lg-4">
-                  <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
-                </li>
+                {isLogged &&  <Fragment>
+                          <li className="nav-item">
+                            <Link className="nav-link nav-link-black" to="/fragrance/create">Create</Link>
+                          </li>
+                          <li className="nav-item">
+                            <button className={["nav-link", "nav-link-black", styles['logout-button']].join(" ")} onClick={onLogoutHandler}>Logout</button>
+                          </li>
+                          <li className="nav-item ml-0 ml-lg-4">
+                            <Link className="nav-link btn btn-primary" to="/auth/profile">Profile</Link> 
+                          </li>
+                          </Fragment>
+                }
               </ul>
             </div>
           </div>
