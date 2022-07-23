@@ -1,3 +1,4 @@
+const { populate } = require('../models/Fragrance');
 const Fragrance = require('../models/Fragrance');
 
 exports.getAll = () => Fragrance.find();
@@ -13,7 +14,7 @@ exports.getAllThatHave = (string) =>
 exports.getById = (fragranceId) => Fragrance.findOne({ _id: fragranceId });
 
 exports.getByIdDetailed = (fragranceId) =>
-    Fragrance.findOne({ _id: fragranceId }).populate('reviews');
+    Fragrance.findOne({ _id: fragranceId }).populate({path:'reviews', populate: {path: 'author', model:'User'}});
 
 exports.getByName = (fragranceName) =>
     Fragrance.findOne({ name: fragranceName });
