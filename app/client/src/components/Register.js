@@ -1,12 +1,16 @@
 import styles from './Forms.module.css';
 import mainStyles from './Register.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import endpoints from '../endpoints';
+import { UserContext } from '../contexts/UserContext';
 
 export default function Register() {
     const navigate = useNavigate();
+    
+    const {user, setUser} = useContext(UserContext);
 
+    const [errorMessage, setErrorMessage] = useState('');
     const [emailHasError, setEmailHasError] = useState('');
     const [nameHasError, setNameHasError] = useState('');
     const [profileImageHasError, setProfileImageHasError] = useState('');
@@ -128,8 +132,14 @@ export default function Register() {
             },
             body: JSON.stringify(body),
         });
-        await res.json();
-        navigate('/');
+        
+        const result = await res.json();
+        if(result.message !== 'Successfully registered!') {
+            setErrorMessage(result.message);
+        } else {
+            setUser(result.user);
+            navigate('/');
+        }
     };
 
     return (
@@ -147,6 +157,10 @@ export default function Register() {
                             <h1 className="text-2xl xl:text-3xl font-extrabold text-red-500">
                                 Sign Up:
                             </h1>
+                            {
+                                errorMessage &&
+                                <h3 className={styles['error-message']}>{errorMessage}</h3>
+                            }
                             <div className="w-full flex-1 mt-8">
                                 <div className="mx-auto max-w-xs">
                                     <form>

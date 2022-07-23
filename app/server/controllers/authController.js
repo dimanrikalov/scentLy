@@ -43,11 +43,11 @@ router.post('/register', async (req, res) => {
             age,
             gender,
         });
-        console.log()
+
         const user = await api.login({ email, password });
         const token = await api.createToken(user);
         res.cookie(COOKIE_NAME, token, { httpOnly: true });
-        res.json({ message: 'Successfully registered!' });
+        res.json({ message: 'Successfully registered!', user });
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });
     }
