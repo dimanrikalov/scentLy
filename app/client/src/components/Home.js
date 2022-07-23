@@ -1,11 +1,12 @@
 import Recents from './Recents';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import styles from './Home.module.css';
 import endpoints from '../endpoints';
-
+import { UserContext } from '../contexts/UserContext';
 
 export default function Home() {
+    const { user, setUser } = useContext(UserContext);
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -29,9 +30,19 @@ export default function Home() {
                                 <div className="carousel-caption d-none d-md-block">
                                     <h1 className="carousel-title">
                                         Welcome to
-                                        <br /> ScentLy!
+                                        <br /> ScentLy{' '}
+                                        {
+                                        user
+                                        ? 
+                                            `, ${user.name.slice(0, user.name.indexOf(' '))}`
+                                        : 
+                                            ''
+                                        }
+                                        !
                                     </h1>
-                                    <h6 className='font-medium'>Scroll down to see most recent reviews</h6>
+                                    <h6 className="font-medium">
+                                        Scroll down to see most recent reviews
+                                    </h6>
                                     <Link to="/catalog" className="text-white">
                                         <button className="btn btn-primary btn-rounded scroll-behaviour: smooth">
                                             <strong>Catalog</strong>
@@ -59,8 +70,11 @@ export default function Home() {
                     <Recents reviews={reviews} />
                 </div>
             ) : (
-                <h1 className={styles['no-reviews']}>No reviews in database yet.<br/>
-                Be the first one to review a fragrance!</h1>
+                <h1 className={styles['no-reviews']}>
+                    No reviews in database yet.
+                    <br />
+                    Be the first one to review a fragrance!
+                </h1>
             )}
         </>
     );
