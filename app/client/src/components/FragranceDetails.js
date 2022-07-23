@@ -1,13 +1,18 @@
-import styles from './FragranceDetails.module.css';
 import Reviews from './Reviews.js';
-import {Link, useNavigate, useParams} from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import endpoints from '../endpoints';
+import styles from './FragranceDetails.module.css';
+import { UserContext } from '../contexts/UserContext';
+import { Fragment, useContext, useEffect, useState } from 'react';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 
 export default function FragranceDetails () {
 
     const navigate = useNavigate();
+
     const { fragranceId } = useParams();
+
+    const {user, setUser} = useContext(UserContext);
+
     const [fragrance, setFragrance] = useState({});
 
     useEffect(() => {
@@ -97,11 +102,20 @@ export default function FragranceDetails () {
 
 
                 <div className={styles['button-div']}>
-                    <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
-                    <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
-                    <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
-                    <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
-                    <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
+                    {
+                        user._id == fragrance.author
+                    ?   
+                        <>
+                        <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
+                        <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
+                        </> 
+                    : 
+                        <>
+                        <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
+                        <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
+                        <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
+                        </>
+                    }
                 </div>
             </div>
         </div>
