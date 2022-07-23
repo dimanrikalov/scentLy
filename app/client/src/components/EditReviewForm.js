@@ -1,14 +1,14 @@
 import styles from './CreateReviewForm.module.css';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import endpoints from '../endpoints';
-
+import {UserContext} from '../contexts/UserContext';
 
 export default function EditReviewForm () {
     const { fragranceId } = useParams();
     const navigate = useNavigate();
-
+    const {user, setUser} = useContext(UserContext);
     
     const [descriptionHasError, setDescriptionHasError] = useState('');
     const [ratingHasError, setRatingHasError] = useState('');
@@ -63,6 +63,7 @@ export default function EditReviewForm () {
                 fragrance,
                 description: values.description,
                 rating: values.rating,
+                userId: user._id
             }),
         })
             .then((res) => res.json())

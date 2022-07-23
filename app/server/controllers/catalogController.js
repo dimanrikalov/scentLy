@@ -59,11 +59,9 @@ router.post('/:fragranceId/edit', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
 
     if (!fragrance) {
-        return res
-            .status(404)
-            .json({
-                message: `Fragrance with id: ${req.params.fragranceId} not found!`,
-            });
+        return res.status(404).json({
+            message: `Fragrance with id: ${req.params.fragranceId} not found!`,
+        });
     }
     await api.updateById(req.params.fragranceId, { ...req.body });
 
@@ -116,11 +114,17 @@ router.post('/:fragranceId/review/create', async (req, res) => {
 });
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
-    const fragrance = await api.getById(req.params.fragranceId);
-
+    const fragrance = await api.getByIdDetailed(req.params.fragranceId);
+    console.log(fragrance);
     if (!fragrance) {
         return res.status(404).json({
             message: `Fragrance with id: ${req.params.fragranceId} not found!`,
+        });
+    }
+
+    if (req.body.description.length < 10) {
+        return res.status(400).json({
+            message: 'Description length must be at least 10 characters!',
         });
     }
 
@@ -128,9 +132,50 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
 
-    // fragrance.reviews.find(x => x.author == req.body.userId)
+    const isFound = fragrance.reviews.find((x) => x.author._id == req.body.userId);
 
-    res.json({ [req.params.fragranceId]: 'reviewed' });
+    if (isFound) {
+        await reviewService.updateReview(req.params.fragranceId, {
+            fragrance: fragrance._id,
+            description: req.body.description,
+            rating: Number(req.body.rating),
+            author: req.body.userId
+        });
+        res.json({ [req.params.fragranceId]: 'reviewed' });
+    } else {
+        return res
+            .status(404)
+            .json({ message: 'User has not reviewed the fragrance!' });
+    }
+});
+
+router.post('/:fragranceId/review/delete', async (req, res) => {
+    const fragrance = await api.getByIdDetailed(req.params.fragranceId);
+    
+    const user = await userService.getByIdDetailed(req.body.userId);
+    if (!fragrance) {
+        return res.status(404).json({
+            message: `Fragrance with id: ${req.params.fragranceId} not found!`,
+        });
+    }
+    const isFound = fragrance.reviews.find((x) => {
+        return x.author._id.toString() == user._id.toString();
+    });
+
+    if (isFound) {
+        fragrance.reviews = fragrance.reviews.filter(x => x.author._id.toString() != user._id.toString());
+        await api.updateById(req.params.fragranceId, fragrance);
+        
+        user.reviews = user.reviews.filter(x => x.fragrance.toString() != fragrance._id.toString());
+        await userService.updateById(user._id, user);
+        
+        await reviewService.deleteReview(isFound._id);
+        res.json({ [req.params.fragranceId]: 'deleted' });
+    } else {
+        return res
+            .status(404)
+            .json({ message: 'User has not reviewed the fragrance!' });
+    }
 });
 
 module.exports = router;

@@ -23,7 +23,7 @@ export default function FragranceDetails () {
             return res;
         })();
 
-    }, [fragranceId])    
+    }, [fragranceId, fragrance])    
 
 
     const onDeleteHandler = () => {
@@ -37,9 +37,17 @@ export default function FragranceDetails () {
     }
 
     const onReviewDelete = () => {
-        fetch(`${endpoints.catalogUrl}/${fragranceId}/review/delete`)
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/review/delete`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userId: user._id})
+        })
         .then(res => res.json())
-        .then(data => setFragrance(data));
+        .then(data => {
+            setFragrance(data)
+        });
     }
 
     return (

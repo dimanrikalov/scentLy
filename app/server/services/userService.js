@@ -7,6 +7,8 @@ exports.findByEmail = (email) => User.findOne({ email });
 
 exports.getById = (userId) => User.findOne({ _id: userId });
 
+exports.getByIdDetailed = (userId) => User.findOne({ _id: userId }).populate('reviews');
+
 exports.updateById = (userId, data) => User.findByIdAndUpdate(userId, data);
 
 exports.register = (data) => User.create(data);
