@@ -59,7 +59,8 @@ export default function Home() {
                     <Recents reviews={reviews} />
                 </div>
             ) : (
-                <h1 className={styles['no-reviews']}>No reviews in database yet.</h1>
+                <h1 className={styles['no-reviews']}>No reviews in database yet.<br/>
+                Be the first one to review a fragrance!</h1>
             )}
         </>
     );
