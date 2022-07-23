@@ -115,7 +115,7 @@ router.post('/:fragranceId/review/create', async (req, res) => {
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
-    console.log(fragrance);
+
     if (!fragrance) {
         return res.status(404).json({
             message: `Fragrance with id: ${req.params.fragranceId} not found!`,
@@ -132,17 +132,23 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
 
-    const isFound = fragrance.reviews.find(
-        (x) => x.author._id == req.body.userId
-    );
+    const isFound = fragrance.reviews.find((x) => {
+        return x.author._id.toString() == req.body.userId.toString();
+    });
 
     if (isFound) {
-        await reviewService.updateReview(req.params.fragranceId, {
+        await reviewService.updateReview(isFound._id, {
             fragrance: fragrance._id,
             description: req.body.description,
             rating: Number(req.body.rating),
             author: req.body.userId,
         });
+
+        let sum  = 0;
+        fragrance.reviews.forEach(x => sum += x.rating);
+        fragrance.rating = sum / fragrance.reviews.length;
+        console.log(fragrance.rating);
+        await api.updateById(req.params.fragranceId, fragrance);
         res.json({ [req.params.fragranceId]: 'reviewed' });
     } else {
         return res
@@ -160,6 +166,7 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
             message: `Fragrance with id: ${req.params.fragranceId} not found!`,
         });
     }
+
     const isFound = fragrance.reviews.find((x) => {
         return x.author._id.toString() == user._id.toString();
     });
@@ -171,12 +178,9 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
         if (fragrance.reviews.length === 0) {
             fragrance.rating = 0;
         } else {
-            fragrance.rating =
-                fragrance.reviews.reduce(
-                    prevValue,
-                    (currValue) => prevValue + currValue,
-                    0
-                ) / fragrance.reviews.length;
+            let sum  = 0;
+            fragrance.reviews.forEach(x => sum += x.rating);
+            fragrance.rating = sum / fragrance.reviews.length;
         }
         await api.updateById(req.params.fragranceId, fragrance);
 

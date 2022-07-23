@@ -29,8 +29,7 @@ export default function FragranceDetails () {
     const onDeleteHandler = () => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/delete`)
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(() => {
                 navigate('/catalog');
             })
             .catch(err => console.log(err));
@@ -60,7 +59,7 @@ export default function FragranceDetails () {
                     ? <h2 className={styles["title-text"]}>Creator: {fragrance.creator}</h2>
                     : <h2 className={styles["title-text"]}>Creator: Unknown</h2>
                 }
-                <img className={styles.image} src={fragrance.imageUrl} alt=""/>
+                <img className={styles.image} src={fragrance.imageUrl}/>
             </div>
 
             <div className={styles["right-side"]}>
@@ -119,13 +118,21 @@ export default function FragranceDetails () {
                                 </> 
                             )
                         } else if(user) {
-                            return (
-                                <>
-                                    <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
-                                    <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
-                                    <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
-                                </>
-                            )
+                            const hasReviewed = fragrance.reviews?.some(x => x.author._id.toString() == user._id.toString());
+                            if(hasReviewed) {
+                                return (
+                                    <>
+                                        <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
+                                        <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
+                                    </>
+                                )
+                            } else {
+                                return(
+                                    <>
+                                        <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
+                                    </>
+                                )
+                            }
                         }
                    })()}
                 </div>
