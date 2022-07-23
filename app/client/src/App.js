@@ -14,13 +14,18 @@ import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
-
+import { useMemo, useState } from 'react';
+import {UserContext} from './contexts/UserContext';
 
 function App() {
 
-    
+        const [user, setUser] = useState(null);
+        const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
+
     return (
         <div className={styles['main-backround']}>
+
+            <UserContext.Provider value={userValue}>
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home/>}/>
@@ -37,6 +42,7 @@ function App() {
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
             <Footer />
+            </UserContext.Provider>
 
         </div>
     );

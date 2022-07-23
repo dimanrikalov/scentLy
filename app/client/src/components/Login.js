@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import styles from './Forms.module.css';
 import endpoints from '../endpoints';
+import {UserContext} from '../contexts/UserContext';
 
 export default function Login () {
+
+  const {user, setUser} = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -52,9 +55,10 @@ export default function Login () {
       });
 
       const result = await res.json();
-      if(result.message === 'Invalid email or password!') {
+      if(result.message !== 'Successfully logged in!') {
         setErrorMessage(result.message);
       } else {
+        setUser(result.user);
         navigate('/');
       }
     }
