@@ -86,3 +86,9 @@ textarea {
     background-color: #e83c3c;
     outline-color: rgb(241, 126, 126);
 }
+
+.error-message {
+    text-align: center;
+    font-weight: bold;
+    color:red;
+}

@@ -29,7 +29,7 @@ router.post('/create', async (req, res) => {
     }
 
     try {
-        const result = await api.createOne({ ...req.body });
+        await api.createOne({ ...req.body });
         res.json({ message: 'Successfully created!' });
     } catch (err) {
         console.log(err);

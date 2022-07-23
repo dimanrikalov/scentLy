@@ -9,6 +9,9 @@ export default function EditReviewForm () {
     const { fragranceId } = useParams();
     const navigate = useNavigate();
 
+    
+    const [descriptionHasError, setDescriptionHasError] = useState('');
+    const [ratingHasError, setRatingHasError] = useState('');
     const [fragrance, setFragrance] = useState({});
 
     const [values, setValues] = useState({
@@ -22,6 +25,23 @@ export default function EditReviewForm () {
             [e.target.name]: e.target.value,
         }));
     };
+
+    const validateDescription = () => {
+        if(values.description.length < 10) {
+            setDescriptionHasError(true);
+        } else {
+            setDescriptionHasError(false);
+        }
+    }
+
+    
+    const validateRating = () => {
+        if(values.rating < 1 || values.rating > 5) {
+            setRatingHasError(true);
+        } else {
+            setRatingHasError(false);
+        }
+    }
 
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
@@ -72,8 +92,15 @@ export default function EditReviewForm () {
                             className={styles.description}
                             value={values.description}
                             onChange={onChangeHandler}
+                            onBlur={validateDescription}
                             placeholder="Enter a review"
                         ></textarea>
+                         {   
+                            descriptionHasError && 
+                            <h6 className={styles['error-message']}>
+                                Minimum description length 10 characters!
+                            </h6>
+                        }
                         <h4 className={styles['subtitle']}>Review score: </h4>
                         <input
                             type="number"
@@ -81,12 +108,25 @@ export default function EditReviewForm () {
                             className={styles.rating}
                             value={values.rating}
                             onChange={onChangeHandler}
+                            onBlur={validateRating}
                             placeholder="    [1-5]"
                         />
+                        {   
+                            ratingHasError && 
+                            <h6 className={styles['error-message']}>
+                                Invalid rating value [1-5]!
+                            </h6>
+                        }
                         <button
                             type="submit"
                             className={styles['submit-button']}
                             onClick={submitHandler}
+                            disabled={
+                                !values.description ||
+                                !values.rating ||
+                                descriptionHasError ||
+                                ratingHasError
+                            }
                         >
                             <span className="ml-3 text-lg">Create</span>
                         </button>
