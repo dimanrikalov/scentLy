@@ -105,6 +105,7 @@ export default function CreateFragranceForm() {
         if(response.message !== 'Successfully created!') {
             setErrorMessage(response.message);
         } else {
+            setUser(response.user);
             navigate('/catalog');
         }
     };

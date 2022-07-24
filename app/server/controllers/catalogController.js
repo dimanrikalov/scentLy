@@ -34,7 +34,7 @@ router.post('/create', async (req, res) => {
         const user = await userService.getById(req.body.author);
         user.ownedFragrances.push(fragrance._id);
         await userService.updateById(user._id, user);
-        res.json({ message: 'Successfully created!' });
+        res.json({ message: 'Successfully created!', user });
     } catch (err) {
         console.log(err);
         res.status(400).json({ message: 'Request error!' });
@@ -84,7 +84,7 @@ router.get('/:fragranceId/delete', async (req, res) => {
     await userService.updateById(creator._id, creator);
 
     await api.deleteById(req.params.fragranceId);
-    res.json({ [req.params.fragranceId]: 'deleted' });
+    res.json({ [req.params.fragranceId]: 'deleted', creator });
 });
 
 router.post('/:fragranceId/review/create', async (req, res) => {
@@ -110,7 +110,7 @@ router.post('/:fragranceId/review/create', async (req, res) => {
 
     user.reviews.push(newReview._id);
     await userService.updateById(user._id, user);
-    res.json({ [req.params.fragranceId]: 'reviewed' });
+    res.json({ [req.params.fragranceId]: 'reviewed', user });
 });
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
@@ -190,7 +190,7 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
         await userService.updateById(user._id, user);
 
         await reviewService.deleteReview(isFound._id);
-        res.json({ [req.params.fragranceId]: 'deleted' });
+        res.json({ [req.params.fragranceId]: 'deleted', user });
     } else {
         return res
             .status(404)

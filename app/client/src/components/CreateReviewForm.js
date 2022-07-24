@@ -70,11 +70,12 @@ export default function CreateReviewForm() {
         })
             .then((res) => res.json())
             .then((data) => {
+                setUser(data.user);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
             .catch((err) => {
                 setHasError(err);
-                console.log(err)
+                console.log(err);
             });
     };
     return (

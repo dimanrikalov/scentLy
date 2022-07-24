@@ -29,7 +29,8 @@ export default function FragranceDetails () {
     const onDeleteHandler = () => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/delete`)
             .then(res => res.json())
-            .then(() => {
+            .then((data) => {
+                setUser(data.creator);
                 navigate('/catalog');
             })
             .catch(err => console.log(err));
@@ -45,6 +46,7 @@ export default function FragranceDetails () {
         })
         .then(res => res.json())
         .then(data => {
+            setUser(data.user);
             setFragrance(data)
         });
     }
