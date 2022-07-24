@@ -53,11 +53,41 @@ export default function Profile() {
                 </div>
             </div>
             <div className={styles.collections}>
-                <h2 className="ml-20 mt-32 mb-3">Owned fragrances:</h2>
+                <h2 className="ml-20 mt-10 mb-3">Owned fragrances:</h2>
+                <input
+                className={styles.input}
+                type="text"
+                name="catalogSearch"
+                // value={searchValue.searchOwnedInput}
+                // onChange={onOwnedChangeHandler}
+                placeholder="Search for a fragrance"
+            />
+            <button
+                type="submit"
+                className={styles['search-button']}
+                // onClick={onOwnedSubmitHandler}
+            >
+                Search
+            </button>
                 <div className={styles.profileOwned}>
                     <Owned ownedFragrances={ownedFragrances} />
                 </div>
-                <h2 className="ml-20 mt-32 mb-3">Reviewed fragrances:</h2>
+                <h2 className="ml-20 mt-10 mb-3">Reviewed fragrances:</h2>
+                <input
+                className={styles.input}
+                type="text"
+                name="catalogSearch"
+                // value={searchValue.searchOwnedInput}
+                // onChange={onOwnedChangeHandler}
+                placeholder="Search for a fragrance"
+            />
+            <button
+                type="submit"
+                className={styles['search-button']}
+                // onClick={onOwnedSubmitHandler}
+            >
+                Search
+            </button>
                 <div className={styles.profileReviews}>
                     <Reviewed reviewed={reviews}/>
                 </div>
