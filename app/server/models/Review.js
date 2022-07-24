@@ -6,6 +6,12 @@ const reviewSchema = new mongoose.Schema({
         ref: 'Fragrance',
         required: true
     },
+    fragranceName: {
+        type: String
+    },
+    fragranceBrand: {
+        type: String
+    },
     description: {
         type: String,
         required: [true, 'Review description is required!'],

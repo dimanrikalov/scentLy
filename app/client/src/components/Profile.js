@@ -7,9 +7,11 @@ import Reviewed from './Reviewed';
 
 export default function Profile() {
     const { user, setUser } = useContext(UserContext);
+
     const [ownedFragrances, setOwnedFragrances] = useState([]);
-    const [filteredFragrances, setFilteredFragrances] = useState([...ownedFragrances]);
     const [reviews, setReviews] = useState([]);
+    const [filteredFragrances, setFilteredFragrances] = useState([...ownedFragrances]);
+    const [filteredReviews, setFilteredReviews] = useState([...reviews]);
 
     const [searchValues, setSearchValues] = useState({
         searchOwnedFragrance: '',
@@ -21,13 +23,14 @@ export default function Profile() {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setFilteredFragrances(data.ownedFragrances);
                 setOwnedFragrances(data.ownedFragrances);
                 setReviews(data.reviews);
+                setFilteredFragrances(data.ownedFragrances);
+                setFilteredReviews(data.reviews);
             });
     }, []);
 
-    const onSearchOwnedFragranceChange = (e) => {
+    const onSearchChange = (e) => {
         setSearchValues((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
@@ -36,20 +39,33 @@ export default function Profile() {
 
     const onOwnedSearchHandler = (e) => {
         e.preventDefault();
-        console.log(searchValues.searchOwnedFragrance)
+
         setFilteredFragrances(
-            ownedFragrances.filter(
+            [...ownedFragrances.filter(
                 (x) =>
                     x.name.toLowerCase()
                         .includes(searchValues.searchOwnedFragrance.toLowerCase()) 
                 || 
                     x.brand.toLowerCase()
                         .includes(searchValues.searchOwnedFragrance.toLowerCase())
-            )
+            )]
         );
     };
 
+    const onReviewedSearchHandler = (e) => {
+        e.preventDefault();
 
+        setFilteredReviews(
+            [...reviews.filter(
+                (x) =>
+                    x.fragranceName.toLowerCase()
+                        .includes(searchValues.searchReviewedFragrance.toLowerCase()) 
+                || 
+                    x.fragranceBrand.toLowerCase()
+                        .includes(searchValues.searchReviewedFragrance.toLowerCase())
+            )]
+        );
+    };
 
     return (
         <div id="profile" className={styles['profilePage']}>
@@ -90,7 +106,7 @@ export default function Profile() {
                     type="text"
                     name="searchOwnedFragrance"
                     value={searchValues.searchOwnedFragrance}
-                    onChange={onSearchOwnedFragranceChange}
+                    onChange={onSearchChange}
                     placeholder="Search for a fragrance"
                 />
                 <button
@@ -109,7 +125,7 @@ export default function Profile() {
                     type="text"
                     name="searchReviewedFragrance"
                     value={searchValues.searchReviewedFragrance}
-                    onChange={onSearchOwnedFragranceChange}
+                    onChange={onSearchChange}
                     placeholder="Search for a fragrance"
                 />
                 <button
@@ -120,7 +136,7 @@ export default function Profile() {
                     Search
                 </button>
                 <div className={styles.profileReviews}>
-                    <Reviewed reviewed={reviews} />
+                    <Reviewed reviewed={filteredReviews} />
                 </div>
             </div>
         </div>

@@ -101,7 +101,12 @@ router.post('/:fragranceId/review/create', async (req, res) => {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
 
-    const newReview = await reviewService.createReview({...req.body, imageUrl: fragrance.imageUrl});
+    const newReview = await reviewService.createReview({
+        ...req.body,
+        imageUrl: fragrance.imageUrl,
+        fragranceName: fragrance.name,
+        fragranceBrand: fragrance.brand
+    });
     fragrance.reviews.push(newReview._id);
     const total =
         (fragrance.rating + newReview.rating) / fragrance.reviews.length;
@@ -144,8 +149,8 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
             author: req.body.userId,
         });
 
-        let sum  = 0;
-        fragrance.reviews.forEach(x => sum += x.rating);
+        let sum = 0;
+        fragrance.reviews.forEach((x) => (sum += x.rating));
         fragrance.rating = sum / fragrance.reviews.length;
         await api.updateById(req.params.fragranceId, fragrance);
         res.json({ [req.params.fragranceId]: 'reviewed', fragrance });
@@ -177,8 +182,8 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
         if (fragrance.reviews.length === 0) {
             fragrance.rating = 0;
         } else {
-            let sum  = 0;
-            fragrance.reviews.forEach(x => sum += x.rating);
+            let sum = 0;
+            fragrance.reviews.forEach((x) => (sum += x.rating));
             fragrance.rating = sum / fragrance.reviews.length;
         }
         await api.updateById(req.params.fragranceId, fragrance);
