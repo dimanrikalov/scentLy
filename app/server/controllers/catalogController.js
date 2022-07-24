@@ -105,7 +105,7 @@ router.post('/:fragranceId/review/create', async (req, res) => {
         ...req.body,
         imageUrl: fragrance.imageUrl,
         fragranceName: fragrance.name,
-        fragranceBrand: fragrance.brand
+        fragranceBrand: fragrance.brand,
     });
     fragrance.reviews.push(newReview._id);
     const total =
@@ -120,6 +120,7 @@ router.post('/:fragranceId/review/create', async (req, res) => {
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
+    const user = await userService.getById(req.body.userId);
 
     if (!fragrance) {
         return res.status(404).json({
@@ -137,27 +138,27 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         return res.status(400).json({ message: 'Invalid rating!' });
     }
 
-    const isFound = fragrance.reviews.find((x) => {
-        return x.author._id.toString() == req.body.userId.toString();
-    });
+    const isFound = fragrance.reviews.find(
+        (x) => x.author._id.toString() == user._id.toString()
+    );
 
-    if (isFound) {
+    if(isFound) {
+        let totalRating = 0;
+        
+        fragrance.reviews.forEach(x => totalRating += x.rating);
+        totalRating += req.body.rating - isFound.rating;
+        fragrance.rating = totalRating;
+
+        isFound.description = req.body.description;
+        isFound.rating = req.body.rating;
+
+        await api.updateById(fragrance._id, fragrance);
         await reviewService.updateReview(isFound._id, {
-            fragrance: fragrance._id,
             description: req.body.description,
-            rating: Number(req.body.rating),
-            author: req.body.userId,
+            rating: req.body.rating
         });
 
-        let sum = 0;
-        fragrance.reviews.forEach((x) => (sum += x.rating));
-        fragrance.rating = sum / fragrance.reviews.length;
-        await api.updateById(req.params.fragranceId, fragrance);
-        res.json({ [req.params.fragranceId]: 'reviewed', fragrance });
-    } else {
-        return res
-            .status(404)
-            .json({ message: 'User has not reviewed the fragrance!' });
+        res.json(fragrance);
     }
 });
 
