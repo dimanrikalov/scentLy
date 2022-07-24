@@ -22,6 +22,9 @@ const reviewSchema = new mongoose.Schema({
                 message: 'Rating must be an integer value'
             }
         },
+    imageUrl: {
+        type: String
+    },
     author: {
         type: mongoose.Types.ObjectId,
         ref: 'User',

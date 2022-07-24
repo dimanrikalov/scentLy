@@ -1,12 +1,25 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import Owned from './Owned';
 import styles from './Profile.module.css';
+import endpoints from '../endpoints';
+import Reviewed from './Reviewed';
 
 export default function Profile() {
 
     const {user, setUser} = useContext(UserContext);
-    
+    const [ownedFragrances, setOwnedFragrances] = useState([]);
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch(`${endpoints.profileUrl}/${user._id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setOwnedFragrances(data.ownedFragrances);
+                setReviews(data.reviews);
+            });
+    }, []);
 
     return (
         <div id="profile" className={styles['profilePage']}>
@@ -42,11 +55,11 @@ export default function Profile() {
             <div className={styles.collections}>
                 <h2 className="ml-20 mt-32 mb-3">Owned fragrances:</h2>
                 <div className={styles.profileOwned}>
-                    <Owned />
+                    <Owned ownedFragrances={ownedFragrances} />
                 </div>
                 <h2 className="ml-20 mt-32 mb-3">Reviewed fragrances:</h2>
                 <div className={styles.profileReviews}>
-                    <Owned />
+                    <Reviewed reviewed={reviews}/>
                 </div>
             </div>
         </div>

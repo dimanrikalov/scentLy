@@ -30,7 +30,7 @@ export default function Home() {
                                 <div className="carousel-caption d-none d-md-block">
                                     <h1 className="carousel-title">
                                         Welcome to
-                                        <br /> ScentLy{' '}
+                                        <br /> ScentLy
                                         {
                                         user
                                         ? 

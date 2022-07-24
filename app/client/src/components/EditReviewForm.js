@@ -68,7 +68,7 @@ export default function EditReviewForm () {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                setFragrance(data.fragrance);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
             .catch((err) => console.log(err));

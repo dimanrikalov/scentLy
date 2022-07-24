@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 export default function OwnedCard (props) {
     return (
-      <Link to="/fragrance/:id">
+      <Link to={`/fragrance/${props._id}/details`}>
         <div className={styles["card"]}>
           <div className={styles["card_image"]}>
              <img src={props.imgUrl} /> 

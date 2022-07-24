@@ -20,7 +20,7 @@ export default function FragranceDetails () {
             const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/details`);
             const result = await res.json();
             setFragrance(result);
-            return res;
+            return result;
         })();
 
     }, [fragranceId, fragrance])    
@@ -47,7 +47,7 @@ export default function FragranceDetails () {
         .then(res => res.json())
         .then(data => {
             setUser(data.user);
-            setFragrance(data)
+            setFragrance(data.fragrance);
         });
     }
 
