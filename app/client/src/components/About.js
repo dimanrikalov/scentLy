@@ -3,19 +3,22 @@ import styles from './About.module.css';
 import { useEffect, useState } from 'react';
 
 export default function About() {
-    const [fragranceCount, setFragranceCount] = useState(0);
-    const [reviewsCount, setReviewsCount] = useState(0);
+
+    const [hasError, setHasError] = useState({});
     const [userCount, setUserCount] = useState(0);
+    const [reviewsCount, setReviewsCount] = useState(0);
+    const [fragranceCount, setFragranceCount] = useState(0);
 
     useEffect(() => {
         fetch(`${endpoints.aboutUrl}`)
             .then((res) => res.json())
             .then((data) => {
-                setFragranceCount(data.fragranceCount);
-                setReviewsCount(data.reviewsCount);
                 setUserCount(data.userCount);
-            }, []);
-    });
+                setReviewsCount(data.reviewsCount);
+                setFragranceCount(data.fragranceCount);
+            })
+            .catch(err => setHasError(err));
+    }, []);
 
     return (
         <div className={styles['min-width']}>
@@ -60,7 +63,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary text-4xl">
-                                    {userCount}
+                                    {hasError.message ? hasError.message : userCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl">
                                     <strong>Total Users</strong>
@@ -73,7 +76,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary text-4xl">
-                                    {reviewsCount}
+                                {hasError.message ? hasError.message : reviewsCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl">
                                     <strong>Total Reviews</strong>
@@ -96,7 +99,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary">
-                                    {fragranceCount}
+                                {hasError.message ? hasError.message : fragranceCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900">
                                     <strong>Total fragrances</strong>
