@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
 import endpoints from '../endpoints';
 import CatalogCard from './CatalogCard';
+import { useEffect, useState } from 'react';
 import mainStyles from './Catalog.module.css';
 import styles from './CatalogCard.module.css';
 
 export default function Catalog() {
+    
+    const [hasError, setHasError] = useState({});
     const [fragrances, setFragrances] = useState([]);
     const [searchValue, setSearchValue] = useState({
         catalogSearch: '',
@@ -13,7 +15,9 @@ export default function Catalog() {
     useEffect(() => {
         fetch(endpoints.catalogUrl)
             .then((res) => res.json())
-            .then((serverFragrances) => setFragrances(serverFragrances));
+            .then((serverFragrances) => 
+                setFragrances(serverFragrances))
+            .catch(err => setHasError(err));
     }, []);
 
     const onChangeHandler = (e) => {
@@ -33,7 +37,8 @@ export default function Catalog() {
             body: JSON.stringify(searchValue),
         })
             .then((res) => res.json())
-            .then((data) => setFragrances(data));
+            .then((data) => setFragrances(data))
+            .catch(err => setHasError(err));
     };
 
     return (
@@ -59,17 +64,32 @@ export default function Catalog() {
             >
                 Search
             </button>
-            {fragrances.length > 0 ? (
-                <div className={styles['cards-list']}>
-                    {fragrances.map((x) => (
-                        <CatalogCard key={x._id} fragrance={x} />
-                    ))}
-                </div>
-            ) : (
-                <h1 className={mainStyles['no-fragrances']}>
-                    No fragrances in database yet.
-                </h1>
-            )}
+            {
+                (() => {
+                    if(hasError.message) {
+                        return (
+                            <h1>
+                                {hasError.message}
+                            </h1>
+                        )
+                    }
+                    if(fragrances.length > 0) {
+                    return  (
+                            <div className={styles['cards-list']}>
+                                {fragrances.map((x) => (
+                                    <CatalogCard key={x._id} fragrance={x} />
+                                ))}
+                            </div>
+                        )
+                    } else {
+                    return (
+                            <h1 className={mainStyles['no-fragrances']}>
+                                No fragrances in database yet.
+                            </h1>
+                        )
+                    }
+                })()
+            }
         </div>
     );
 }
