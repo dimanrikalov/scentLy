@@ -2,8 +2,8 @@ import Reviews from './Reviews.js';
 import endpoints from '../endpoints';
 import styles from './FragranceDetails.module.css';
 import { UserContext } from '../contexts/UserContext';
-import { Fragment, useContext, useEffect, useState } from 'react';
-import {Link, useNavigate, useParams} from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function FragranceDetails () {
 
@@ -13,6 +13,7 @@ export default function FragranceDetails () {
 
     const {user, setUser} = useContext(UserContext);
 
+    const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
 
     useEffect(() => {
@@ -20,7 +21,6 @@ export default function FragranceDetails () {
             const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/details`);
             const result = await res.json();
             setFragrance(result);
-            return result;
         })();
 
     }, [fragranceId, fragrance])    
@@ -33,7 +33,7 @@ export default function FragranceDetails () {
                 setUser(data.creator);
                 navigate('/catalog');
             })
-            .catch(err => console.log(err));
+            .catch(err => setHasError(err));
     }
 
     const onReviewDelete = () => {
@@ -48,7 +48,8 @@ export default function FragranceDetails () {
         .then(data => {
             setUser(data.user);
             setFragrance(data.fragrance);
-        });
+        })
+        .catch(err => setHasError(err));
     }
 
     return (
@@ -61,7 +62,7 @@ export default function FragranceDetails () {
                     ? <h2 className={styles["title-text"]}>Creator: {fragrance.creator}</h2>
                     : <h2 className={styles["title-text"]}>Creator: Unknown</h2>
                 }
-                <img className={styles.image} src={fragrance.imageUrl}/>
+                <img className={styles.image} src={fragrance.imageUrl} alt=""/>
             </div>
 
             <div className={styles["right-side"]}>
@@ -109,10 +110,16 @@ export default function FragranceDetails () {
                     )
                 }
 
+                {
+                    hasError && 
+                    <h1 className='pt-4'>
+                        {hasError.message}
+                    </h1>
+                }
 
                 <div className={styles['button-div']}>
                    {(()=> {
-                        if(user?._id == fragrance.author) {
+                        if(user?._id === fragrance.author) {
                             return (
                                 <>
                                     <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
@@ -120,7 +127,7 @@ export default function FragranceDetails () {
                                 </> 
                             )
                         } else if(user) {
-                            const hasReviewed = fragrance.reviews?.some(x => x.author._id.toString() == user._id.toString());
+                            const hasReviewed = fragrance.reviews?.some(x => x.author._id.toString() === user._id.toString());
                             if(hasReviewed) {
                                 return (
                                     <>
