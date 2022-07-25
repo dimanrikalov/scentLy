@@ -1,9 +1,9 @@
 import Recents from './Recents';
-import { Link } from 'react-router-dom';
-import { useEffect, useState, useContext } from 'react';
-import styles from './Home.module.css';
 import endpoints from '../endpoints';
+import styles from './Home.module.css';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
+import { useEffect, useState, useContext } from 'react';
 
 export default function Home() {
     const { user, setUser } = useContext(UserContext);
