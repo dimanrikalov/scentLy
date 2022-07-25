@@ -1,24 +1,22 @@
+import endpoints from '../endpoints';
 import { useEffect, useState } from 'react';
 import styles from './EditFragranceForm.module.css';
-import endpoints from '../endpoints';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditFragranceForm() {
 
-    const { fragranceId } = useParams();
-
     const navigate = useNavigate();
 
+    const { fragranceId } = useParams();
+
+    const [image, setImage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const [nameHasError, setNameHasError] = useState('');
     const [brandHasError, setBrandHasError] = useState('');
     const [imageUrlHasError, setImageUrlHasError] = useState('');
     const [topNotesHasError, setTopNotesHasError] = useState('');
-    const [middleNotesHasError, setMiddleNotesHasError] = useState('');
     const [baseNotesHasError, setBaseNotesHasError] = useState('');
-
-    const [errorMessage, setErrorMessage] = useState('');
-
-    const [image, setImage] = useState('');
+    const [middleNotesHasError, setMiddleNotesHasError] = useState('');
 
     const [values, setValues] = useState({
         name: '',
@@ -26,8 +24,8 @@ export default function EditFragranceForm() {
         creator: '',
         imageUrl: '',
         topNotes: '',
-        middleNotes: '',
         baseNotes: '',
+        middleNotes: '',
     });
 
     useEffect(() => {
@@ -41,7 +39,8 @@ export default function EditFragranceForm() {
                     baseNotes: data.baseNotes.join(', '),
                 });
                 setImage(data.imageUrl);
-            });
+            })
+            .catch(err => setErrorMessage(err.message));
     }, [fragranceId]);
 
     const changeHandler = (e) => {
@@ -105,7 +104,7 @@ export default function EditFragranceForm() {
     const submitHandler = async (e) => {
       e.preventDefault();
       
-      await fetch(`${endpoints.catalogUrl}/${fragranceId}/edit`, {
+      const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/edit`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -117,8 +116,12 @@ export default function EditFragranceForm() {
               baseNotes: values.baseNotes.split(', '),
           }),
       });
-
-      navigate(`/fragrance/${fragranceId}/details`);
+      const result = res.json();
+      if(result.message) {
+            setErrorMessage(result.message);
+      } else {
+            navigate(`/fragrance/${fragranceId}/details`);
+      }
     };
 
 
@@ -130,7 +133,12 @@ export default function EditFragranceForm() {
 
             <div className={styles['right-side']}>
                 <h1 className={styles['text']}>Edit fragrance</h1>
-                {errorMessage && <h3 className={[styles['error-message'], 'pb-3'].join(' ')}>{errorMessage}</h3>}
+                {
+                    errorMessage && 
+                    <h3 className={[styles['error-message'], 'pb-3'].join(' ')}>
+                        {errorMessage}
+                    </h3>
+                }
                 <div className="mx-auto max-w-xs">
                     <input
                         className={styles.input}
@@ -141,17 +149,27 @@ export default function EditFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateName}
                     />
-                    {nameHasError && <p className={styles['error-message']}>Enter a valid fragrance name!</p>}
+                    {
+                        nameHasError && 
+                        <p className={styles['error-message']}>
+                            Enter a valid fragrance name!
+                        </p>
+                    }
                     <input
-                        onChange={changeHandler}
+                        className={styles.input}
                         type="text"
                         placeholder="Fragrance brand"
                         name="brand"
                         value={values.brand}
-                        className={styles.input}
+                        onChange={changeHandler}
                         onBlur={validateBrand}
                     />
-                    {brandHasError && <p className={styles['error-message']}>Enter a valid fragrance brand!</p>}
+                    {
+                        brandHasError && 
+                        <p className={styles['error-message']}>
+                            Enter a valid fragrance brand!
+                        </p>
+                    }
                     <input
                         className={styles.input}
                         type="text"
@@ -161,45 +179,64 @@ export default function EditFragranceForm() {
                         onChange={changeHandler}
                         />
                     <input
-                        onChange={changeHandler}
+                        className={styles.input}
                         type="url"
                         placeholder="Image URL (starts with http)"
                         name="imageUrl"
-                        className={styles.input}
                         value={values.imageUrl}
+                        onChange={changeHandler}
                         onBlur={validateImageUrl}
                     />
-                    {imageUrlHasError && <p className={styles['error-message']}>Enter a valid image URL!</p>}
+                    {
+                        imageUrlHasError && 
+                        <p className={styles['error-message']}>
+                            Enter a valid image URL!
+                        </p>
+                    }
                     <input
-                        onChange={changeHandler}
+                        className={styles.input}
                         type="text"
                         placeholder="Top notes (split by a comma)"
                         name="topNotes"
-                        className={styles.input}
                         value={values.topNotes}
+                        onChange={changeHandler}
                         onBlur={validateTopNotes}
                     />
-                    {topNotesHasError && <p className={styles['error-message']}>Enter valid top notes!</p>}
+                    {   topNotesHasError && 
+                        <p className={styles['error-message']}>
+                            Enter valid top notes!
+                        </p>
+                    }
                     <input
-                        onChange={changeHandler}
+                        className={styles.input}
                         type="text"
                         placeholder="Mid notes (split by a comma)"
                         name="middleNotes"
                         value={values.middleNotes}
-                        className={styles.input}
+                        onChange={changeHandler}
                         onBlur={validateMiddleNotes}
                     />
-                    {middleNotesHasError && <p className={styles['error-message']}>Enter valid middle notes!</p>}
+                    {
+                        middleNotesHasError && 
+                        <p className={styles['error-message']}>
+                            Enter valid middle notes!
+                        </p>
+                    }
                     <input
-                        onChange={changeHandler}
+                        className={styles.input}
                         type="text"
                         placeholder="Base notes (split by a comma)"
                         name="baseNotes"
-                        className={styles.input}
                         value={values.baseNotes}
+                        onChange={changeHandler}
                         onBlur={validateBaseNotes}
                     />
-                    {baseNotesHasError && <p className={styles['error-message']}>Enter valid base notes!</p>}
+                    {
+                        baseNotesHasError && 
+                        <p className={styles['error-message']}>
+                            Enter valid base notes!
+                        </p>
+                    }
 
                     <button
                         className={styles['submit-button']}
