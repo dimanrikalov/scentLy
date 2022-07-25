@@ -8,10 +8,11 @@ import Reviewed from './Reviewed';
 export default function Profile() {
     const { user, setUser } = useContext(UserContext);
 
-    const [ownedFragrances, setOwnedFragrances] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const [filteredFragrances, setFilteredFragrances] = useState([...ownedFragrances]);
+    const [hasError, setHasError] = useState({});
+    const [ownedFragrances, setOwnedFragrances] = useState([]);
     const [filteredReviews, setFilteredReviews] = useState([...reviews]);
+    const [filteredFragrances, setFilteredFragrances] = useState([...ownedFragrances]);
 
     const [searchValues, setSearchValues] = useState({
         searchOwnedFragrance: '',
@@ -22,12 +23,12 @@ export default function Profile() {
         fetch(`${endpoints.profileUrl}/${user._id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setOwnedFragrances(data.ownedFragrances);
                 setReviews(data.reviews);
                 setFilteredFragrances(data.ownedFragrances);
                 setFilteredReviews(data.reviews);
-            });
+            })
+            .catch(err => setHasError(err));
     }, []);
 
     const onSearchChange = (e) => {
@@ -69,6 +70,9 @@ export default function Profile() {
 
     return (
         <div id="profile" className={styles['profilePage']}>
+            <h1 className={styles['error-message']}>
+                {hasError.message}
+            </h1>
             <div className={styles['profileDiv']}>
                 <h1>{user.name}</h1>
 
