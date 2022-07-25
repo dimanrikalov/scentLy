@@ -78,8 +78,4 @@ router.get('/logout', (req, res) => {
     res.json({ message: 'Successfully logged out' });
 });
 
-router.get('/collection', (req, res) => {
-    res.json([{ collection: 'user fragrances' }]);
-});
-
 module.exports = router;
