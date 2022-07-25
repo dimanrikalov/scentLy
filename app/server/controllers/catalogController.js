@@ -105,7 +105,7 @@ router.get('/:fragranceId/delete', async (req, res) => {
 router.post('/:fragranceId/review/create', async (req, res) => {
     
     const fragrance = await api.getById(req.params.fragranceId);
-    const user = await userService.getById(req.body.author);
+    const creator = await userService.getById(req.body.author);
 
     if (!fragrance) {
         return res.status(404).json({
@@ -130,9 +130,9 @@ router.post('/:fragranceId/review/create', async (req, res) => {
         fragrance.rating = total;
         await api.updateById(req.params.fragranceId, fragrance);
     
-        user.reviews.push(newReview._id);
-        await userService.updateById(user._id, user);
-        res.json({ [req.params.fragranceId]: 'reviewed', user });
+        creator.reviews.push(newReview._id);
+        await userService.updateById(creator._id, creator);
+        res.json({ [req.params.fragranceId]: 'reviewed', creator });
     } catch (err) {
         return res.status(404).json({message: 'Server error: Could not create review!'})
     }

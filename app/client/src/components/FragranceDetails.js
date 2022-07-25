@@ -40,7 +40,7 @@ export default function FragranceDetails () {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/review/delete`, {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({userId: user._id})
         })
