@@ -1,18 +1,22 @@
-import styles from './CreateReviewForm.module.css';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import endpoints from '../endpoints';
-import {UserContext} from '../contexts/UserContext';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import styles from './CreateReviewForm.module.css';
+import { UserContext } from '../contexts/UserContext';
+import { useEffect, useState, useContext } from 'react';
 
 export default function EditReviewForm () {
-    const { fragranceId } = useParams();
+    
     const navigate = useNavigate();
+
+    const { fragranceId } = useParams();
+    
     const {user, setUser} = useContext(UserContext);
     
-    const [descriptionHasError, setDescriptionHasError] = useState('');
-    const [ratingHasError, setRatingHasError] = useState('');
+    const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
+    const [ratingHasError, setRatingHasError] = useState('');
+    const [descriptionHasError, setDescriptionHasError] = useState('');
 
     const [values, setValues] = useState({
         description: '',
@@ -46,9 +50,8 @@ export default function EditReviewForm () {
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then((res) => res.json())
-            .then((data) => {
-                setFragrance(data);
-            });
+            .then((data) => setFragrance(data))
+            .catch((err) => setHasError(err));
     }, [fragranceId]);
 
     const submitHandler = (e) => {
@@ -71,7 +74,7 @@ export default function EditReviewForm () {
                 setFragrance(fragranceData);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => setHasError(err));
     };
     return (
         <div className={styles['create-form']}>
@@ -82,6 +85,10 @@ export default function EditReviewForm () {
             <div className={styles['right-side']}>
                 <form>
                     <h1 className={styles['text']}>Edit review</h1>
+                    {
+                        hasError && 
+                        <h3>{hasError.message}</h3>
+                    }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
                             Review description:{' '}
