@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
 import endpoints from '../endpoints';
-import { useInRouterContext, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './CreateFragranceForm.module.css';
 import { UserContext } from '../contexts/UserContext';
 
@@ -13,8 +13,8 @@ export default function CreateFragranceForm() {
     const [brandHasError, setBrandHasError] = useState('');
     const [imageUrlHasError, setImageUrlHasError] = useState('');
     const [topNotesHasError, setTopNotesHasError] = useState('');
-    const [middleNotesHasError, setMiddleNotesHasError] = useState('');
     const [baseNotesHasError, setBaseNotesHasError] = useState('');
+    const [middleNotesHasError, setMiddleNotesHasError] = useState('');
 
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -24,8 +24,8 @@ export default function CreateFragranceForm() {
         creator: '',
         imageUrl: '',
         topNotes: '',
-        middleNotes: '',
         baseNotes: '',
+        middleNotes: '',
     });
 
     const changeHandler = (e) => {
@@ -95,10 +95,10 @@ export default function CreateFragranceForm() {
             },
             body: JSON.stringify({
                 ...values,
+                author: user._id,
                 topNotes: values.topNotes.split(', '),
-                middleNotes: values.middleNotes.split(', '),
                 baseNotes: values.baseNotes.split(', '),
-                author: user._id
+                middleNotes: values.middleNotes.split(', ')
             }),
         });
         const response = await res.json();

@@ -4,18 +4,18 @@ import About from './components/About';
 import Login from './components/Login';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { useMemo, useState } from 'react';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import { Routes, Route } from 'react-router-dom';
+import {UserContext} from './contexts/UserContext';
 import EditReviewForm from './components/EditReviewForm';
 import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
-import { useMemo, useState } from 'react';
-import {UserContext} from './contexts/UserContext';
 
 function App() {
 

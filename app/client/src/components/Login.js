@@ -10,9 +10,9 @@ export default function Login () {
 
     const navigate = useNavigate();
 
+    const [errorMessage, setErrorMessage] = useState('');
     const [emailHasError, setEmailHasError] = useState('');
     const [passwordHasError, setPasswordHasError] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
 
     const [values, setValues] = useState({
       email: '',
