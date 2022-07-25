@@ -1,20 +1,22 @@
-import styles from './CreateReviewForm.module.css';
-import { useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import endpoints from '../endpoints';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import styles from './CreateReviewForm.module.css';
 import { UserContext } from '../contexts/UserContext';
+import { useContext, useEffect, useState } from 'react';
 
 export default function CreateReviewForm() {
-    const { fragranceId } = useParams();
+
     const navigate = useNavigate();
 
+    const { fragranceId } = useParams();
+    
     const {user, setUser} = useContext(UserContext);
 
-    const [hasError, setHasError] = useState('');
-    const [descriptionHasError, setDescriptionHasError] = useState('');
-    const [ratingHasError, setRatingHasError] = useState('');
+    const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
+    const [ratingHasError, setRatingHasError] = useState('');
+    const [descriptionHasError, setDescriptionHasError] = useState('');
 
     const [values, setValues] = useState({
         description: '',
@@ -48,9 +50,8 @@ export default function CreateReviewForm() {
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then((res) => res.json())
-            .then((data) => {
-                setFragrance(data);
-            });
+            .then((data) => setFragrance(data))
+            .catch(err => setHasError(err));
     }, [fragranceId]);
 
     const submitHandler = (e) => {
@@ -75,7 +76,6 @@ export default function CreateReviewForm() {
             })
             .catch((err) => {
                 setHasError(err);
-                console.log(err);
             });
     };
     return (
@@ -89,7 +89,7 @@ export default function CreateReviewForm() {
                     <h1 className={styles['text']}>Create a review</h1>
                     {
                         hasError && 
-                        <h3>{hasError}</h3>
+                        <h3>{hasError.message}</h3>
                     }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
