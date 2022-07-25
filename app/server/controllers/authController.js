@@ -4,10 +4,6 @@ const api = require('../services/userService');
 
 //isLogged middleware??????
 //isOwner ???
-router.get('/register', (req, res) => {
-    res.json({ auth: 'registration' });
-});
-
 router.post('/register', async (req, res) => {
     const {
         email,
@@ -51,10 +47,6 @@ router.post('/register', async (req, res) => {
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });
     }
-});
-
-router.get('/login', (req, res) => {
-    res.json({ auth: 'login' });
 });
 
 router.post('/login', async (req, res) => {
