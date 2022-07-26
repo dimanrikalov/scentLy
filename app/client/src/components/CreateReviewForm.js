@@ -71,7 +71,7 @@ export default function CreateReviewForm() {
         })
             .then((res) => res.json())
             .then((data) => {
-                setUser(data.user);
+                setUser(data.creator);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
             .catch((err) => {
