@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../contexts/UserContext';
 import Owned from './Owned';
-import styles from './Profile.module.css';
-import endpoints from '../endpoints';
 import Reviewed from './Reviewed';
+import endpoints from '../endpoints';
+import styles from './Profile.module.css';
+import { UserContext } from '../contexts/UserContext';
+import { useContext, useEffect, useState } from 'react';
 
 export default function Profile() {
     const { user, setUser } = useContext(UserContext);

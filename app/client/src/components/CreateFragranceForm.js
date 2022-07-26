@@ -87,7 +87,7 @@ export default function CreateFragranceForm() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-    
+
         const res = await fetch(`${endpoints.catalogUrl}/create`, {
             method: 'POST',
             headers: {
