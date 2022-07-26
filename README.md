@@ -2,7 +2,7 @@
 
 #Introduction
 
-ScentLy is a MERN full-stack web application themed around fragrances. The functionality of the application covers the basic operations you would find in almost every web application (Create, Remove, Update, Delete). The app contains 3 collections on which you can execute these operations (User, Fragrance, Review) (MongoDB models are named identically). The main app folder is divided in 2 parts: "client" and "server".
+ScentLy is a MERN web application themed around fragrances. The functionality of the application covers the basic operations you would find in almost every web application (Create, Remove, Update, Delete). The app contains 3 collections on which you can execute these operations (User, Fragrance, Review) (MongoDB models are named identically). The main app folder is divided in 2 parts: "client" and "server".
 
     #Client
     The client folder is divided into "public" folder and a "src" folder. Inside the public folder you can expect to find common for the components css styles, html as well as other statics files. To be able to run the client part of the app, you will need to type "npm i" inside the console, within the "client" folder. The react app starts on port 3001.
