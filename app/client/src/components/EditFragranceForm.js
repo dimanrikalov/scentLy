@@ -1,6 +1,7 @@
 import endpoints from '../endpoints';
-import { useEffect, useState } from 'react';
 import styles from './EditFragranceForm.module.css';
+import { UserContext } from '../contexts/UserContext';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditFragranceForm() {
@@ -8,6 +9,8 @@ export default function EditFragranceForm() {
     const navigate = useNavigate();
 
     const { fragranceId } = useParams();
+
+    const {user, setUser} = useContext(UserContext);
 
     const [image, setImage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -110,6 +113,7 @@ export default function EditFragranceForm() {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+                user,
               ...values,
               topNotes: values.topNotes.split(', '),
               middleNotes: values.middleNotes.split(', '),
