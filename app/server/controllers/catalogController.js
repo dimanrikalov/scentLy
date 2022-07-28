@@ -110,9 +110,8 @@ router.post('/:fragranceId/edit', async (req, res) => {
 
 
 router.post('/:fragranceId/delete', async (req, res) => {
-    
     const user = await userService.getById(req.body.userId);
-    const fragrance = await api.getById(req.params.fragranceId);
+    const fragrance = await api.getByIdDetailed(req.params.fragranceId);
 
     if (!user) {
         return res
@@ -121,7 +120,6 @@ router.post('/:fragranceId/delete', async (req, res) => {
     }
 
     if(user._id.toString() !== fragrance.author.toString()) {
-        console.log('here')
         return res
             .status(401)
             .json('You must be the owner in order to be able to delete the fragrance!');
@@ -131,6 +129,11 @@ router.post('/:fragranceId/delete', async (req, res) => {
 
         await Promise.all(
             fragrance.reviews.map(async (x) => {
+                const reviewCreator = await userService.getById(x.author);
+                reviewCreator.reviews = reviewCreator.reviews.filter(y => {
+                    return y._id.toString() != x._id.toString();
+                });
+                await userService.updateById(reviewCreator._id, reviewCreator);
                 await reviewService.deleteReview(x._id);
             })
         );
@@ -141,6 +144,7 @@ router.post('/:fragranceId/delete', async (req, res) => {
         await userService.updateById(user._id, user);
 
         await api.deleteById(req.params.fragranceId);
+        
         res.json({ [req.params.fragranceId]: 'deleted', user });
     } catch (err) {
         return res.status(404).json({
@@ -148,6 +152,7 @@ router.post('/:fragranceId/delete', async (req, res) => {
         });
     }
 });
+
 
 router.post('/:fragranceId/review/create', async (req, res) => {
     const fragrance = await api.getById(req.params.fragranceId);
@@ -191,6 +196,7 @@ router.post('/:fragranceId/review/create', async (req, res) => {
             .json({ message: 'Server error: Could not create review!' });
     }
 });
+
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
