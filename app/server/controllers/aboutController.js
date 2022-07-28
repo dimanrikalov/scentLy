@@ -1,5 +1,5 @@
-const aboutService = require('../services/aboutService');
 const router = require('express').Router();
+const aboutService = require('../services/aboutService');
 
 router.get('/', async (req, res) => {
     try{

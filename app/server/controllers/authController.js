@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { COOKIE_NAME } = require('../config/constants');
 const api = require('../services/userService');
+const { COOKIE_NAME } = require('../config/constants');
 
 
 router.post('/register', async (req, res) => {

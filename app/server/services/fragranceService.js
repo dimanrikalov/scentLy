@@ -1,4 +1,3 @@
-const { populate } = require('../models/Fragrance');
 const Fragrance = require('../models/Fragrance');
 
 exports.getAll = () => Fragrance.find();
