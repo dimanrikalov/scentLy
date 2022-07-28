@@ -27,10 +27,17 @@ export default function FragranceDetails () {
 
 
     const onDeleteHandler = () => {
-        fetch(`${endpoints.catalogUrl}/${fragranceId}/delete`)
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/delete`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({userId: user._id})
+        })
             .then(res => res.json())
             .then((data) => {
-                setUser(data.creator);
+                setUser(data.user);
                 navigate('/catalog');
             })
             .catch(err => setHasError(err));
