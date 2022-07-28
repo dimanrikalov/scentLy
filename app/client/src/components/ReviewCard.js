@@ -15,7 +15,7 @@ export default function ReviewCard({reviewDescription, reviewRating, reviewAutho
                   <h3 className="mt-2 text-xl text-gray-800"></h3>            
                 </div>
               </div>
-              <p className={styles.card__description}>{reviewDescription}</p>
+              <p className={styles.card__description}>"{reviewDescription}"</p>
             </div>
           </div>
     )

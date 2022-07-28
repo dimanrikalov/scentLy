@@ -16,7 +16,7 @@ export default function RecentsCard(props) {
                   <h3 className="text-base text-gray-800">{props.brand}</h3>            
                 </div>
               </div>
-              <p className={styles.card__description}>{props.description}</p>
+              <p className={styles.card__description}>"{props.description}"</p>
               <p className={styles.card__description}>{props.author}</p>
             </div>
           </Link>
