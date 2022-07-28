@@ -1,25 +1,30 @@
 const router = require('express').Router();
 const api = require('../services/fragranceService');
-const reviewService = require('../services/fragranceReviewService');
 const userService = require('../services/userService');
+const reviewService = require('../services/fragranceReviewService');
+
 
 router.get('/', async (req, res) => {
     try {
         const data = await api.getAll();
         res.json(data);
     } catch (err) {
-        return res.status(400).json({message: 'Server error! Try again later!'})
+        return res
+            .status(400)
+            .json({ message: 'Server error! Try again later!' });
     }
 });
+
 
 router.get('/reviews', async (req, res) => {
     try {
         const data = await reviewService.getAllDetailed();
         res.json(data);
     } catch (err) {
-        res.status(400).json({message: 'Server error! Try again later!'});
+        res.status(400).json({ message: 'Server error! Try again later!' });
     }
 });
+
 
 router.post('/search', async (req, res) => {
     try {
@@ -27,31 +32,12 @@ router.post('/search', async (req, res) => {
         const validFragrances = await api.getAllThatHave(searchString);
         return res.json(validFragrances);
     } catch (err) {
-        return res.status(400).json({message: 'Server error! Try again later!'});
-    }
-});
-
-router.post('/create', async (req, res) => {
-    const { name } = req.body;
-    const alreadyExists = await api.getByName(name);
-
-    if (alreadyExists) {
         return res
             .status(400)
-            .json({ message: 'Fragrance with this name already exists!' });
-    }
-
-    try {
-        const fragrance = await api.createOne({ ...req.body });
-        const user = await userService.getById(req.body.author);
-        user.ownedFragrances.push(fragrance._id);
-        await userService.updateById(user._id, user);
-        res.json({ message: 'Successfully created!', user });
-    } catch (err) {
-        console.log(err);
-        res.status(400).json({ message: 'Request error!' });
+            .json({ message: 'Server error! Try again later!' });
     }
 });
+
 
 router.get('/:fragranceId/details', async (req, res) => {
     const data = await api.getByIdDetailed(req.params.fragranceId);
@@ -63,49 +49,115 @@ router.get('/:fragranceId/details', async (req, res) => {
     });
 });
 
+
+router.post('/create', async (req, res) => {
+    const { name } = req.body;
+    const alreadyExists = await api.getByName(name);
+
+    if (alreadyExists) {
+        return res
+            .status(400)
+            .json({ message: 'Fragrance with this name already exists!' });
+    }
+
+    const user = await userService.getById(req.body.author);
+    if (!user) {
+        return res.status(401).json({
+            message: 'You must be logged in to create a fragrance!',
+        });
+    }
+
+    try {
+        const fragrance = await api.createOne({ ...req.body });
+        user.ownedFragrances.push(fragrance._id);
+        await userService.updateById(user._id, user);
+        res.json({ message: 'Successfully created!', user });
+    } catch (err) {
+        res.status(400).json({ message: 'Request error!' });
+    }
+});
+
+
 router.post('/:fragranceId/edit', async (req, res) => {
+    if (!req.body.user) {
+        return res.status(400).json({
+            message: 'You must be the owner of the fragrance in order to edit!',
+        });
+    }
+
     try {
         const fragrance = await api.getById(req.params.fragranceId);
-
         if (!fragrance) {
             return res.status(404).json({
                 message: `Fragrance with id: ${req.params.fragranceId} not found!`,
             });
         }
+
+        if(req.body.user._id != fragrance.author) {
+            return res.status(404).json({
+                message: 'You must be the owner of the fragrance in order to edit!'
+            });
+        }
+
         await api.updateById(req.params.fragranceId, { ...req.body });
         res.json(fragrance);
     } catch (err) {
-        return res.status(400).json({message: 'Server error: Could complete editing operation'});
+        return res.status(400).json({
+            message: 'Server error: Could complete editing operation',
+        });
     }
 });
 
-router.get('/:fragranceId/delete', async (req, res) => {
-    try {
-        const fragranceToDelete = await api.getById(req.params.fragranceId);
-        const creator = await userService.getById(fragranceToDelete.author);
+
+router.post('/:fragranceId/delete', async (req, res) => {
     
+    const user = await userService.getById(req.body.userId);
+    const fragrance = await api.getById(req.params.fragranceId);
+
+    if (!user) {
+        return res
+            .status(401)
+            .json('You must be logged in to be able to delete!');
+    }
+
+    if(user._id.toString() !== fragrance.author.toString()) {
+        console.log('here')
+        return res
+            .status(401)
+            .json('You must be the owner in order to be able to delete the fragrance!');
+    }
+
+    try {
+
         await Promise.all(
-            fragranceToDelete.reviews.map(async (x) => {
+            fragrance.reviews.map(async (x) => {
                 await reviewService.deleteReview(x._id);
             })
         );
-    
-        creator.ownedFragrances = creator.ownedFragrances.filter(
+
+        user.ownedFragrances = user.ownedFragrances.filter(
             (x) => x != req.params.fragranceId
         );
-        await userService.updateById(creator._id, creator);
-    
+        await userService.updateById(user._id, user);
+
         await api.deleteById(req.params.fragranceId);
-        res.json({ [req.params.fragranceId]: 'deleted', creator });
+        res.json({ [req.params.fragranceId]: 'deleted', user });
     } catch (err) {
-        return res.status(404).json({message: 'Server error: Could not complete deleting operation'})
+        return res.status(404).json({
+            message: 'Server error: Could not complete deleting operation',
+        });
     }
 });
 
 router.post('/:fragranceId/review/create', async (req, res) => {
-    
     const fragrance = await api.getById(req.params.fragranceId);
     const creator = await userService.getById(req.body.author);
+
+    if (!creator) {
+        return res
+            .status(401)
+            .json('You must be the logged in in order to create a review!');
+    }
 
     if (!fragrance) {
         return res.status(404).json({
@@ -129,18 +181,26 @@ router.post('/:fragranceId/review/create', async (req, res) => {
             (fragrance.rating + newReview.rating) / fragrance.reviews.length;
         fragrance.rating = total;
         await api.updateById(req.params.fragranceId, fragrance);
-    
+
         creator.reviews.push(newReview._id);
         await userService.updateById(creator._id, creator);
         res.json({ [req.params.fragranceId]: 'reviewed', creator });
     } catch (err) {
-        return res.status(404).json({message: 'Server error: Could not create review!'})
+        return res
+            .status(404)
+            .json({ message: 'Server error: Could not create review!' });
     }
 });
 
 router.post('/:fragranceId/review/edit', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
     const user = await userService.getById(req.body.userId);
+
+    if (!user) {
+        return res
+            .status(401)
+            .json('You must be the creator of the review in order to edit it!');
+    }
 
     if (!fragrance) {
         return res.status(404).json({
@@ -162,29 +222,29 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         (x) => x.author._id.toString() == user._id.toString()
     );
 
-    if(isFound) {
+    if (isFound) {
         let totalRating = 0;
-        
-        fragrance.reviews.forEach(x => totalRating += x.rating);
+
+        fragrance.reviews.forEach((x) => (totalRating += x.rating));
         totalRating += req.body.rating - isFound.rating;
         fragrance.rating = totalRating;
 
         isFound.description = req.body.description;
         isFound.rating = req.body.rating;
 
-        try{
+        try {
             await api.updateById(fragrance._id, fragrance);
             await reviewService.updateReview(isFound._id, {
                 description: req.body.description,
-                rating: req.body.rating
+                rating: req.body.rating,
             });
 
             res.json(fragrance);
-        } catch(err) {
-            res.status(400).json({message: 'Could not modify the data!'});
+        } catch (err) {
+            res.status(400).json({ message: 'Server error!' });
         }
     } else {
-        return res.status(404).json({message: 'Review not found!'});
+        return res.status(404).json({ message: 'Review not found!' });
     }
 });
 
@@ -192,6 +252,15 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
     const fragrance = await api.getByIdDetailed(req.params.fragranceId);
 
     const user = await userService.getByIdDetailed(req.body.userId);
+    if (!user) {
+        return res
+            .status(401)
+            .json({
+                message:
+                    'You must be the creator of the review in order to delete it!'
+            });
+    }
+
     if (!fragrance) {
         return res.status(404).json({
             message: `Fragrance with id: ${req.params.fragranceId} not found!`,
@@ -224,7 +293,9 @@ router.post('/:fragranceId/review/delete', async (req, res) => {
             await reviewService.deleteReview(isFound._id);
             res.json({ [req.params.fragranceId]: 'deleted', user, fragrance });
         } catch (err) {
-            res.json(400).json({message: 'Could not update the information!'});
+            res.json(400).json({
+                message: 'Could not update the information!',
+            });
         }
     } else {
         return res
