@@ -4,6 +4,7 @@ const fragranceSchema = new mongoose.Schema({
     name: {
         type: String,
         minLength: [1, 'Enter a valid fragrance name!'],
+        required: [true, 'Fragrance name is required!']
     },
     creator: {
         type: String
@@ -11,25 +12,26 @@ const fragranceSchema = new mongoose.Schema({
     brand: {
         type: String,
         minLength: [2, 'Enter a valid fragrance brand!'],
+        required: [true, 'Fragrance brand is required!']
     },
     topNotes: [
         {
             type: String,
-            minLength: 2,
+            minLength: [2, 'Top notes minimum length is 2 characters!'],
             required: [true, 'Enter at least 1 top note for the fragrance'],
         },
     ],
     middleNotes: [
         {
             type: String,
-            minLength: 2,
+            minLength: [2, 'Middle notes minimum length is 2 characters!'],
             required: [true, 'Enter at least 1 middle note for the fragrance'],
         },
     ],
     baseNotes: [
         {
             type: String,
-            minLength: 2,
+            minLength: [2, 'Base notes minimum length is 2 characters!'],
             required: [true, 'Enter at least 1 base note for the fragrance'],
         },
     ],
@@ -56,7 +58,8 @@ const fragranceSchema = new mongoose.Schema({
     },
     author: {
         type: mongoose.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     }
 });
 

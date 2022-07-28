@@ -7,10 +7,12 @@ const reviewSchema = new mongoose.Schema({
         required: true
     },
     fragranceName: {
-        type: String
+        type: String,
+        required: [true, 'Fragrance name is required!']
     },
     fragranceBrand: {
-        type: String
+        type: String,
+        required: [true, 'Fragrance brand is required!']
     },
     description: {
         type: String,
@@ -29,11 +31,13 @@ const reviewSchema = new mongoose.Schema({
             }
         },
     imageUrl: {
-        type: String
+        type: String,
+        required: [true, 'Fragrance image is required!']
     },
     author: {
         type: mongoose.Types.ObjectId,
         ref: 'User',
+        required: true
     }
 });
 

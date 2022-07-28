@@ -6,36 +6,36 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Email is required!'],
-        // validate: {
-        //     validator: function () {
-        //         const regex = '[.+@[a-z]+\.[a-z]+]';
-        //         return regex.test(this.email);
-        //     }, 
-        //     message: 'Enter a valid email! Example: "someone@abv.bg".'
-        // }
+        validate: {
+            validator: function () {
+                const regex = new RegExp('.+@[a-z]+\.[a-z]+');
+                return regex.test(this.email);
+            }, 
+            message: 'Enter a valid email! Example: "someone@smth.smth".'
+        }
     },
     name: {
         type: String,
         required: [true, 'Full name is required!'],
-        // validate: {
-        //     validator: function () {
-        //         const regex = '^[A-Z][a-z]+ [A-Z][a-z]+$';
-        //         return regex.test(this.name);
-        //     }, 
-        //     message: 'Enter a valid name! Example: "Diman Rikalov."'
-        // }
+        validate: {
+            validator: function () {
+                const regex = new RegExp('^[A-Z][a-z]+ [A-Z][a-z]+$');
+                return regex.test(this.name);
+            }, 
+            message: 'Enter a valid name! Example: "Diman Rikalov".'
+        }
     },
     profileImage: {
         type:String,
-        required: true,
-        // validate: {
-        //     validator: function () {
-        //         
-        //         return this.profileImage.startsWith('http://') ||
-        //            this.profileImage.startsWith('https://')
-        //     }, 
-        //     message: 'Enter a valid name! Example: "Diman Rikalov."'
-        // }
+        required: [true, 'Profile image is required!'],
+        validate: {
+            validator: function () {
+                
+                return this.profileImage.startsWith('http://') ||
+                   this.profileImage.startsWith('https://')
+            }, 
+            message: 'Enter a valid URL link!'
+        }
     },
     password: {
         type: String,
@@ -45,24 +45,24 @@ const userSchema = new mongoose.Schema({
     country: {
         type: String,
         required: [true, 'Enter a valid country name is required!'],
-        // validate: {
-        //     validator: function () {
-        //         const regex = '^[A-Z][a-z]+$';
-        //         return regex.test(this.country);
-        //     },
-        //     message: 'Invalid country format!  Example: "Bulgaria".'
-        // }
+        validate: {
+            validator: function () {
+                const regex = new RegExp('^[A-Z][a-z]+$');
+                return regex.test(this.country);
+            },
+            message: 'Invalid country format!  Example: "Bulgaria".'
+        }
     },
     city: {
         type: String,
         required: [true, 'Enter a valid city name is required!'],
-        // validate: {
-        //     validator: function () {
-        //         const regex = '^[A-Z][a-z]+$';
-        //         return regex.test(this.city);
-        //     },
-        //     message: 'Invalid city format! Example: "Plovdiv".'
-        // }
+        validate: {
+            validator: function () {
+                const regex = new RegExp('^[A-Z][a-z]+$');
+                return regex.test(this.city);
+            },
+            message: 'Invalid city format! Example: "Plovdiv".'
+        }
     },
     age: {
         type: Number,
