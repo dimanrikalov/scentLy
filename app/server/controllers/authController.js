@@ -2,8 +2,7 @@ const router = require('express').Router();
 const { COOKIE_NAME } = require('../config/constants');
 const api = require('../services/userService');
 
-//isLogged middleware??????
-//isOwner ???
+
 router.post('/register', async (req, res) => {
     const {
         email,
