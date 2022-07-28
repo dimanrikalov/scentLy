@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './CatalogCard.module.css';
 
+
 export default function CatalogCard({ fragrance }) {
     return (
         <Link to={`/fragrance/${fragrance._id}/details`}>

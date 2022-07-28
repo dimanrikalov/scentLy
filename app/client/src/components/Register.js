@@ -1,9 +1,10 @@
+import endpoints from '../endpoints';
 import styles from './Forms.module.css';
+import { useContext, useState } from 'react';
 import mainStyles from './Register.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import endpoints from '../endpoints';
 import { UserContext } from '../contexts/UserContext';
+
 
 export default function Register() {
     const navigate = useNavigate();
@@ -145,7 +146,7 @@ export default function Register() {
     return (
         <div className={styles.scale}>
             <div className={mainStyles['register-div']}>
-                <div className="lg:w-1/2 p-6 backgroundMargin">
+                <div className="lg:w-1/2 p-6 pt-0 pb-0 backgroundMargin">
                     <div className={styles.registerBackground}>
                         <div>
                             <img
@@ -374,7 +375,7 @@ export default function Register() {
                                             </span>
                                         </button>
                                     </form>
-                                    <p className="mt-5 mb-2 text-lg font-semibold text-gray-700 text-center">
+                                    <p className="mt-3 mb-2 text-lg font-semibold text-gray-700 text-center">
                                         Already have an account? <br /> Sign in
                                         from{' '}
                                         <Link

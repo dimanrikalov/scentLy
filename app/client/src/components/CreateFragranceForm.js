@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CreateFragranceForm.module.css';
 import { UserContext } from '../contexts/UserContext';
 
+
 export default function CreateFragranceForm() {
     const navigate = useNavigate();
 

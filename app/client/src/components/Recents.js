@@ -1,6 +1,6 @@
 import RecentsCard from './RecentsCard';
 import styles from './Recents.module.css';
-import endpoints from '../endpoints';
+
 
 export default function Recents({ reviews }) {
     return (

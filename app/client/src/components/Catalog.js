@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import mainStyles from './Catalog.module.css';
 import styles from './CatalogCard.module.css';
 
+
 export default function Catalog() {
     
     const [hasError, setHasError] = useState({});

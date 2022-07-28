@@ -1,5 +1,6 @@
-import styles from './Recents.module.css'
 import { Link } from 'react-router-dom'
+import styles from './Recents.module.css'
+
 
 export default function RecentsCard(props) {
     return (

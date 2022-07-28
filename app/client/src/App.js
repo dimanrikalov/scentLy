@@ -29,17 +29,17 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/auth/register' element={<Register/>}/>
+                <Route path='*' element={<ErrorPage/>}/>
+                <Route path='/about' element={<About/>}/>
+                <Route path='/catalog' element={<Catalog/>}/>
                 <Route path='/auth/login' element={<Login/>}/>
                 <Route path='/auth/profile' element={<Profile/>}/>
-                <Route path='/catalog' element={<Catalog/>}/>
+                <Route path='/auth/register' element={<Register/>}/>
                 <Route path='/fragrance/create' element={<CreateFragranceForm/>}/>
-                <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails/>}/>
                 <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
-                <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm/>}/>
+                <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails/>}/>
                 <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm/>}/>
-                <Route path='/about' element={<About/>}/>
-                <Route path='*' element={<ErrorPage/>}/>
+                <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm/>}/>
             </Routes>
             <Footer />
             </UserContext.Provider>

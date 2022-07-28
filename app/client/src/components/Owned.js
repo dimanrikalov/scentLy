@@ -1,6 +1,6 @@
-import styles from './Owned.module.css';
 import OwnedCard from './OwnedCard';
-import { Link } from 'react-router-dom';
+import styles from './Owned.module.css';
+
 
 export default function Owned({ownedFragrances}) {
     return (

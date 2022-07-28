@@ -2,6 +2,7 @@ import endpoints from '../endpoints';
 import styles from './About.module.css';
 import { useEffect, useState } from 'react';
 
+
 export default function About() {
 
     const [hasError, setHasError] = useState({});

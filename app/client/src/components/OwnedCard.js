@@ -1,5 +1,6 @@
-import styles from './Owned.module.css'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styles from './Owned.module.css';
+
 
 export default function OwnedCard (props) {
     return (

@@ -1,8 +1,10 @@
-import { Fragment, useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {UserContext} from "../contexts/UserContext";
 import endpoints from '../endpoints';
 import styles from './Navbar.module.css';
+import {UserContext} from "../contexts/UserContext";
+import { Link, useNavigate } from "react-router-dom";
+import { Fragment, useContext, useEffect, useState } from "react";
+
+
 export default function Navbar () {
 
     const {user, setUser} = useContext(UserContext);

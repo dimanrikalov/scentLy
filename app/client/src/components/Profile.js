@@ -5,6 +5,7 @@ import styles from './Profile.module.css';
 import { UserContext } from '../contexts/UserContext';
 import { useContext, useEffect, useState } from 'react';
 
+
 export default function Profile() {
     const { user, setUser } = useContext(UserContext);
 
@@ -85,7 +86,11 @@ export default function Profile() {
                             <h5>Age: {user.age}</h5>
                         </li>
                         <li>
-                            <h5>Gender: {user.gender}</h5>
+                            <h5>Gender: {(()=>{
+                                    let gender = user.gender.split('');
+                                    gender[0] = gender[0].toUpperCase();
+                                    return gender.join('');
+                                })()}</h5>
                         </li>
                         <li>
                             <h5>

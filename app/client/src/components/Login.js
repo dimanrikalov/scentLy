@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
+
 export default function Login() {
     const { user, setUser } = useContext(UserContext);
 
@@ -68,7 +69,7 @@ export default function Login() {
                 className="max-w-none mx-auto mt-32 bg-30 
             sm:rounded-none flex justify-center flex-1"
             >
-                <div className="lg:w-1/2  p-6 ">
+                <div className="lg:w-1/2  p-6 pb-12 ">
                     <div className={styles.loginBackground}>
                         <div>
                             <img
