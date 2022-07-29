@@ -1,6 +1,6 @@
 import endpoints from '../endpoints';
 import styles from './Forms.module.css';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
@@ -41,29 +41,31 @@ export default function Login() {
         }
     };
 
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
 
-        const res = await fetch(endpoints.loginUrl, {
+        fetch(endpoints.loginUrl, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(values),
-        });
-
-        const result = await res.json();
-        if (result.message !== 'Successfully logged in!') {
-            setErrorMessage(result.message);
-        } else {
-            localStorage.setItem(
-                'user',
-                JSON.stringify({ _id: result.user._id })
-            );
-            setUser(result.user);
-            navigate('/');
-        }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message !== 'Successfully logged in!') {
+                setErrorMessage(data.message);
+            } else {
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify({ _id: data.user._id })
+                );
+                setUser(data.user);
+                navigate('/');
+            }
+        })
+        .catch(err => setErrorMessage(err.message)); 
     };
 
     return (
@@ -91,7 +93,7 @@ export default function Login() {
                                         'pt-3',
                                     ].join(' ')}
                                 >
-                                    {errorMessage}
+                                    Connection error! Try again later!
                                 </h4>
                             )}
                             <div className="w-full flex-1 mt-8">

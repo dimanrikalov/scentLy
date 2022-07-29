@@ -121,30 +121,34 @@ export default function Register() {
         }
     };
 
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
+
         const body = { ...values, age: Number(values.age) };
-        const res = await fetch(endpoints.registerUrl, {
+        fetch(endpoints.registerUrl, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
-        });
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.message !== 'Successfully registered!') {
+                setErrorMessage(data.message);
+            } else {
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify({ _id: data.user._id })
+                );
+                setUser(data.user);
+                navigate('/');
+            }
+        })
+        .catch(err => setErrorMessage(err.message));
 
-        const result = await res.json();
-
-        if (result.message !== 'Successfully registered!') {
-            setErrorMessage(result.message);
-        } else {
-            localStorage.setItem(
-                'user',
-                JSON.stringify({ _id: result.user._id })
-            );
-            setUser(result.user);
-            navigate('/');
-        }
+        
     };
 
     return (
@@ -164,7 +168,7 @@ export default function Register() {
                             </h1>
                             {errorMessage && (
                                 <h3 className={styles['error-message']}>
-                                    {errorMessage}
+                                    Connection error! Try again later!
                                 </h3>
                             )}
                             <div className="w-full flex-1 mt-8">
