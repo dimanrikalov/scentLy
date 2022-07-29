@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import UserGuard from './components/UserGuard';
+import GuestGuard from './components/GuestGuard';
 import { Routes, Route } from 'react-router-dom';
 import {UserContext} from './contexts/UserContext';
 import { useEffect, useMemo, useState } from 'react';
@@ -18,7 +19,6 @@ import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
-import GuestGuard from './components/GuestGuard';
 
 function App() {
 
@@ -73,7 +73,7 @@ function App() {
                     <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm/>}/>
                     <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm/>}/>
                 </Route>
-                
+
             </Routes>
             <Footer />
             </UserContext.Provider>

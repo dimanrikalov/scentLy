@@ -130,8 +130,8 @@ export default function FragranceDetails () {
                         if(user?._id === fragrance.author) {
                             return (
                                 <>
-                                    <Link to={`/fragrance/${fragrance._id}/edit`} className={styles.button}>Edit</Link>
-                                    <button className={styles['delete-button']} onClick={onDeleteHandler}>Delete</button>
+                                    <Link to={`/fragrance/${fragrance._id}/edit`}><button className={styles.button}>Edit</button></Link>
+                                    <Link to={'#'}><button className={styles.button} onClick={onDeleteHandler}>Delete</button></Link>
                                 </> 
                             )
                         } else if(user) {
@@ -139,14 +139,14 @@ export default function FragranceDetails () {
                             if(hasReviewed) {
                                 return (
                                     <>
-                                        <Link to={`/fragrance/${fragrance._id}/review/edit`} className={styles.button}>Edit Review</Link>
-                                        <button className={styles['delete-button']} onClick={onReviewDelete}>Delete Review</button>
+                                        <Link to={`/fragrance/${fragrance._id}/review/edit`}><button className={styles.button}>Edit Review</button></Link>
+                                        <Link to={'#'}><button className={styles.button} onClick={onReviewDelete}>Delete Review</button></Link>
                                     </>
                                 )
                             } else {
                                 return(
                                     <>
-                                        <Link to={`/fragrance/${fragrance._id}/review/create`} className={styles.button}>Review</Link>
+                                        <Link to={`/fragrance/${fragrance._id}/review/create`}><button className={styles.button}>Review</button></Link>
                                     </>
                                 )
                             }

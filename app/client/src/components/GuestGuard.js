@@ -7,6 +7,6 @@ export default function GuestGuard() {
     if(user) {
         return <Navigate to="/" replace />
     }
-
+    console.log('here user');
     return <Outlet/>;
 }

@@ -7,6 +7,6 @@ export default function UserGuard() {
     if(!user) {
         return <Navigate to="/auth/login" replace />
     }
-
+    console.log('here guest');
     return <Outlet/>;
 }
