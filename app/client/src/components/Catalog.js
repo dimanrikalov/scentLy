@@ -17,7 +17,7 @@ export default function Catalog() {
         fetch(endpoints.catalogUrl)
             .then((res) => res.json())
             .then((serverFragrances) => 
-                setFragrances(serverFragrances))
+                setFragrances([...serverFragrances]))
             .catch(err => setHasError(err));
     }, []);
 
@@ -38,7 +38,7 @@ export default function Catalog() {
             body: JSON.stringify(searchValue),
         })
             .then((res) => res.json())
-            .then((data) => setFragrances(data))
+            .then((data) => setFragrances([...data]))
             .catch(err => setHasError(err));
     };
 
