@@ -4,7 +4,7 @@ import About from './components/About';
 import Login from './components/Login';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Catalog from './components/Catalog';
 import Profile from './components/Profile';
 import Register from './components/Register';
@@ -16,11 +16,37 @@ import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
+import endpoints from './endpoints';
+
 
 function App() {
 
     const [user, setUser] = useState(null);
     const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
+
+    useEffect(()=>{
+        const isLogged = JSON.parse(localStorage.getItem('user'));
+
+        if(isLogged) {
+            fetch(`${endpoints.getUserUrl}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    userId : isLogged._id
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                setUser(data);
+            })
+            .catch(() => {
+                localStorage.clear();
+                setUser(null);
+            });
+        }
+    },[])
 
     return (
         <div className={styles['main-backround']}>

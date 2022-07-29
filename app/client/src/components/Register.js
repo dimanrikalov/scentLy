@@ -5,11 +5,10 @@ import mainStyles from './Register.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
-
 export default function Register() {
     const navigate = useNavigate();
-    
-    const {user, setUser} = useContext(UserContext);
+
+    const { user, setUser } = useContext(UserContext);
 
     const [errorMessage, setErrorMessage] = useState('');
     const [emailHasError, setEmailHasError] = useState('');
@@ -98,7 +97,7 @@ export default function Register() {
     };
 
     const countryValidator = () => {
-        const regex = new RegExp('^[A-Z][a-z]+$')
+        const regex = new RegExp('^[A-Z][a-z]+$');
         if (regex.test(values.country)) {
             setCountryHasError(false);
         } else {
@@ -133,11 +132,16 @@ export default function Register() {
             },
             body: JSON.stringify(body),
         });
-        
+
         const result = await res.json();
-        if(result.message !== 'Successfully registered!') {
+
+        if (result.message !== 'Successfully registered!') {
             setErrorMessage(result.message);
         } else {
+            localStorage.setItem(
+                'user',
+                JSON.stringify({ _id: result.user._id })
+            );
             setUser(result.user);
             navigate('/');
         }
@@ -158,10 +162,11 @@ export default function Register() {
                             <h1 className="text-2xl xl:text-3xl font-extrabold text-red-500">
                                 Sign Up:
                             </h1>
-                            {
-                                errorMessage &&
-                                <h3 className={styles['error-message']}>{errorMessage}</h3>
-                            }
+                            {errorMessage && (
+                                <h3 className={styles['error-message']}>
+                                    {errorMessage}
+                                </h3>
+                            )}
                             <div className="w-full flex-1 mt-8">
                                 <div className="mx-auto max-w-xs">
                                     <form>
@@ -342,20 +347,33 @@ export default function Register() {
                                                 Female
                                             </option>
                                         </select>
-                                        { genderHasError && <p className={styles['error-message']}>
-                                            Choose a valid gender!
-                                        </p>}
+                                        {genderHasError && (
+                                            <p
+                                                className={
+                                                    styles['error-message']
+                                                }
+                                            >
+                                                Choose a valid gender!
+                                            </p>
+                                        )}
                                         <button
                                             type="submit"
                                             name="register-submit"
                                             className={styles['submit-button']}
                                             onClick={submitHandler}
-                                            disabled = {
-                                                emailHasError || nameHasError || profileImageHasError
-                                                 ||passwordHasError || repeatPasswordHasError ||
-                                                 cityHasError || countryHasError || ageHasError ||
-                                                 genderHasError || Object.values(values).some(x => x === '')
-                                                
+                                            disabled={
+                                                emailHasError ||
+                                                nameHasError ||
+                                                profileImageHasError ||
+                                                passwordHasError ||
+                                                repeatPasswordHasError ||
+                                                cityHasError ||
+                                                countryHasError ||
+                                                ageHasError ||
+                                                genderHasError ||
+                                                Object.values(values).some(
+                                                    (x) => x === ''
+                                                )
                                             }
                                         >
                                             <svg

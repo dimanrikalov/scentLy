@@ -29,6 +29,7 @@ export default function Navbar () {
         })
         .then(res => res.json())
         .then(() => {
+            localStorage.clear();
             setUser(null);
             navigate('/');
         });

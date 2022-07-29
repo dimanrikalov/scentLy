@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const api = require('../services/userService');
+const userService = require('../services/userService');
 const { COOKIE_NAME } = require('../config/constants');
-
 
 router.post('/register', async (req, res) => {
     const {
@@ -40,8 +40,8 @@ router.post('/register', async (req, res) => {
         });
 
         const user = await api.login({ email, password });
-        const token = await api.createToken(user);
-        res.cookie(COOKIE_NAME, token, { httpOnly: true });
+        // const token = await api.createToken(user);
+        // res.cookie(COOKIE_NAME, token, { httpOnly: true });
         res.json({ message: 'Successfully registered!', user });
     } catch (err) {
         res.status(404).json({ message: 'Bad request' });
@@ -56,8 +56,8 @@ router.post('/login', async (req, res) => {
     }
     try {
         const user = await api.login({ email, password });
-        const token = await api.createToken(user);
-        res.cookie(COOKIE_NAME, token, { httpOnly: true });
+        // const token = await api.createToken(user);
+        // res.cookie(COOKIE_NAME, token, { httpOnly: true });
         res.json({ message: 'Successfully logged in!', user });
     } catch (err) {
         res.status(404).json({ message: 'Invalid email or password!' });
@@ -65,8 +65,17 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-    res.clearCookie(COOKIE_NAME);
+    // res.clearCookie(COOKIE_NAME);
     res.json({ message: 'Successfully logged out' });
 });
+
+router.post('/getUser', async (req, res) => {
+    try{
+        const user = await userService.getById(req.body.userId);
+        res.json(user);
+    } catch(err) {
+        return res.status(400).json({message: 'User not found!'});
+    }
+})
 
 module.exports = router;

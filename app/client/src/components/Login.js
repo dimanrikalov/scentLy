@@ -4,7 +4,6 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
-
 export default function Login() {
     const { user, setUser } = useContext(UserContext);
 
@@ -58,6 +57,10 @@ export default function Login() {
         if (result.message !== 'Successfully logged in!') {
             setErrorMessage(result.message);
         } else {
+            localStorage.setItem(
+                'user',
+                JSON.stringify({ _id: result.user._id })
+            );
             setUser(result.user);
             navigate('/');
         }
