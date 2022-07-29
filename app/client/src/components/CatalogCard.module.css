@@ -8,7 +8,7 @@
     box-sizing: content-box;
     overflow: hidden;
     overflow-x: scroll;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
 }
 
 .cards-list::-webkit-scrollbar {

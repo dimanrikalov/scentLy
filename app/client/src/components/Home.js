@@ -9,11 +9,13 @@ import { useEffect, useState, useContext } from 'react';
 export default function Home() {
     const { user, setUser } = useContext(UserContext);
     const [reviews, setReviews] = useState([]);
+    const [hasError, setHasError] = useState('');
 
     useEffect(() => {
         fetch(endpoints.reviewsUrl)
             .then((res) => res.json())
-            .then((data) => setReviews(data));
+            .then((data) => setReviews(data))
+            .catch(err => setHasError(err.message));
     }, []);
 
     return (
@@ -66,17 +68,31 @@ export default function Home() {
                     </div>
                 </div>
             </header>
-            {reviews?.length > 0 ? (
-                <div id="recents">
-                    <Recents reviews={reviews} />
-                </div>
-            ) : (
-                <h1 className={styles['no-reviews']}>
-                    No reviews in database yet.
-                    <br />
-                    Be the first one to review a fragrance!
-                </h1>
-            )}
+            {(function () {
+                if(hasError) {
+                    return (
+                        <h1 className={styles['no-reviews']}>
+                            Connection error! Try again later!
+                        </h1>
+                    )
+                }
+                if(reviews?.length > 0){ 
+                    return ( 
+                            <div id="recents">
+                                <Recents reviews={reviews} />
+                            </div>
+                        )
+                }
+                 else {
+                    return (
+                        <h1 className={styles['no-reviews']}>
+                            No reviews in database yet.
+                            <br />
+                            Be the first one to review a fragrance!
+                        </h1>
+                    )
+                }
+            })()}
         </>
     );
 }
