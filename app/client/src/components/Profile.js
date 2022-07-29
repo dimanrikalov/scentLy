@@ -109,9 +109,9 @@ export default function Profile() {
                 </div>
             </div>
             <div className={styles.collections}>
-                <h2 className="ml-20 mt-10 mb-3">Owned fragrances:</h2>
+                <h2 className={["ml-20", "mt-16", styles.child].join(' ')}>Owned fragrances:</h2>
                 <input
-                    className={styles.input}
+                    className={[styles.input, styles.child, 'ml-32'].join(' ')}
                     type="text"
                     name="searchOwnedFragrance"
                     value={searchValues.searchOwnedFragrance}
@@ -120,7 +120,7 @@ export default function Profile() {
                 />
                 <button
                     type="submit"
-                    className={styles['search-button']}
+                    className={[styles.child, styles['search-button'], 'ml-5'].join(' ')}
                     onClick={onOwnedSearchHandler}
                 >
                     Search
@@ -128,9 +128,9 @@ export default function Profile() {
                 <div className={styles.profileOwned}>
                     <Owned ownedFragrances={filteredFragrances} />
                 </div>
-                <h2 className="ml-20 mt-10 mb-3">Reviewed fragrances:</h2>
+                <h2 className={["ml-20", "mt-16", styles.child].join(' ')}>Reviewed fragrances:</h2>
                 <input
-                    className={styles.input}
+                    className={[styles.input, styles.child, 'ml-24'].join(' ')}
                     type="text"
                     name="searchReviewedFragrance"
                     value={searchValues.searchReviewedFragrance}
@@ -139,7 +139,7 @@ export default function Profile() {
                 />
                 <button
                     type="submit"
-                    className={styles['search-button']}
+                    className={[styles.child, styles['search-button'], 'ml-5'].join(' ')}
                     onClick={onReviewedSearchHandler}
                 >
                     Search
