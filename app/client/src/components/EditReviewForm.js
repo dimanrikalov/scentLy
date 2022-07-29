@@ -80,7 +80,7 @@ export default function EditReviewForm () {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img src={fragrance.imageUrl} />
+                <img className={styles.img} src={fragrance.imageUrl} />
             </div>
 
             <div className={styles['right-side']}>
