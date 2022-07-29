@@ -115,7 +115,7 @@ export default function CreateFragranceForm() {
         <div id="create" className={styles['create-form']}>
             <div className={styles['left-side']}>
                 <img
-                    className={styles['form-img']}
+                    className={styles.img}
                     src="https://plummour.com/wp-content/uploads/2021/07/Xerjoff-Casamorati-1888-7.jpg"
                 />
             </div>
