@@ -14,7 +14,7 @@ export default function CreateReviewForm() {
     
     const {user, setUser} = useContext(UserContext);
 
-    const [hasError, setHasError] = useState({});
+    const [hasError, setHasError] = useState('');
     const [fragrance, setFragrance] = useState({});
     const [ratingHasError, setRatingHasError] = useState('');
     const [descriptionHasError, setDescriptionHasError] = useState('');
