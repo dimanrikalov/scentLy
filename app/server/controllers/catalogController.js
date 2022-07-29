@@ -79,7 +79,7 @@ router.post('/create', async (req, res) => {
 
 
 router.post('/:fragranceId/edit', async (req, res) => {
-    if (!req.body.user) {
+    if (!req.body.userId) {
         return res.status(400).json({
             message: 'You must be the owner of the fragrance in order to edit!',
         });
@@ -93,7 +93,7 @@ router.post('/:fragranceId/edit', async (req, res) => {
             });
         }
 
-        if(req.body.user._id != fragrance.author) {
+        if(req.body.userId != fragrance.author) {
             return res.status(404).json({
                 message: 'You must be the owner of the fragrance in order to edit!'
             });

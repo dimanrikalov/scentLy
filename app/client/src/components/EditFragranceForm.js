@@ -114,8 +114,8 @@ export default function EditFragranceForm() {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-                user,
               ...values,
+              userId: user._id,
               topNotes: values.topNotes.split(', '),
               middleNotes: values.middleNotes.split(', '),
               baseNotes: values.baseNotes.split(', '),
