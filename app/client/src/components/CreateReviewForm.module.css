@@ -1,7 +1,10 @@
 .create-form {
     display: flex;
     padding: 5%;
-    margin: 10%;
+    margin-top:5%;
+    margin-bottom:5%;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: white;
     border-radius: 3rem;
 }
@@ -91,4 +94,11 @@ textarea {
     text-align: center;
     font-weight: bold;
     color:red;
+}
+
+.img {
+    border-radius: 2rem;
+    max-height: 550px;
+    margin-top: 5%;
+    margin-left: -7%;
 }
