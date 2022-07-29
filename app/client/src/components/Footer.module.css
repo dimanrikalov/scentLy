@@ -26,7 +26,7 @@ section {
     width: 100%;
     text-align: left;
     font: normal 16px sans-serif;
-    padding: 50px 50px;
+    padding: 30px 55px;
     border-radius: 2rem 2rem 0rem 0rem;
 }
 
@@ -34,6 +34,7 @@ section {
     color: #ffffff;
     font-size: 16px;
     margin-top: 1%;
+    margin-bottom: -0.3%;
 }
 /* Footer links */
 
