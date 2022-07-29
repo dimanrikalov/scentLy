@@ -64,7 +64,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary text-4xl">
-                                    {hasError.message ? hasError.message : userCount}
+                                    {hasError.message ? 'Can\'t connect to server!' : userCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl">
                                     <strong>Total Users</strong>
@@ -77,7 +77,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary text-4xl">
-                                {hasError.message ? hasError.message : reviewsCount}
+                                {hasError.message ? 'Can\'t connect to server!' : reviewsCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900 text-3xl">
                                     <strong>Total Reviews</strong>
@@ -100,7 +100,7 @@ export default function About() {
                             </div>
                             <div className="infos-wrapper">
                                 <h4 className="text-primary">
-                                {hasError.message ? hasError.message : fragranceCount}
+                                {hasError.message ? 'Can\'t connect to server!' : fragranceCount}
                                 </h4>
                                 <p className="text-secondary text-center text-gray-900">
                                     <strong>Total fragrances</strong>
