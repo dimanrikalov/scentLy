@@ -1,92 +1,77 @@
 .create-form {
+  min-width: 500px;
   display: flex;
-  padding: 5%;
-  margin-top:5%;
-  margin-bottom:5%;
+  padding: 3%;
   margin-left: 10%;
   margin-right: 10%;
-  background-color: white;
+  margin-top: 7.5%;
+  margin-bottom: 4.5%;
+  background-color: #ffffff;
   border-radius: 3rem;
 }
 
+@media screen and (max-width:1100px) {
+  .left-side {
+    display: none;
+  }
+}
+
 .text {
-  text-align: center;
-  padding-bottom: 5%;
+  font-size: 35px;
+  padding-left: 32%;
+  padding-right: 10%;
+  padding-bottom: 8%;
 }
 
 .left-side {
-  flex: 1;
-  padding-top: 5%;
+  flex:1;
+  padding-top: 3%;
   padding-left: 5%;
-  transform: scale(1.1);
-}
-
-@media screen and (max-width: 1000px) {
-  .left-side {
-      display: none;
-  }
 }
 
 .right-side {
   flex: 1;
-  margin-right: 5%;
-  margin-left: 5%;
 }
 
-.description {
-  background-color: #ede8e8;
-  margin-left: -12%;
-  width: 400px;
-  outline-color: rgb(241, 126, 126);
-  outline-width: 10%;
-  border-radius: 1rem;
-  text-indent: 10px;
-  font-size: large;
-  font-weight: 500;
-  color: rgb(78, 78, 78);
-  margin-bottom: 5%;
-}
-
-.rating {
-  margin-bottom: 3%;
-  margin-left: 22%;
-  border-radius: 0.5rem;
-  background-color: #ede8e8;
-  text-align: center;
-  font-weight: bold;
-  outline-color: rgb(241, 126, 126);
-}
-
-textarea {
-  padding: 10px;
-}
-
-.subtitle {
-  padding: 2%;
-  text-align: center;
+.input {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem; 
+  padding-left: 2rem;
+  padding-right: 2rem; 
+  margin-bottom: 0.75rem; 
+  background-color: #ebe7e7; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  font-size: 1.125rem;
+  line-height: 1.75rem; 
+  color: #4B5563; 
+  width: 100%; 
+  border-radius: 1rem; 
+  outline-color: #f86464;
+  border-color: #E5E7EB; 
 }
 
 .submit-button {
-  display: flex;
+  display: flex; 
   padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  background-color: #f86464;
-  margin-top: 1.25rem;
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  color: #f3f4f6;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 1rem;
+  padding-bottom: 0.75rem; 
+  background-color: #f86464; 
+  margin-top: 1.25rem; 
+  transition-property: all; 
+  transition-duration: 300ms; 
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  color: #F3F4F6; 
+  font-weight: 600; 
+  letter-spacing: 0.025em; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  border-radius: 1rem; 
   outline-color: rgb(241, 126, 126);
 }
 
 .submit-button:focus {
-  background-color: #e83c3c;
+  background-color: #e83c3c; 
   outline-color: rgb(241, 126, 126);
 }
 
@@ -98,7 +83,5 @@ textarea {
 
 .img {
   border-radius: 2rem;
-  max-height: 550px;
-  margin-top: 5%;
-  margin-left: -7%;
+  max-height: 600px;
 }
