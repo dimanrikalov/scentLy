@@ -11,7 +11,7 @@ export default function About() {
     const [fragranceCount, setFragranceCount] = useState(0);
 
     useEffect(() => {
-        fetch(`${endpoints.aboutUrl}`)
+        fetch(endpoints.aboutUrl)
             .then((res) => res.json())
             .then((data) => {
                 setUserCount(data.userCount);

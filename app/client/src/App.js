@@ -19,8 +19,8 @@ import CreateFragranceForm from './components/CreateFragranceForm';
 
 function App() {
 
-        const [user, setUser] = useState(null);
-        const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
+    const [user, setUser] = useState(null);
+    const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
 
     return (
         <div className={styles['main-backround']}>
