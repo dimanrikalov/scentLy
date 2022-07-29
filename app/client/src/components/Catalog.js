@@ -69,8 +69,8 @@ export default function Catalog() {
                 (() => {
                     if(hasError.message) {
                         return (
-                            <h1>
-                                {hasError.message}
+                            <h1 className={mainStyles['no-fragrances']}>
+                                Connection error! Try again later!
                             </h1>
                         )
                     }
