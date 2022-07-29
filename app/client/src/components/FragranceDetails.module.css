@@ -1,6 +1,7 @@
 .main {
     display: flex;
-    margin-top: 5%;
+    min-width: 620px;
+    margin-top: 2%;
     background-color: white;
     border-radius: 2rem;
     padding-left: 5%;
@@ -16,24 +17,20 @@
     margin-top: 10%;
 }
 
-.right-text {
-    margin-left: -10%;
-}
 
 .button-div {
-    margin-top: 5%;
-    margin-left: -13%;
+    margin-left: -4%;
 }
 
 .review-div {
     margin-top: 13%;
-    margin-left: -7%;
+    margin-left: 2%;
     margin-bottom: 3%;
 }
 
 .image {
-    max-width: 500px;
-    margin-top: 1%;
+    max-height: 650px;
+    margin-top: 5%;
     margin-left: -7%;
     border-radius: 2rem;
 }
@@ -54,11 +51,11 @@
 
 .button {
     background-color: #f86464;
-    font-size: x-large;
+    font-weight: bold;
+    font-size: 20px;
     color: white;
     padding-top: 1%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-bottom: 6.5px;
     padding-left: 3%;
     padding-right: 3%;
     margin-top: 5%;

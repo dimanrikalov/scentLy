@@ -75,7 +75,7 @@ export default function FragranceDetails () {
 
             <div className={styles["right-side"]}>
                 
-                <div className={styles["right-text"]}>
+                <div>
                     <h2 className={styles["right-side-margin"]}>Top notes:</h2>
                     <div className="mb-3 font-medium text-gray-700">
                     {
