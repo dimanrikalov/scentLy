@@ -133,7 +133,7 @@ export default function EditFragranceForm() {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img src={image} alt="fragrance-image" />
+                <img src={image} className={styles.img} alt="fragrance-image" />
             </div>
 
             <div className={styles['right-side']}>
