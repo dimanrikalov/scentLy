@@ -88,7 +88,7 @@ export default function EditReviewForm () {
                     <h1 className={styles['text']}>Edit review</h1>
                     {
                         hasError && 
-                        <h3>{hasError.message}</h3>
+                        <h3>Connection error! Try again later!</h3>
                     }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
