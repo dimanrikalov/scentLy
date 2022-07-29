@@ -14,11 +14,10 @@ body {
 
 .reviews-div {
     display: flex;
-    height: 270px;
-    width: 650px;
+    min-width: 370px;
     margin-top: 7%;
     margin-left: 5%;
-
+    margin-bottom: -5%;
     background-color: #f8f4f4;
     border-radius: 2rem;
     box-sizing: content-box;
@@ -46,8 +45,10 @@ body {
 .card {
     position: relative;
     display: block;
-    height: 230px;
-    width: 370px;
+    max-height: 230px;
+    min-height: 225px;
+    min-width: 250px;
+    max-width: 370px;
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
