@@ -4,8 +4,9 @@ import { UserContext } from "../contexts/UserContext";
 
 
 export default function UserGuard() {
-    const isLogged = JSON.parse(localStorage.getItem('user'));
-    if(!isLogged) {
+    const {user, setUser} = useContext(UserContext);
+    console.log('user ' + user);
+    if(!user) {
         return <Navigate to="/auth/login" replace />
     }
 

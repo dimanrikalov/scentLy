@@ -46,7 +46,7 @@ export default function Catalog() {
         <div className={mainStyles.background}>
             <h1
                 style={{ width: '75%' }}
-                className="text-red-500 mt-10 ml-20 pt-16"
+                className="text-red-500 mt-16 ml-20 pt-16"
             >
                 Catalog:{' '}
             </h1>

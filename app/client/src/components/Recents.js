@@ -7,7 +7,7 @@ export default function Recents({ reviews }) {
         <div className={styles.wrapper}>
             <h1
                 style={{ margin: 'auto', width: '75%' }}
-                className="text-red-500 pt-3 pb-5"
+                className="text-red-500 pt-12 pb-4"
             >
                 Recent reviews:
             </h1>

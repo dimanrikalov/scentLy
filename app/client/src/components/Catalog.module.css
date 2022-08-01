@@ -3,8 +3,8 @@
 padding-bottom: 0.75rem; 
 padding-left: 2rem;
 padding-right: 2rem; 
-margin-top: 1.5rem; 
-margin-bottom: 2.5rem; 
+margin-top: 3rem; 
+margin-bottom: 4rem; 
 margin-left: 8rem; 
 background-color: #ffffff; 
 font-size: 0.875rem;
@@ -28,7 +28,7 @@ outline-color: #f86464;
 
 .background {
     background-color: #f6f0f0;;
-    margin-bottom: -3%;
+    margin-bottom: 5%;
 }
 
 .search-button {
