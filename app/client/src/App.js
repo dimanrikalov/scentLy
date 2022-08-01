@@ -55,23 +55,23 @@ function App() {
             <UserContext.Provider value={userValue}>
             <Navbar />
             <Routes>
-                <Route path='/' element={<Home/>}/>
-                <Route path='*' element={<ErrorPage/>}/>
-                <Route path='/about' element={<About/>}/>
-                <Route path='/catalog' element={<Catalog/>}/>
-                <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails/>}/>
+                <Route path='/' element={<Home/>} />
+                <Route path='*' element={<ErrorPage/>} />
+                <Route path='/about' element={<About/>} />
+                <Route path='/catalog' element={<Catalog />} />
+                <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails/>} />
 
                 <Route element={<GuestGuard />}>
-                    <Route path='/auth/login' element={<Login/>}/>
-                    <Route path='/auth/register' element={<Register/>}/>
+                    <Route path='/auth/login' element={<Login/>} />
+                    <Route path='/auth/register' element={<Register />} />
                 </Route>
 
                 <Route element={<UserGuard />}>
-                    <Route path='/auth/profile' element={<Profile/>}/>
-                    <Route path='/fragrance/create' element={<CreateFragranceForm/>}/>
-                    <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm/>}/>
-                    <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm/>}/>
-                    <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm/>}/>
+                    <Route path='/auth/profile' element={<Profile />} />
+                    <Route path='/fragrance/create' element={<CreateFragranceForm />} />
+                    <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm />} />
+                    <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm />} />
+                    <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm />} />
                 </Route>
 
             </Routes>
