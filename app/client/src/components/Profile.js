@@ -109,7 +109,7 @@ export default function Profile() {
                 </div>
             </div>
             <div className={styles.collections}>
-                <h2 className={["ml-20", "mt-16", styles.child].join(' ')}>Owned fragrances:</h2>
+                <h2 className={["ml-20", "mt-10", styles.child].join(' ')}>Owned fragrances:</h2>
                 <input
                     className={[styles.input, styles.child, 'ml-32'].join(' ')}
                     type="text"
