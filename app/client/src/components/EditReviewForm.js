@@ -12,7 +12,7 @@ export default function EditReviewForm () {
 
     const { fragranceId } = useParams();
     
-    const {user, setUser} = useContext(UserContext);
+    const {user, } = useContext(UserContext);
     
     const [hasError, setHasError] = useState('');
     const [fragrance, setFragrance] = useState({});
@@ -80,7 +80,7 @@ export default function EditReviewForm () {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img className={styles.img} src={fragrance.imageUrl} />
+                <img className={styles.img} src={fragrance.imageUrl} alt="" />
             </div>
 
             <div className={styles['right-side']}>

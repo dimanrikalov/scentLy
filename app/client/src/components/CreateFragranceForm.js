@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import styles from './CreateFragranceForm.module.css';
 import { UserContext } from '../contexts/UserContext';
 
-
 export default function CreateFragranceForm() {
     const navigate = useNavigate();
 
-    const {user, setUser} = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
     const [nameHasError, setNameHasError] = useState('');
     const [brandHasError, setBrandHasError] = useState('');
@@ -100,11 +99,11 @@ export default function CreateFragranceForm() {
                     author: user._id,
                     topNotes: values.topNotes.split(', '),
                     baseNotes: values.baseNotes.split(', '),
-                    middleNotes: values.middleNotes.split(', ')
+                    middleNotes: values.middleNotes.split(', '),
                 }),
             });
             const response = await res.json();
-            if(response.message !== 'Successfully created!') {
+            if (response.message !== 'Successfully created!') {
                 setErrorMessage(response.message);
             } else {
                 setUser(response.user);
@@ -121,12 +120,17 @@ export default function CreateFragranceForm() {
                 <img
                     className={styles.img}
                     src="https://plummour.com/wp-content/uploads/2021/07/Xerjoff-Casamorati-1888-7.jpg"
+                    alt=""
                 />
             </div>
 
             <div className={styles['right-side']}>
                 <h1 className={styles['text']}>Add a new fragrance</h1>
-                {errorMessage && <h3 className={[styles['error-message'], 'pb-3'].join(' ')}>{errorMessage}</h3>}
+                {errorMessage && (
+                    <h3 className={[styles['error-message'], 'pb-3'].join(' ')}>
+                        {errorMessage}
+                    </h3>
+                )}
                 <div className="mx-auto max-w-xs">
                     <input
                         className={styles.input}
@@ -137,7 +141,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateName}
                     />
-                    {nameHasError && <p className={styles['error-message']}>Enter a valid fragrance name!</p>}
+                    {nameHasError && (
+                        <p className={styles['error-message']}>
+                            Enter a valid fragrance name!
+                        </p>
+                    )}
                     <input
                         className={styles.input}
                         type="text"
@@ -147,7 +155,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateBrand}
                     />
-                    {brandHasError && <p className={styles['error-message']}>Enter a valid fragrance brand!</p>}
+                    {brandHasError && (
+                        <p className={styles['error-message']}>
+                            Enter a valid fragrance brand!
+                        </p>
+                    )}
                     <input
                         className={styles.input}
                         type="text"
@@ -165,7 +177,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateImageUrl}
                     />
-                    {imageUrlHasError && <p className={styles['error-message']}>Enter a valid image URL!</p>}
+                    {imageUrlHasError && (
+                        <p className={styles['error-message']}>
+                            Enter a valid image URL!
+                        </p>
+                    )}
                     <input
                         className={styles.input}
                         type="text"
@@ -175,7 +191,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateTopNotes}
                     />
-                    {topNotesHasError && <p className={styles['error-message']}>Enter valid top notes!</p>}
+                    {topNotesHasError && (
+                        <p className={styles['error-message']}>
+                            Enter valid top notes!
+                        </p>
+                    )}
                     <input
                         className={styles.input}
                         type="text"
@@ -185,7 +205,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateMiddleNotes}
                     />
-                    {middleNotesHasError && <p className={styles['error-message']}>Enter valid middle notes!</p>}
+                    {middleNotesHasError && (
+                        <p className={styles['error-message']}>
+                            Enter valid middle notes!
+                        </p>
+                    )}
                     <input
                         className={styles.input}
                         type="text"
@@ -195,7 +219,11 @@ export default function CreateFragranceForm() {
                         onChange={changeHandler}
                         onBlur={validateBaseNotes}
                     />
-                    {baseNotesHasError && <p className={styles['error-message']}>Enter valid base notes!</p>}
+                    {baseNotesHasError && (
+                        <p className={styles['error-message']}>
+                            Enter valid base notes!
+                        </p>
+                    )}
                     <button
                         className={styles['submit-button']}
                         onClick={submitHandler}

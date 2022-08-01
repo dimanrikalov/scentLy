@@ -8,7 +8,7 @@ export default function CatalogCard({ fragrance }) {
             <div className={styles['card']}>
                 <div className={styles['card_image']}>
                     {' '}
-                    <img src={fragrance.imageUrl} />{' '}
+                    <img src={fragrance.imageUrl} alt='' />{' '}
                 </div>
                 <div className={styles['card_title']}>
                     <p className={styles['title-upper']}>{fragrance.brand}</p>

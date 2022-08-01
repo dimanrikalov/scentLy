@@ -11,7 +11,7 @@ export default function EditFragranceForm() {
 
     const { fragranceId } = useParams();
 
-    const {user, setUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
 
     const [image, setImage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -137,7 +137,7 @@ export default function EditFragranceForm() {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img src={image} className={styles.img} alt="fragrance-image" />
+                <img src={image} className={styles.img} alt="" />
             </div>
 
             <div className={styles['right-side']}>
