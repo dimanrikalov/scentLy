@@ -146,7 +146,9 @@ export default function Register() {
                 navigate('/');
             }
         })
-        .catch(err => setErrorMessage(err.message));
+        .catch(() => {
+            setErrorMessage('Connection error! Try again later!');
+        }); 
 
         
     };
@@ -168,7 +170,7 @@ export default function Register() {
                             </h1>
                             {errorMessage && (
                                 <h3 className={styles['error-message']}>
-                                    Connection error! Try again later!
+                                    {errorMessage}
                                 </h3>
                             )}
                             <div className="w-full flex-1 mt-8">

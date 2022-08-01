@@ -65,7 +65,9 @@ export default function Login() {
                 navigate('/');
             }
         })
-        .catch(err => setErrorMessage(err.message)); 
+        .catch(() => {
+            setErrorMessage('Connection error! Try again later!');
+        }); 
     };
 
     return (
@@ -93,7 +95,7 @@ export default function Login() {
                                         'pt-3',
                                     ].join(' ')}
                                 >
-                                    Connection error! Try again later!
+                                    {errorMessage}
                                 </h4>
                             )}
                             <div className="w-full flex-1 mt-8">
