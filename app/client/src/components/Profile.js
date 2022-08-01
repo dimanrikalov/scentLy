@@ -83,27 +83,27 @@ export default function Profile() {
                     <h2 className="pb-3">Profile Information:</h2>
                     <ul>
                         <li>
-                            <h5>Age: {user.age}</h5>
+                            <h3>Age: {user.age}</h3>
                         </li>
                         <li>
-                            <h5>Gender: {(()=>{
+                            <h3>Gender: {(()=>{
                                     let gender = user.gender.split('');
                                     gender[0] = gender[0].toUpperCase();
                                     return gender.join('');
-                                })()}</h5>
+                                })()}</h3>
                         </li>
                         <li>
-                            <h5>
+                            <h3>
                                 Location: {user.city}, {user.country}
-                            </h5>
+                            </h3>
                         </li>
                         <li>
-                            <h5>
+                            <h3>
                                 Fragrances owned: {user.ownedFragrances.length}
-                            </h5>
+                            </h3>
                         </li>
                         <li>
-                            <h5>Review count: {user.reviews.length}</h5>
+                            <h3>Review count: {user.reviews.length}</h3>
                         </li>
                     </ul>
                 </div>
