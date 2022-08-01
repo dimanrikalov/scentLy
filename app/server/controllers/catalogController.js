@@ -93,6 +93,16 @@ router.post('/:fragranceId/edit', async (req, res) => {
             });
         }
 
+        const allFragrances = await api.getAll();
+        const filteredFragrances = allFragrances.filter(x => x._id.toString() != fragrance._id.toString());
+        const nameIsTaken = filteredFragrances.some(x => x.name === req.body.name);
+
+        if(nameIsTaken) {
+            return res.status(400).json({
+                message: 'A fragrance with this name already exists'
+            })
+        }
+
         if(req.body.userId != fragrance.author) {
             return res.status(404).json({
                 message: 'You must be the owner of the fragrance in order to edit!'

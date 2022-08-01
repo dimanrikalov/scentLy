@@ -122,7 +122,7 @@ export default function EditFragranceForm() {
                 baseNotes: values.baseNotes.split(', '),
             }),
         });
-        const result = res.json();
+        const result = await res.json();
         if(result.message) {
               setErrorMessage(result.message);
         } else {
