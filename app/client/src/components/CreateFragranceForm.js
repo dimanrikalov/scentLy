@@ -45,7 +45,7 @@ export default function CreateFragranceForm() {
     };
 
     const validateBrand = () => {
-        if (values.brand.length === 0) {
+        if (values.brand.length < 2) {
             setBrandHasError(true);
         } else {
             setBrandHasError(false);
@@ -89,25 +89,29 @@ export default function CreateFragranceForm() {
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        const res = await fetch(`${endpoints.catalogUrl}/create`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                ...values,
-                author: user._id,
-                topNotes: values.topNotes.split(', '),
-                baseNotes: values.baseNotes.split(', '),
-                middleNotes: values.middleNotes.split(', ')
-            }),
-        });
-        const response = await res.json();
-        if(response.message !== 'Successfully created!') {
-            setErrorMessage(response.message);
-        } else {
-            setUser(response.user);
-            navigate('/catalog');
+        try {
+            const res = await fetch(`${endpoints.catalogUrl}/create`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...values,
+                    author: user._id,
+                    topNotes: values.topNotes.split(', '),
+                    baseNotes: values.baseNotes.split(', '),
+                    middleNotes: values.middleNotes.split(', ')
+                }),
+            });
+            const response = await res.json();
+            if(response.message !== 'Successfully created!') {
+                setErrorMessage(response.message);
+            } else {
+                setUser(response.user);
+                navigate('/catalog');
+            }
+        } catch (err) {
+            setErrorMessage('Connection error! Try again later!');
         }
     };
 

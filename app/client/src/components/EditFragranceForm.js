@@ -44,7 +44,7 @@ export default function EditFragranceForm() {
                 });
                 setImage(data.imageUrl);
             })
-            .catch(err => setErrorMessage(err.message));
+            .catch(err => setErrorMessage('Connection error! Try again later!'));
     }, [fragranceId]);
 
     const changeHandler = (e) => {
@@ -64,7 +64,7 @@ export default function EditFragranceForm() {
 };
 
     const validateBrand = () => {
-        if (values.brand.length === 0) {
+        if (values.brand.length < 2) {
             setBrandHasError(true);
         } else {
             setBrandHasError(false);
@@ -108,24 +108,28 @@ export default function EditFragranceForm() {
     const submitHandler = async (e) => {
       e.preventDefault();
       
-      const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/edit`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              ...values,
-              userId: user._id,
-              topNotes: values.topNotes.split(', '),
-              middleNotes: values.middleNotes.split(', '),
-              baseNotes: values.baseNotes.split(', '),
-          }),
-      });
-      const result = res.json();
-      if(result.message) {
-            setErrorMessage(result.message);
-      } else {
-            navigate(`/fragrance/${fragranceId}/details`);
+      try {
+        const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/edit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                ...values,
+                userId: user._id,
+                topNotes: values.topNotes.split(', '),
+                middleNotes: values.middleNotes.split(', '),
+                baseNotes: values.baseNotes.split(', '),
+            }),
+        });
+        const result = res.json();
+        if(result.message) {
+              setErrorMessage(result.message);
+        } else {
+              navigate(`/fragrance/${fragranceId}/details`);
+        }
+      } catch(err) {
+        setErrorMessage('Connection error! Try again later!');
       }
     };
 
