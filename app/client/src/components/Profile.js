@@ -75,13 +75,16 @@ export default function Profile() {
                 {hasError.message}
             </h1>
             <div className={styles['profileDiv']}>
-                <h1>{user.name}</h1>
+                
 
                 <img className={styles.profileImg} src={user.profileImage} />
 
                 <div>
-                    <h2 className="pb-3">Profile Information:</h2>
+                    <h1 className="pb-3">Profile Information:</h1>
                     <ul>
+                        <li>
+                        <h3>Name: {user.name}</h3>
+                        </li>
                         <li>
                             <h3>Age: {user.age}</h3>
                         </li>

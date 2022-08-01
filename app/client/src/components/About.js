@@ -46,7 +46,7 @@ export default function About() {
                 <div>
                 <div className={styles['image-background']}>
                     <img
-                        src="./assets/imgs/sitename.png"
+                        src="/assets/imgs/sitename.png"
                         alt="site-img"
                         className={styles.image}
                     />
