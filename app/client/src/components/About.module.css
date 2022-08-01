@@ -1,45 +1,88 @@
-.container {
-    min-width: 775px;
-    min-height: 710px;
-    padding-top: 1%;
-    padding-left: 10%;
-    padding-bottom: 3%;
-    background-color: #f8f4f4;
-    border-radius: 2rem;
+
+.main {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+    margin-top: 5%;
+    margin-bottom: 7.5%;
+
 }
 
-.statsCards {
-    margin-top: -10%;
-}
 
-.tallWidget {
-    transform: scale(1.9);
-    width: 210px;
-    margin-top: 17%;
-    margin-left: 100px;
-    margin-bottom: 15%;
-    padding-right: 16%;
-    border-radius: 1rem;
-}
+.image-background {
 
-.imageBackground {
-    background-color: white;
-    margin-left: 11.5%;
-    border-radius: 5rem;
-    transform: scale(0.5);
-    margin-bottom: 1.5%;
-}
-
-.aboutImage {
-    transform: scale(0.75);
-}
-
-.aboutUsText {
-    max-width: 400px;
     background-color: white;
     border-radius: 2rem;
-    padding: 2%;
-    margin-top: -25%;
-    margin-right: 10%;
+    margin-top: 15%;
+    margin-bottom: 6.5%;
+    margin-left: 13%; 
     transform: scale(1.5);
+    width: 50%;
+}
+
+.about {
+    margin-top: 17%;
+    margin-bottom: 5%;
+    margin-left: 22%;
+    background-color: white;
+    padding: 3%;
+    border-radius: 2rem;
+    max-width: 650px;
+}
+
+.about-text {
+    padding: 1rem;
+    font-size: 30px;
+    color: rgb(52, 52, 52);
+}
+
+.about-title {
+    font-size: 50px;
+    color: #f86464;
+    margin-bottom: 7%;
+}
+
+.stats-parent {
+    display: grid; 
+    grid-template-columns: 35% 35%; 
+    grid-gap: 1rem; 
+    margin-top: 10%;
+    margin-bottom: 7.5%;
+}
+
+.stat {
+    text-align: center;
+    margin-top: 4%;
+    margin-left: 20%;
+    background-color: white;
+    min-width: 140px;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    border-radius: 2rem;
+}
+
+.frag-stat {
+    text-align: center;
+    margin-right: 22%;
+    min-width: 35%;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.frag-stat-text {
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+
+.stat-number {
+    margin-top: 6%;
+    font-size: 3rem;
+    color: #f86464;
+}
+
+.stat-description {
+    padding: 1rem;
+    font-weight: 900;
+    font-size: 1.7rem;
+    color: rgb(52, 52, 52);
 }

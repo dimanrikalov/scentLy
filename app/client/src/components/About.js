@@ -22,27 +22,19 @@ export default function About() {
     }, []);
 
     return (
-        <div className={styles['min-width']}>
-            <div id="about" className={styles.container}>
-                <div className={styles.imageBackground}>
-                    <img
-                        src="./assets/imgs/sitename.png"
-                        alt="site-img"
-                        className={['pb-20', styles.aboutImage].join(' ')}
-                    />
-                </div>
-                <div className="row align-items-center">
-                    <div className={['col-md-3', styles.aboutUsText].join(' ')}>
-                        <h3 className="section-title text-red-500">About Us</h3>
-                        <p className="text-gray-800">
+        <div>
+            <div id="about" className={styles.main}>
+            <div className={styles.about}>
+                        <h3 className={styles['about-title']}>About Us</h3>
+                        <p className={styles['about-text']}>
                             <strong>
-                                <u className="text-red-500">ScentLy</u> is the
+                                <u >ScentLy</u> is the
                                 go-to place for keeping up to date with the
                                 latest trends in the fragrance industry. The
                                 goal is to develop a strong community comprised
                                 of people from{' '}
                                 <strong>
-                                    <u className="text-red-500">all</u>
+                                    <u >all</u>
                                 </strong>{' '}
                                 sides of the spectrum - From newcomers to the
                                 most dedicated to the art of fragrance
@@ -50,59 +42,58 @@ export default function About() {
                             </strong>
                         </p>
                     </div>
+               
+                <div className>
+                <div className={styles['image-background']}>
+                    <img
+                        src="./assets/imgs/sitename.png"
+                        alt="site-img"
+                        className={styles.image}
+                    />
+                </div>
                     <div
-                        className={[
-                            'col-sm-6',
-                            'col-md-4',
-                            'ml-auto pt3 pb-4 ',
-                            styles.statsCards,
-                        ].join(' ')}
+                        className={styles['stats-parent']}
                     >
-                        <div className="widget">
-                            <div className="icon-wrapper">
-                                <i className="ti-user text-primary" />
+                        <div className={styles.stat}>
+                            <div className>
                             </div>
-                            <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">
+                            <div className>
+                                <h4 className={styles['stat-number']}>
                                     {hasError.message ? 'Can\'t connect to server!' : userCount}
                                 </h4>
-                                <p className="text-secondary text-center text-gray-900 text-3xl">
+                                <p className={styles['stat-description']}>
                                     <strong>Total Users</strong>
                                 </p>
                             </div>
                         </div>
-                        <div className="widget">
-                            <div className="icon-wrapper">
-                                <i className="ti-face-smile text-primary" />
+                        <div className={['ml-5', styles.stat].join(' ')}>
+                            <div className>
+                                <i className />
                             </div>
-                            <div className="infos-wrapper">
-                                <h4 className="text-primary text-4xl">
+                            <div className>
+                                <h4 className={styles['stat-number']}>
                                 {hasError.message ? 'Can\'t connect to server!' : reviewsCount}
                                 </h4>
-                                <p className="text-secondary text-center text-gray-900 text-3xl">
+                                <p className={styles['stat-description']}>
                                     <strong>Total Reviews</strong>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div
-                        className={[
-                            'col-sm-6',
-                            'col-md-4',
-                            styles.statsCards,
-                        ].join(' ')}
+                        className
                     >
                         <div
-                            className={['widget', styles.tallWidget].join(' ')}
+                            className={styles['frag-stat']}
                         >
-                            <div className="icon-wrapper">
-                                <i className="ti-star text-primary" />
+                            <div className>
+                                <i className />
                             </div>
-                            <div className="infos-wrapper">
-                                <h4 className="text-primary">
+                            <div className={styles['frag-stat-text']}>
+                                <h4 className={styles['stat-number']}>
                                 {hasError.message ? 'Can\'t connect to server!' : fragranceCount}
                                 </h4>
-                                <p className="text-secondary text-center text-gray-900">
+                                <p className={styles['stat-description']}>
                                     <strong>Total fragrances</strong>
                                 </p>
                             </div>
