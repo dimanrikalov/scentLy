@@ -66,14 +66,14 @@ router.post('/create', async (req, res) => {
             message: 'You must be logged in to create a fragrance!',
         });
     }
-
+    
     try {
         const fragrance = await api.createOne({ ...req.body });
         user.ownedFragrances.push(fragrance._id);
         await userService.updateById(user._id, user);
         res.json({ message: 'Successfully created!', user });
     } catch (err) {
-        res.status(400).json({ message: 'Request error!' });
+        res.status(400).json({ message: 'Server error! Try again later!' });
     }
 });
 

@@ -76,8 +76,8 @@ export default function CreateReviewForm() {
                 navigate(`/fragrance/${fragranceId}/details`);
             })
             .catch((err) => {
-                setHasError(err);
-            });
+                setHasError('Connection error! Try again later!');
+            }); 
     };
     return (
         <div className={styles['create-form']}>
@@ -90,7 +90,7 @@ export default function CreateReviewForm() {
                     <h1 className={styles['text']}>Create a review</h1>
                     {
                         hasError && 
-                        <h3>Connection error! Try again later!</h3>
+                        <h3 className='text-red-600 ml-16'>{hasError}</h3>
                     }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>

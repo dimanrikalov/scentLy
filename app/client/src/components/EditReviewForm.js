@@ -75,7 +75,7 @@ export default function EditReviewForm () {
                 setFragrance(fragranceData);
                 navigate(`/fragrance/${fragranceId}/details`);
             })
-            .catch((err) => setHasError(err));
+            .catch((err) => setHasError('Connection error! Try again later!'));
     };
     return (
         <div className={styles['create-form']}>
@@ -88,7 +88,7 @@ export default function EditReviewForm () {
                     <h1 className={styles['text']}>Edit review</h1>
                     {
                         hasError && 
-                        <h3>Connection error! Try again later!</h3>
+                        <h3 className='text-red-600 ml-16'>Connection error! Try again later!</h3>
                     }
                     <div className="mx-auto max-w-xs">
                         <h4 className={styles['subtitle']}>
