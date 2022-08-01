@@ -28,13 +28,13 @@ export default function About() {
                         <h3 className={styles['about-title']}>About Us</h3>
                         <p className={styles['about-text']}>
                             <strong>
-                                <u >ScentLy</u> is the
+                                <u className={styles.underlined} >ScentLy</u> is the
                                 go-to place for keeping up to date with the
                                 latest trends in the fragrance industry. The
                                 goal is to develop a strong community comprised
                                 of people from{' '}
                                 <strong>
-                                    <u >all</u>
+                                    <u className={styles.underlined}>all</u>
                                 </strong>{' '}
                                 sides of the spectrum - From newcomers to the
                                 most dedicated to the art of fragrance
@@ -43,7 +43,7 @@ export default function About() {
                         </p>
                     </div>
                
-                <div className>
+                <div>
                 <div className={styles['image-background']}>
                     <img
                         src="./assets/imgs/sitename.png"
@@ -51,13 +51,11 @@ export default function About() {
                         className={styles.image}
                     />
                 </div>
-                    <div
-                        className={styles['stats-parent']}
-                    >
+                    <div className={styles['stats-parent']}>
                         <div className={styles.stat}>
-                            <div className>
+                            <div>
                             </div>
-                            <div className>
+                            <div>
                                 <h4 className={styles['stat-number']}>
                                     {hasError.message ? 'Can\'t connect to server!' : userCount}
                                 </h4>
@@ -67,10 +65,9 @@ export default function About() {
                             </div>
                         </div>
                         <div className={['ml-5', styles.stat].join(' ')}>
-                            <div className>
-                                <i className />
+                            <div>
                             </div>
-                            <div className>
+                            <div>
                                 <h4 className={styles['stat-number']}>
                                 {hasError.message ? 'Can\'t connect to server!' : reviewsCount}
                                 </h4>
@@ -80,20 +77,15 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                    <div
-                        className
-                    >
-                        <div
-                            className={styles['frag-stat']}
-                        >
-                            <div className>
-                                <i className />
+                    <div>
+                        <div className={styles['frag-stat']}>
+                            <div>
                             </div>
                             <div className={styles['frag-stat-text']}>
-                                <h4 className={styles['stat-number']}>
+                                <h4 className={styles['frag-stat-number']}>
                                 {hasError.message ? 'Can\'t connect to server!' : fragranceCount}
                                 </h4>
-                                <p className={styles['stat-description']}>
+                                <p className={styles['frag-stat-text']}>
                                     <strong>Total fragrances</strong>
                                 </p>
                             </div>

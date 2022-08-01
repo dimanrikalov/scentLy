@@ -15,7 +15,7 @@
     border-radius: 2rem;
     margin-top: 15%;
     margin-bottom: 6.5%;
-    margin-left: 13%; 
+    margin-left: 13.5%; 
     transform: scale(1.5);
     width: 50%;
 }
@@ -37,9 +37,15 @@
 }
 
 .about-title {
+    padding-left: 3%;
+    padding-top: 10%;
     font-size: 50px;
     color: #f86464;
     margin-bottom: 7%;
+}
+
+.underlined {
+    color: #f86464;
 }
 
 .stats-parent {
@@ -66,17 +72,26 @@
     margin-right: 22%;
     min-width: 35%;
     margin-left: 1%;
+    padding-top: 1%;
     background-color: white;
     border-radius: 2rem;
 }
 
 .frag-stat-text {
-    padding-top: 4%;
+    font-size: 40px;
     padding-bottom: 2%;
+    color: rgb(52, 52, 52);
+}
+
+.frag-stat-number {
+    margin-top: 4%;
+    font-size: 3rem;
+    color: #f86464;
 }
 
 .stat-number {
     margin-top: 6%;
+    margin-bottom: -4%;
     font-size: 3rem;
     color: #f86464;
 }
