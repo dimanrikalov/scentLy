@@ -30,7 +30,7 @@ export default function Profile() {
                 setFilteredReviews(data.reviews);
             })
             .catch(err => setHasError(err));
-    }, []);
+    }, [user]);
 
     const onSearchChange = (e) => {
         setSearchValues((prevState) => ({
