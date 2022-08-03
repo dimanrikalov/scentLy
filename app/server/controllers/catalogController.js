@@ -205,10 +205,15 @@ router.post('/:fragranceId/review/create', async (req, res) => {
             fragranceName: fragrance.name,
             fragranceBrand: fragrance.brand,
         });
+        let total = 0;
+        fragrance.reviews.forEach(x => {
+            total += x.rating
+        });
         fragrance.reviews.push(newReview._id);
-        const total =
-            (fragrance.rating + newReview.rating) / fragrance.reviews.length;
-        fragrance.rating = total;
+        const result =
+            (total + newReview.rating) / fragrance.reviews.length;
+        
+        fragrance.rating = result;
         await api.updateById(req.params.fragranceId, fragrance);
 
         creator.reviews.push(newReview._id);
@@ -256,8 +261,9 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         let totalRating = 0;
 
         fragrance.reviews.forEach((x) => (totalRating += x.rating));
-        totalRating += req.body.rating - isFound.rating;
-        fragrance.rating = totalRating;
+        totalRating += req.body.rating;
+        totalRating -= isFound.rating
+        fragrance.rating = totalRating / fragrance.reviews.length;
 
         isFound.description = req.body.description;
         isFound.rating = req.body.rating;
