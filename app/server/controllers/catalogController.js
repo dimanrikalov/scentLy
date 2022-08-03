@@ -165,10 +165,10 @@ router.post('/:fragranceId/delete', async (req, res) => {
 
 
 router.post('/:fragranceId/review/create', async (req, res) => {
-    const fragrance = await api.getById(req.params.fragranceId);
+    const fragrance = await api.getByIdWithReviews(req.params.fragranceId);
     const creator = await userService.getById(req.body.author);
 
-    if (!creator) {
+    if (!req.body.author || !creator) {
         return res
             .status(401)
             .json('You must be the logged in in order to create a review!');
@@ -177,6 +177,20 @@ router.post('/:fragranceId/review/create', async (req, res) => {
     if (!fragrance) {
         return res.status(404).json({
             message: `Fragrance with id: ${req.params.fragranceId} not found!`,
+        });
+    }
+    
+    if(fragrance.author.toString() == creator._id.toString()) {
+        return res.status(401).json({
+            message: 'You cannot review your own fragrance!'
+        });
+    }
+
+    if(fragrance.reviews.some(x => {
+        return x.author.toString() == creator._id.toString()
+    })) {
+        return res.status(401).json({
+            message: 'You have already reviewed this fragrance!'
         });
     }
 
@@ -215,7 +229,7 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
     if (!user) {
         return res
             .status(401)
-            .json('You must be the creator of the review in order to edit it!');
+            .json('You must be the creator of a review in order to edit it!');
     }
 
     if (!fragrance) {
