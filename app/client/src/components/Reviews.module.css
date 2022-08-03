@@ -14,9 +14,9 @@ body {
 
 .reviews-div {
     display: flex;
-    min-width: 370px;
+    max-width: 650px;
     margin-top: 7%;
-    margin-left: 5%;
+    margin-left: 0%;
     margin-bottom: -5%;
     background-color: #f8f4f4;
     border-radius: 2rem;
@@ -24,6 +24,7 @@ body {
     overflow: hidden;
     overflow-x: scroll;
 }
+
 
 .reviews-div::-webkit-scrollbar {
     display: none;
@@ -47,7 +48,7 @@ body {
     display: block;
     max-height: 230px;
     min-height: 225px;
-    min-width: 250px;
+    min-width: 350px;
     max-width: 370px;
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
