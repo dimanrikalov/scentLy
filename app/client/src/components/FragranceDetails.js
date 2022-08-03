@@ -18,13 +18,10 @@ export default function FragranceDetails () {
     const [fragrance, setFragrance] = useState({});
 
     useEffect(() => {
-        (async function getFragranceDetails () {
-            const res = await fetch(`${endpoints.catalogUrl}/${fragranceId}/details`);
-            const result = await res.json();
-            setFragrance(result);
-        })();
-
-    }, [fragranceId, fragrance])    
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
+            .then(res => res.json())
+            .then(data => setFragrance(data));
+    }, [fragranceId])    
 
 
     const onDeleteHandler = () => {

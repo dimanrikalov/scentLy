@@ -41,7 +41,10 @@ export default function CreateReviewForm() {
 
     
     const validateRating = () => {
-        if(values.rating < 1 || values.rating > 5) {
+        if( Number(values.rating) < 1 || 
+            Number(values.rating) > 5 || 
+            !Number.isInteger(Number(values.rating))
+        ) {
             setRatingHasError(true);
         } else {
             setRatingHasError(false);
@@ -66,7 +69,7 @@ export default function CreateReviewForm() {
             body: JSON.stringify({
                 fragrance,
                 description: values.description,
-                rating: values.rating,
+                rating: Number(values.rating),
                 author: user._id
             }),
         })
@@ -82,7 +85,7 @@ export default function CreateReviewForm() {
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>
-                <img className={styles.img} src={fragrance.imageUrl} />
+                <img className={styles.img} src={fragrance.imageUrl} alt=""/>
             </div>
 
             <div className={styles['right-side']}>
@@ -125,7 +128,7 @@ export default function CreateReviewForm() {
                         {   
                             ratingHasError && 
                             <h6 className={styles['error-message']}>
-                                Invalid rating value [1-5]!
+                                Invalid rating value! Enter an integer in range [1-5]!
                             </h6>
                         }
                         <button

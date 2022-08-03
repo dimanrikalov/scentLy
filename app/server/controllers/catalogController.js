@@ -180,8 +180,8 @@ router.post('/:fragranceId/review/create', async (req, res) => {
         });
     }
 
-    if (req.body.rating < 1 || req.body.rating > 5) {
-        return res.status(400).json({ message: 'Invalid rating!' });
+    if (req.body.rating < 1 || req.body.rating > 5 || !Number.isInteger(req.body.rating)) {
+        return res.status(400).json({ message: 'Invalid rating! Enter an integer in range [1-5]' });
     }
 
     try {
@@ -230,8 +230,8 @@ router.post('/:fragranceId/review/edit', async (req, res) => {
         });
     }
 
-    if (req.body.rating < 1 || req.body.rating > 5) {
-        return res.status(400).json({ message: 'Invalid rating!' });
+    if (req.body.rating < 1 || req.body.rating > 5 || !Number.isInteger(Number(req.body.rating))) {
+        return res.status(400).json({ message: 'Invalid rating! Enter an integer in range [1-5]' });
     }
 
     const isFound = fragrance.reviews.find(

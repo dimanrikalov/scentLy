@@ -41,7 +41,10 @@ export default function EditReviewForm () {
 
     
     const validateRating = () => {
-        if(values.rating < 1 || values.rating > 5) {
+        if( Number(values.rating) < 1 || 
+            Number(values.rating) > 5 || 
+            !Number.isInteger(Number(values.rating))
+        ) {
             setRatingHasError(true);
         } else {
             setRatingHasError(false);
@@ -66,7 +69,7 @@ export default function EditReviewForm () {
             body: JSON.stringify({
                 fragrance,
                 description: values.description,
-                rating: values.rating,
+                rating: Number(values.rating),
                 userId: user._id
             }),
         })
@@ -123,7 +126,7 @@ export default function EditReviewForm () {
                         {   
                             ratingHasError && 
                             <h6 className={styles['error-message']}>
-                                Invalid rating value [1-5]!
+                                Invalid rating value! Enter an integer in range [1-5]!
                             </h6>
                         }
                         <button
