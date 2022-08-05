@@ -16,6 +16,10 @@ import CreateReviewForm from './components/CreateReviewForm';
 import FragranceDetails from './components/FragranceDetails';
 import EditFragranceForm from './components/EditFragranceForm';
 import CreateFragranceForm from './components/CreateFragranceForm';
+import FragranceEditGuard from './components/FragranceEditGuard';
+import ReviewEditGuard from './components/ReviewEditGuard';
+import ReviewCreateGuard from './components/ReviewCreateGuard';
+
 
 function App() {
 
@@ -36,11 +40,22 @@ function App() {
                 </Route>
 
                 <Route element={<GuestGuard />}>
+                    
                     <Route path='/auth/profile' element={<Profile />} />
                     <Route path='/fragrance/create' element={<CreateFragranceForm />} />
-                    <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm />} />
-                    <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm />} />
-                    <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm />} />
+
+                    <Route element={<FragranceEditGuard />} >
+                        <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm />} />
+                    </Route>
+
+                    <Route element={<ReviewEditGuard />} >
+                        <Route path='/fragrance/:fragranceId/review/edit' element={<EditReviewForm />} />
+                    </Route>
+
+                    <Route element={<ReviewCreateGuard/>}>
+                        <Route path='/fragrance/:fragranceId/review/create' element={<CreateReviewForm />} />
+                    </Route>
+
                 </Route>
 
             </Routes>

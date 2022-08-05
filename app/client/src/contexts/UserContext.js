@@ -25,7 +25,6 @@ export default function UserProvider ({children}) {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setUser(data);
                 setLoading(false);
             })
