@@ -8,7 +8,7 @@ import { UserContext } from '../contexts/UserContext';
 export default function Register() {
     const navigate = useNavigate();
 
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     const [errorMessage, setErrorMessage] = useState('');
     const [emailHasError, setEmailHasError] = useState('');

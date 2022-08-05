@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 
 
 export default function Profile() {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     const [reviews, setReviews] = useState([]);
     const [hasError, setHasError] = useState({});

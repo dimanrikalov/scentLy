@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
 export default function Login() {
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     const navigate = useNavigate();
 
