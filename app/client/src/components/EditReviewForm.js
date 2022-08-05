@@ -12,7 +12,7 @@ export default function EditReviewForm () {
 
     const { fragranceId } = useParams();
     
-    const {user, } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     
     const [hasError, setHasError] = useState('');
     const [fragrance, setFragrance] = useState({});

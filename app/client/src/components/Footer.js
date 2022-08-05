@@ -9,7 +9,7 @@ export default function Footer() {
 
     const navigate = useNavigate();
     const [isLogged, setIsLogged] = useState('');
-    const {user, setUser} = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         if(user) {

@@ -2,7 +2,6 @@ import endpoints from '../endpoints';
 import { createContext } from "react";
 import { useEffect, useState } from "react";
 
-
 export const UserContext = createContext(null);
 
 export default function UserProvider ({children}) {

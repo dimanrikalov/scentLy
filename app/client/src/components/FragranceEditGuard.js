@@ -5,7 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 import { useContext, useEffect, useState } from "react";
 
 export default function FragranceEditGuard() {
-    const {user} = useContext(UserContext); 
+    const { user } = useContext(UserContext); 
     const [isLoading, setIsLoading] = useState(true);
     const [isFragranceCreator, setIsFragranceCreator] = useState(false);
     let fragranceId = window.location.pathname.slice(11);

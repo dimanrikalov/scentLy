@@ -7,7 +7,7 @@ import { Fragment, useContext, useEffect, useState } from "react";
 
 export default function Navbar () {
 
-    const {user, setUser} = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [isLogged, setIsLogged] = useState('');
     const navigate = useNavigate();
 

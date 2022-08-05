@@ -11,7 +11,7 @@ export default function EditFragranceForm() {
 
     const { fragranceId } = useParams();
 
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
     const [image, setImage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');

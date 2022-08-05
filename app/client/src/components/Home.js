@@ -7,7 +7,7 @@ import { useEffect, useState, useContext } from 'react';
 
 
 export default function Home() {
-    const { user, setUser } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [reviews, setReviews] = useState([]);
     const [hasError, setHasError] = useState('');
 
