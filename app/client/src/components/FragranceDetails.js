@@ -100,7 +100,7 @@ export default function FragranceDetails () {
                     <h2 className="mt-5">Average rating: 
                     {
                         fragrance.reviews?.length !== 0
-                        ? ` ${fragrance.rating}`
+                        ? ` ${(fragrance.rating)?.toFixed(2)}`
                         : ' No reviews yet'
                     }
                     </h2>

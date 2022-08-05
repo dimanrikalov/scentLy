@@ -1,8 +1,8 @@
 import endpoints from '../endpoints';
 import styles from './Forms.module.css';
-import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
+import { useContext, useEffect, useState } from 'react';
 
 export default function Login() {
     const { setUser } = useContext(UserContext);
