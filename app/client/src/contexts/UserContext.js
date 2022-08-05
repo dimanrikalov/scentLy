@@ -1,11 +1,11 @@
-import { Children, createContext } from "react";
-import { useEffect, useState } from "react";
 import endpoints from '../endpoints';
+import { createContext } from "react";
+import { useEffect, useState } from "react";
+
+
 export const UserContext = createContext(null);
 
-
-
-const UserProvider = ({children}) => {
+export default function UserProvider ({children}) {
     const [user, setUser] = useState(null);
     // const userValue = useMemo(() => ({user, setUser}), [user, setUser]);
     const [loading, setLoading] = useState(true);
@@ -41,5 +41,3 @@ const UserProvider = ({children}) => {
 
     return <UserContext.Provider value={{user, setUser, loading}}>{children}</UserContext.Provider>
 }
-
-export default UserProvider;

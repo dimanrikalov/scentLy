@@ -4,7 +4,8 @@ import { Outlet,Navigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 
 export default function UserGuard() {
-    const {user, loading} = useContext(UserContext); 
+    const {user, loading} = useContext(UserContext);
+
     if(loading) {
         return <Loading/>;
     }
@@ -12,5 +13,6 @@ export default function UserGuard() {
     if(user) {
         return <Navigate to="/" replace />
     }
+    
     return <Outlet />;
 }

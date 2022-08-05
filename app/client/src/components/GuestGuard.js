@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 
 export default function GuestGuard() {
     const {user, loading} = useContext(UserContext); 
+    
     if(loading) {
         return <Loading/>;
     }
@@ -12,5 +13,6 @@ export default function GuestGuard() {
     if(!user) {
         return <Navigate to="/auth/login" replace />
     }
+
     return <Outlet />;
 }
