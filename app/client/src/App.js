@@ -30,11 +30,12 @@ function App() {
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/fragrance/:fragranceId/details' element={<FragranceDetails />} />
 
-                <Route path='/auth/login' element={<Login />} />
-                <Route path='/auth/register' element={<Register />} />
+                <Route element={<UserGuard />}>
+                    <Route path='/auth/login' element={<Login />} />
+                    <Route path='/auth/register' element={<Register />} />
+                </Route>
 
                 <Route element={<GuestGuard />}>
-               
                     <Route path='/auth/profile' element={<Profile />} />
                     <Route path='/fragrance/create' element={<CreateFragranceForm />} />
                     <Route path='/fragrance/:fragranceId/edit' element={<EditFragranceForm />} />

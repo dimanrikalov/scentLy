@@ -34,6 +34,8 @@ const UserProvider = ({children}) => {
                 setUser(null);
                 setLoading(false);
             });
+        } else {
+            setLoading(false);
         }
     },[])
 
