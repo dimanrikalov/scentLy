@@ -4,7 +4,7 @@ import styles from './FragranceDetails.module.css';
 import { UserContext } from '../contexts/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-
+import Loading from './Loading';
 
 export default function FragranceDetails () {
 
@@ -16,11 +16,14 @@ export default function FragranceDetails () {
 
     const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
-
+    const [isLoadingFragrance, setIsLoadingFragrance] = useState(true);
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then(res => res.json())
-            .then(data => setFragrance(data));
+            .then(data => {
+                setIsLoadingFragrance(false);
+                setFragrance(data)
+            });
     }, [fragranceId])    
 
 
@@ -55,6 +58,10 @@ export default function FragranceDetails () {
             setFragrance(data.fragrance);
         })
         .catch(err => setHasError(err));
+    }
+
+    if(isLoadingFragrance) {
+        return <Loading />
     }
 
     return (
