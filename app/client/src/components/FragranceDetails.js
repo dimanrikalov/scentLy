@@ -1,10 +1,10 @@
+import Loading from './Loading';
 import Reviews from './Reviews.js';
 import endpoints from '../endpoints';
 import styles from './FragranceDetails.module.css';
 import { UserContext } from '../contexts/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Loading from './Loading';
 
 export default function FragranceDetails () {
 
