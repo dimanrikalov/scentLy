@@ -7,7 +7,6 @@ import { useEffect, useState, useContext } from 'react';
 
 
 export default function EditReviewForm () {
-    
     const navigate = useNavigate();
 
     const { fragranceId } = useParams();
@@ -18,11 +17,18 @@ export default function EditReviewForm () {
     const [fragrance, setFragrance] = useState({});
     const [ratingHasError, setRatingHasError] = useState('');
     const [descriptionHasError, setDescriptionHasError] = useState('');
-
+   
     const [values, setValues] = useState({
         description: '',
         rating: '',
     });
+
+    useEffect(() => {
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
+            .then((res) => res.json())
+            .then((data) => setFragrance(data))
+            .catch((err) => setHasError(err));
+    }, [fragranceId]);
 
     const onChangeHandler = (e) => {
         setValues((prevState) => ({
@@ -38,7 +44,6 @@ export default function EditReviewForm () {
             setDescriptionHasError(false);
         }
     }
-
     
     const validateRating = () => {
         if( Number(values.rating) < 1 || 
@@ -50,13 +55,6 @@ export default function EditReviewForm () {
             setRatingHasError(false);
         }
     }
-
-    useEffect(() => {
-        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
-            .then((res) => res.json())
-            .then((data) => setFragrance(data))
-            .catch((err) => setHasError(err));
-    }, [fragranceId]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -80,6 +78,7 @@ export default function EditReviewForm () {
             })
             .catch((err) => setHasError('Connection error! Try again later!'));
     };
+
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>

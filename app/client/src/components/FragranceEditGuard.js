@@ -13,17 +13,17 @@ export default function FragranceEditGuard() {
 
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
-                    .then(res => res.json())
-                    .then(data => {
-                        setIsLoading(false);
-                        if(data.author.toString() == user._id.toString()) {
-                            setIsFragranceCreator(true);
-                        }
-                    })
-                    .catch(() => {
-                        setIsLoading(false);
-                        setIsFragranceCreator(false);
-                    });
+            .then(res => res.json())
+            .then(data => {
+                setIsLoading(false);
+                if(data.author.toString() == user._id.toString()) {
+                    setIsFragranceCreator(true);
+                }
+            })
+            .catch(() => {
+                setIsLoading(false);
+                setIsFragranceCreator(false);
+            });
     }, [])
 
     if(isLoading) {

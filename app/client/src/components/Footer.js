@@ -6,7 +6,6 @@ import { useContext, useState, useEffect, Fragment } from 'react';
 
 
 export default function Footer() {
-
     const navigate = useNavigate();
     const [isLogged, setIsLogged] = useState('');
     const { user, setUser } = useContext(UserContext);
@@ -17,7 +16,7 @@ export default function Footer() {
         } else {
           setIsLogged(false);
         }
-      }, [user])
+    }, [user])
     
       const onLogoutHandler = async () => {
         fetch(endpoints.logoutUrl, {

@@ -6,7 +6,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 export default function EditFragranceForm() {
-
     const navigate = useNavigate();
 
     const { fragranceId } = useParams();
@@ -48,20 +47,19 @@ export default function EditFragranceForm() {
     }, [fragranceId]);
 
     const changeHandler = (e) => {
-      setValues((prevState) => ({
-          ...prevState,
-          [e.target.name]: e.target.value,
-      }));
-  };
+        setValues((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
+    };
 
-
-  const validateName = () => {
-    if (values.name.length === 0) {
-        setNameHasError(true);
-    } else {
-        setNameHasError(false);
-    }
-};
+    const validateName = () => {
+        if (values.name.length === 0) {
+            setNameHasError(true);
+        } else {
+            setNameHasError(false);
+        }
+    };
 
     const validateBrand = () => {
         if (values.brand.length < 2) {
@@ -129,7 +127,7 @@ export default function EditFragranceForm() {
               navigate(`/fragrance/${fragranceId}/details`);
         }
       } catch(err) {
-        setErrorMessage('Connection error! Try again later!');
+            setErrorMessage('Connection error! Try again later!');
       }
     };
 

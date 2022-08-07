@@ -6,7 +6,6 @@ import styles from './CatalogCard.module.css';
 
 
 export default function Catalog() {
-    
     const [hasError, setHasError] = useState({});
     const [fragrances, setFragrances] = useState([]);
     const [searchValue, setSearchValue] = useState({

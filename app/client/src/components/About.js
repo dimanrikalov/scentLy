@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 
 export default function About() {
-
     const [hasError, setHasError] = useState({});
     const [userCount, setUserCount] = useState(0);
     const [reviewsCount, setReviewsCount] = useState(0);

@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from 'react';
 
 
 export default function CreateReviewForm() {
-
     const navigate = useNavigate();
 
     const { fragranceId } = useParams();
@@ -24,6 +23,13 @@ export default function CreateReviewForm() {
         rating: '',
     });
 
+    useEffect(() => {
+        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
+            .then((res) => res.json())
+            .then((data) => setFragrance(data))
+            .catch(err => setHasError(err));
+    }, [fragranceId]);
+
     const onChangeHandler = (e) => {
         setValues((prevState) => ({
             ...prevState,
@@ -38,7 +44,6 @@ export default function CreateReviewForm() {
             setDescriptionHasError(false);
         }
     }
-
     
     const validateRating = () => {
         if( Number(values.rating) < 1 || 
@@ -50,13 +55,6 @@ export default function CreateReviewForm() {
             setRatingHasError(false);
         }
     }
-
-    useEffect(() => {
-        fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
-            .then((res) => res.json())
-            .then((data) => setFragrance(data))
-            .catch(err => setHasError(err));
-    }, [fragranceId]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -82,6 +80,7 @@ export default function CreateReviewForm() {
                 setHasError('Connection error! Try again later!');
             }); 
     };
+    
     return (
         <div className={styles['create-form']}>
             <div className={styles['left-side']}>

@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 export default function FragranceDetails () {
-
     const navigate = useNavigate();
 
     const { fragranceId } = useParams();
@@ -17,6 +16,7 @@ export default function FragranceDetails () {
     const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
     const [isLoadingFragrance, setIsLoadingFragrance] = useState(true);
+    
     useEffect(() => {
         fetch(`${endpoints.catalogUrl}/${fragranceId}/details`)
             .then(res => res.json())
