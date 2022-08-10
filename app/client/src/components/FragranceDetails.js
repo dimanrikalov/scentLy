@@ -13,8 +13,8 @@ export default function FragranceDetails () {
 
     const { user, setUser } = useContext(UserContext);
 
-    const [hasError, setHasError] = useState({});
     const [fragrance, setFragrance] = useState({});
+    const [hasError, setHasError] = useState(false);
     const [isLoadingFragrance, setIsLoadingFragrance] = useState(true);
     
     useEffect(() => {

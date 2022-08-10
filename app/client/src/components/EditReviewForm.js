@@ -58,7 +58,7 @@ export default function EditReviewForm () {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(user._id);
+
         fetch(`${endpoints.catalogUrl}/${fragranceId}/review/edit`, {
             method: 'POST',
             headers: {

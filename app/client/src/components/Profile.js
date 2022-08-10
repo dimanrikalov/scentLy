@@ -10,7 +10,7 @@ export default function Profile() {
     const { user } = useContext(UserContext);
 
     const [reviews, setReviews] = useState([]);
-    const [hasError, setHasError] = useState({});
+    const [hasError, setHasError] = useState(false);
     const [ownedFragrances, setOwnedFragrances] = useState([]);
     const [filteredReviews, setFilteredReviews] = useState([...reviews]);
     const [filteredFragrances, setFilteredFragrances] = useState([...ownedFragrances]);
