@@ -7,7 +7,6 @@ export const UserContext = createContext(null);
 export default function UserProvider ({children}) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    // const userValue = useMemo(() => ({user, setUser, loading}), [user, setUser, loading]);
     
     useEffect(()=>{
         const isLogged = JSON.parse(localStorage.getItem('user'));
