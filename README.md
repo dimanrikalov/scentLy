@@ -1,3 +1,5 @@
+The website is officially live! Try it out here: https://scent-ly.web.app/
+
 #ScentLy
 
 #Introduction
